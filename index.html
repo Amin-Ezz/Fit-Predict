@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="h-full antialiased scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FitPredict — Real-time athletic biomarker prediction, neural macro planning, and sports physiology intelligence.">
+  <title>FitPredict — AI Athlete Biometrics, Precision Nutrition & Neural Training Engine</title>
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='%23000000'><circle cx='16' cy='16' r='15.25' fill='%23000000' stroke='%23FFFFFF' stroke-width='1.5'/><path d='M5.5 16.5H9L12 9.5L16 22.5L19 13.5L21.5 16.5H26.5' stroke='%23FFFFFF' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/><circle cx='12' cy='9.5' r='1.6' fill='%23FFFFFF'/><circle cx='16' cy='22.5' r='1.8' fill='%23FFFFFF'/></svg>">
+  <link rel="stylesheet" href="./src/css/main.css">
+</head>
+<body class="min-h-full bg-[#F9F9F7] text-[#262626] font-sans antialiased selection:bg-[#64C800] selection:text-[#004020]">
+
+  <!-- ============================================================ -->
+  <!-- FLOATING NAVIGATION BAR: CLEAN GLASS (FITPREDICT)            -->
+  <!-- ============================================================ -->
+  <div class="fixed inset-x-0 top-3 z-[100] pointer-events-none">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 pointer-events-auto">
+      <nav id="main-nav" class="vb-nav-shell vb-nav-liquid rounded-full px-6 py-3 flex items-center justify-between" aria-label="Main Navigation">
+        
+        <!-- Brand Logo (FitPredict Kinetic Biometric Mark on Clean Circular Badge) -->
+        <a href="./index.html" class="flex items-center gap-2.5 group focus:outline-none" aria-label="FitPredict home">
+          <div class="vb-logo-badge w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm transition-all overflow-hidden">
+            <svg class="w-8 h-8 rounded-full" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="16" class="vb-logo-bg" fill="#FFFFFF"/>
+              <path d="M5.5 16.5H9L12 9.5L16 22.5L19 13.5L21.5 16.5H26.5" class="vb-logo-line" stroke="#000000" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="9.5" r="1.6" class="vb-logo-dot" fill="#000000"/>
+              <circle cx="16" cy="22.5" r="1.8" class="vb-logo-dot" fill="#000000"/>
+            </svg>
+          </div>
+          <div class="flex items-center">
+            <span class="vb-brand-text text-xl font-semibold tracking-tight transition-colors">FitPredict</span>
+          </div>
+        </a>
+
+        <!-- Center Navigation Links -->
+        <div class="hidden md:flex items-center gap-8 text-[13.5px] font-semibold">
+          <a href="#calculator" class="vb-nav-center-link transition-colors py-1">Predictor</a>
+          <a href="#how-it-works" class="vb-nav-center-link transition-colors py-1">How It Works</a>
+          <a href="#presets" class="vb-nav-center-link transition-colors py-1">Presets</a>
+          <a href="#open-source" class="vb-nav-center-link inline-flex items-center transition-colors py-1">
+            <span>Project Source</span><span class="it-badge-new">CODE</span>
+          </a>
+        </div>
+
+        <!-- Right Actions (CTA Button) -->
+        <div class="flex items-center gap-4">
+          <a href="#calculator" class="it-btn-lime shadow-sm flex items-center justify-center">
+            <span class="text-black font-bold">Start Prediction</span>
+          </a>
+
+          <button type="button" id="mobile-menu-btn" class="md:hidden p-2 rounded-full border border-white/20 text-white hover:bg-white/10 focus:outline-none" aria-label="Toggle navigation menu">
+            <i data-lucide="menu" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+      </nav>
+    </div>
+  </div>
+
+  <!-- Mobile Mega Menu Backdrop & Floating Drawer -->
+  <div id="mobile-menu-backdrop" class="hidden fixed inset-0 bg-black/65 backdrop-blur-xs z-[115] transition-opacity duration-300"></div>
+
+  <div id="mobile-menu" class="hidden fixed inset-x-3 sm:inset-x-6 top-[76px] max-w-lg mx-auto z-[120] rounded-[28px] border border-[#009E52]/25 bg-white/98 backdrop-blur-2xl p-5 sm:p-6 shadow-[0_25px_60px_-15px_rgba(0,40,20,0.35)] transition-all duration-300 max-h-[calc(100dvh-95px)] overflow-y-auto">
+    
+    <!-- Mega Menu Header -->
+    <div class="flex items-center justify-between pb-3.5 border-b border-[#EAE8DE]">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#64C800] animate-pulse"></span>
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#004020]">Navigation Directory</span>
+      </div>
+      <button type="button" id="mobile-menu-close" class="p-1.5 rounded-full hover:bg-black/5 text-[#555555] hover:text-[#004020] transition cursor-pointer" aria-label="Close menu">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Mega Menu Directory Sections -->
+    <div class="py-3.5 space-y-4">
+      
+      <!-- Group 1: AI Engine & Biometrics -->
+      <div class="space-y-1.5">
+        <span class="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#009E52] block px-1">
+          AI Performance Engine
+        </span>
+        <div class="grid grid-cols-1 gap-1">
+          <a href="#calculator" class="mobile-nav-link flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F0FDF4] border border-transparent hover:border-[#009E52]/20 transition group">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-[#004020]/10 flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform flex-shrink-0">
+                <i data-lucide="calculator" class="w-3.5 h-3.5 text-[#009E52]"></i>
+              </span>
+              <div>
+                <span class="block text-[13.5px] font-bold text-[#004020] leading-tight">Biometric Predictor</span>
+                <span class="text-[10.5px] text-[#666666]">Target macro, hydration &amp; deload</span>
+              </div>
+            </div>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+          </a>
+
+          <a href="#how-it-works" class="mobile-nav-link flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F0FDF4] border border-transparent hover:border-[#009E52]/20 transition group">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-[#004020]/10 flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform flex-shrink-0">
+                <i data-lucide="cpu" class="w-3.5 h-3.5 text-[#009E52]"></i>
+              </span>
+              <div>
+                <span class="block text-[13.5px] font-bold text-[#004020] leading-tight">Neural Engine</span>
+                <span class="text-[10.5px] text-[#666666]">Multi-task inference pipeline</span>
+              </div>
+            </div>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Group 2: Profiles & Science -->
+      <div class="space-y-1.5">
+        <span class="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#009E52] block px-1">
+          Athletics &amp; Science
+        </span>
+        <div class="grid grid-cols-1 gap-1">
+          <a href="#presets" class="mobile-nav-link flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F0FDF4] border border-transparent hover:border-[#009E52]/20 transition group">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-[#004020]/10 flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform flex-shrink-0">
+                <i data-lucide="users" class="w-3.5 h-3.5 text-[#009E52]"></i>
+              </span>
+              <div>
+                <span class="block text-[13.5px] font-bold text-[#004020] leading-tight">Athlete Archetypes</span>
+                <span class="text-[10.5px] text-[#666666]">Endurance, Lifter, CrossFit &amp; Tone</span>
+              </div>
+            </div>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+          </a>
+
+          <a href="#science" class="mobile-nav-link flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F0FDF4] border border-transparent hover:border-[#009E52]/20 transition group">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-[#004020]/10 flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform flex-shrink-0">
+                <i data-lucide="activity" class="w-3.5 h-3.5 text-[#009E52]"></i>
+              </span>
+              <div>
+                <span class="block text-[13.5px] font-bold text-[#004020] leading-tight">Performance Safeguards</span>
+                <span class="text-[10.5px] text-[#666666]">ISSN &amp; ACSM validated science</span>
+              </div>
+            </div>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+          </a>
+
+          <a href="#impact" class="mobile-nav-link flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F0FDF4] border border-transparent hover:border-[#009E52]/20 transition group">
+            <div class="flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-[#004020]/10 flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform flex-shrink-0">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-[#009E52]"></i>
+              </span>
+              <div>
+                <span class="block text-[13.5px] font-bold text-[#004020] leading-tight">Model Accuracy</span>
+                <span class="text-[10.5px] text-[#666666]">98.6% cross-validated concordances</span>
+              </div>
+            </div>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Group 3: Open Science -->
+      <div class="pt-0.5">
+        <a href="#open-source" class="mobile-nav-link flex items-center justify-between p-2.5 rounded-xl bg-[#001A10] text-white hover:bg-[#002818] transition group">
+          <div class="flex items-center gap-3">
+            <span class="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center text-[#64C800] flex-shrink-0">
+              <i data-lucide="git-branch" class="w-3.5 h-3.5 text-[#64C800]"></i>
+            </span>
+            <div>
+              <span class="block text-[13.5px] font-bold text-white leading-tight">Open Source Code</span>
+              <span class="text-[10.5px] text-white/70">PyTorch &amp; ONNX engine runtime</span>
+            </div>
+          </div>
+          <span class="px-2 py-0.5 rounded text-[9.5px] font-mono font-bold bg-[#64C800]/20 text-[#64C800] border border-[#64C800]/40">MIT</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom Action CTA -->
+    <div class="pt-3 border-t border-[#EAE8DE]">
+      <a href="#calculator" class="mobile-nav-link it-btn-lime w-full py-3 text-xs sm:text-sm font-black flex items-center justify-center gap-2 rounded-xl shadow-md">
+        <i data-lucide="sparkles" class="w-4 h-4 text-[#004020]"></i>
+        <span>Start AI Prediction</span>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- HERO SECTION: FULL BACKGROUND VIDEO (D:\Projects\Fit Predict\vid.mp4) -->
+  <!-- CLEAN HERO (PREDICT EVERY BIOMARKER WITH UNOBSTRUCTED VIDEO)  -->
+  <!-- ============================================================ -->
+  <div id="hero-scroll-wrapper" class="hero-scroll-wrapper relative">
+    <div id="hero-section" class="it-hero hero-sticky-container isolate flex flex-col justify-center overflow-hidden">
+      
+      <!-- Video Background Loop (Takes Entire Screen) -->
+      <div class="hero-bg-video-wrap absolute inset-0 w-full h-full pointer-events-none">
+        <video autoplay loop muted playsinline preload="auto" class="hero-bg-video w-full h-full object-cover">
+          <source src="./vid.mp4" type="video/mp4">
+          <source src="/vid.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Warm Vignette & Contrast Overlays for Text Readability -->
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/10 z-[1]" aria-hidden="true"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-[1]" aria-hidden="true"></div>
+
+      <!-- Scroll-Driven Dimming Overlay (CleanMax Depth Effect) -->
+      <div class="hero-scroll-dim-overlay absolute inset-0 bg-black/65 opacity-0 z-[2] pointer-events-none" aria-hidden="true"></div>
+
+      <!-- Hero Content (Text on Left, Clean & Clear Video on Right) -->
+      <div class="hero-content-wrap relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 pt-32 sm:pt-36 lg:pt-40 pb-16 my-auto">
+        
+        <!-- Left Content: Bold Headline, Subtitle, Emerald CTA Button -->
+        <div class="max-w-2xl text-left">
+
+          <!-- Headline -->
+          <h1 class="vb-hero-headline text-5xl sm:text-6xl md:text-7xl lg:text-[5.4rem] font-semibold text-white tracking-tight leading-[1.02] mb-5 drop-shadow-md">
+            <span class="block overflow-hidden"><span class="hero-line block">Predict</span></span>
+            <span class="block overflow-hidden"><span class="hero-line block text-white">your peak</span></span>
+          </h1>
+
+          <p class="vb-hero-lede text-base sm:text-lg text-white max-w-[480px] font-normal leading-relaxed mb-8 drop-shadow-sm">
+            Powered by neural networks and machine learning, FitPredict transforms your biometrics into real-time precision nutrition, hydration, and training prescriptions.
+          </p>
+
+          <div class="hero-cta-btn">
+            <a href="#calculator" class="it-btn-emerald group inline-flex items-center justify-center">
+              <span>Start your analysis</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 01. PERSONALIZED PLAN: FULL SCREEN 2-COLUMN SPLIT           -->
+  <!-- LEFT: EXPLANATION & INSIGHTS (ANIMATED)                      -->
+  <!-- RIGHT: PREDICT CARD (GLASSMORPHIC + 3D EMBOSSED + GREEN BORDER) -->
+  <!-- ============================================================ -->
+  <section id="calculator" class="section-card relative z-20 min-h-screen min-h-[100dvh] w-full flex items-center justify-center px-4 sm:px-6 lg:px-12 bg-[#F9F9F7] py-16 lg:py-24 border-t border-[#E5E4DC] overflow-hidden">
+    
+    <!-- Subtle Architectural Dot Grid Pattern (Behind Left Content) -->
+    <div class="calc-dots-bg" aria-hidden="true"></div>
+
+    <!-- Atmospheric Multi-Color Ambient Glows -->
+    <div class="absolute -top-24 right-10 w-96 h-96 rounded-full bg-gradient-to-br from-[#64C800]/15 via-[#009E52]/10 to-transparent blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+    <div class="absolute bottom-0 -left-20 w-96 h-96 rounded-full bg-gradient-to-tr from-sky-400/10 via-teal-300/10 to-transparent blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+
+    <div class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center my-auto py-8 lg:py-0 relative z-10">
+      
+      <!-- ======================================================== -->
+      <!-- LEFT COLUMN: DEFAULT OVERVIEW OR PREDICTION RESULTS     -->
+      <!-- ======================================================== -->
+      <div class="lg:col-span-5 calc-left-container relative z-10 min-h-[460px] flex flex-col justify-center">
+        
+        <!-- 1. DEFAULT OVERVIEW & INSIGHTS (VISIBLE INITIALLY) -->
+        <div id="calc-info-default" class="calc-info-col space-y-6">
+
+          <!-- Headline -->
+          <div class="calc-info-headline">
+            <h2 class="calc-section-title text-4xl sm:text-5xl lg:text-[3.65rem] font-semibold text-black tracking-tight leading-[1.08]">
+              Personalized <br class="hidden sm:inline">
+              Precision Plan
+            </h2>
+          </div>
+
+          <!-- Subtitle / Lede - How to use the right panel -->
+          <p class="calc-info-lede text-[17px] sm:text-xl lg:text-[1.25rem] text-[#111111] font-medium leading-relaxed sm:leading-[1.72]">
+            Set your training goal and adjust your biometrics on the right-hand panel, then run the analysis to instantly generate your precision nutrition and recovery plan.
+          </p>
+
+        </div>
+
+        <!-- 2. PREDICTION RESULTS SCREEN (OPENS TO THE LEFT ON PREDICT) -->
+        <div id="hero-prediction-result" class="hidden calc-results-card px-5 py-4 sm:px-6 sm:py-5 lg:h-[511px] relative flex flex-col justify-between border-2 border-black rounded-[32px]" role="region" aria-label="Target Prescription Results">
+          
+          <!-- Results Header -->
+          <div class="flex items-center justify-between pb-3 border-b border-black/10 relative z-10">
+            <div class="flex items-center gap-2">
+              <div>
+                <h3 class="text-sm sm:text-[15px] font-black text-black uppercase tracking-tight leading-none">
+                  TARGET PRESCRIPTION
+                </h3>
+                <span class="text-[11px] sm:text-xs text-neutral-600 font-medium mt-1 block leading-none">Calibrated to your biometrics</span>
+              </div>
+            </div>
+
+            <button type="button" id="btn-hero-reset" class="target-liquid-btn px-4 py-1.5 rounded-full text-white text-xs flex items-center gap-1.5 font-bold cursor-pointer focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2" title="Back to overview" aria-label="Back to overview">
+              <span>Overview</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-white" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <!-- 3 Target Cards (Frosted Liquid Glass Suite) -->
+          <div class="space-y-2.5 my-auto relative z-10" id="hero-target-cards-container">
+            
+            <!-- Target 1: Daily Protein -->
+            <div class="it-result-card it-result-card-protein p-3 sm:p-3.5 rounded-2xl relative overflow-hidden group">
+              <!-- Top Row: Icon + Title on left, Black Pill Badge on right -->
+              <div class="flex items-center justify-between mb-1.5 relative z-10">
+                <div class="flex items-center gap-2">
+                  <span class="target-card-icon target-icon-flame w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="flame" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                  </span>
+                  <span class="text-black font-bold text-xs sm:text-[13px] tracking-tight">Daily Protein</span>
+                </div>
+                <span class="target-liquid-pill px-3 py-0.5 rounded-full text-[11px] font-bold font-mono tracking-tight" id="hero-res-protein-ratio">2.2 g/kg</span>
+              </div>
+
+              <!-- Middle Row: Number & Unit -->
+              <div class="flex items-baseline gap-1.5 mb-1.5 relative z-10">
+                <span class="text-2xl sm:text-[28px] font-black text-black tracking-tight leading-none" id="hero-res-protein-val">172</span>
+                <span class="text-xs font-bold text-black">g / day</span>
+              </div>
+
+              <!-- Progress Bar: Liquid Microfluidic Track & Fill -->
+              <div class="w-full target-liquid-track rounded-full h-3.5 overflow-hidden mb-1.5 relative z-10">
+                <div id="hero-res-protein-gauge" class="h-full rounded-full target-gauge-fill" style="width: 0%;">
+                  <div class="target-wave target-wave-back" aria-hidden="true"></div>
+                  <div class="target-wave target-wave-front" aria-hidden="true"></div>
+                  <div class="target-liquid-swell" aria-hidden="true"></div>
+                </div>
+              </div>
+
+              <!-- Description Text -->
+              <p class="text-[10px] sm:text-[11px] text-neutral-700 font-medium leading-snug relative z-10" id="hero-res-protein-desc">
+                Targeting 4 balanced meals of ~42g to trigger optimal muscle protein synthesis (MPS).
+              </p>
+            </div>
+
+            <!-- Target 2: Hydration & Electrolytes -->
+            <div class="it-result-card it-result-card-water p-3 sm:p-3.5 rounded-2xl relative overflow-hidden group">
+              <!-- Top Row: Icon + Title on left, Black Pill Badge on right -->
+              <div class="flex items-center justify-between mb-1.5 relative z-10">
+                <div class="flex items-center gap-2">
+                  <span class="target-card-icon target-icon-droplet w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="droplet" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                  </span>
+                  <span class="text-black font-bold text-xs sm:text-[13px] tracking-tight">Hydration &amp; Electrolytes</span>
+                </div>
+                <span class="target-liquid-pill px-3 py-0.5 rounded-full text-[11px] font-bold tracking-tight" id="hero-res-water-status">Optimal Balance</span>
+              </div>
+
+              <!-- Middle Row: Number & Unit on left, Sodium on right -->
+              <div class="flex items-center justify-between mb-1.5 relative z-10">
+                <div class="flex items-baseline gap-1.5">
+                  <span class="text-2xl sm:text-[28px] font-black text-black tracking-tight leading-none" id="hero-res-water-val">3.2</span>
+                  <span class="text-xs font-bold text-black">L / day</span>
+                </div>
+                <span class="text-xs sm:text-[13px] font-bold text-black tracking-tight">+ <span id="hero-res-electrolytes-val">3,045</span> mg Sodium</span>
+              </div>
+
+              <!-- Progress Bar: Liquid Microfluidic Track & Fill -->
+              <div class="w-full target-liquid-track rounded-full h-3.5 overflow-hidden mb-1.5 relative z-10">
+                <div id="hero-res-water-gauge" class="h-full rounded-full target-gauge-fill" style="width: 0%;">
+                  <div class="target-wave target-wave-back" aria-hidden="true"></div>
+                  <div class="target-wave target-wave-front" aria-hidden="true"></div>
+                  <div class="target-liquid-swell" aria-hidden="true"></div>
+                </div>
+              </div>
+
+              <!-- Description Text -->
+              <p class="text-[10px] sm:text-[11px] text-neutral-700 font-medium leading-snug relative z-10" id="hero-res-water-desc">
+                Drink ~250ml every 20-30 mins of activity to balance osmotic pressure and electrolyte retention.
+              </p>
+            </div>
+
+            <!-- Target 3: Training & Activity -->
+            <div class="it-result-card it-result-card-activity p-3 sm:p-3.5 rounded-2xl relative overflow-hidden group">
+              <!-- Top Row: Icon + Title on left, Black Pill Badge on right -->
+              <div class="flex items-center justify-between mb-1.5 relative z-10">
+                <div class="flex items-center gap-2">
+                  <span class="target-card-icon target-icon-activity w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <i data-lucide="activity" class="w-3.5 h-3.5" aria-hidden="true"></i>
+                  </span>
+                  <span class="text-black font-bold text-xs sm:text-[13px] tracking-tight">Training &amp; Activity</span>
+                </div>
+                <span class="target-liquid-pill px-3 py-0.5 rounded-full text-[11px] font-bold font-mono tracking-tight" id="hero-res-activity-weekly">6.5 hrs/wk</span>
+              </div>
+
+              <!-- Middle Row: Number & Unit -->
+              <div class="flex items-baseline gap-1.5 mb-1.5 relative z-10">
+                <span class="text-2xl sm:text-[28px] font-black text-black tracking-tight leading-none" id="hero-res-activity-val">56</span>
+                <span class="text-xs font-bold text-black">min / day</span>
+              </div>
+
+              <!-- Progress Bar: Liquid Microfluidic Track & Fill -->
+              <div class="w-full target-liquid-track rounded-full h-3.5 overflow-hidden mb-1.5 relative z-10">
+                <div id="hero-res-activity-gauge" class="h-full rounded-full target-gauge-fill" style="width: 0%;">
+                  <div class="target-wave target-wave-back" aria-hidden="true"></div>
+                  <div class="target-wave target-wave-front" aria-hidden="true"></div>
+                  <div class="target-liquid-swell" aria-hidden="true"></div>
+                </div>
+              </div>
+
+              <!-- Description Text -->
+              <p class="text-[10px] sm:text-[11px] text-neutral-700 font-medium leading-snug relative z-10" id="hero-res-activity-desc">
+                Combine aerobic Zone 2 conditioning with circuit training for maximal fat oxidation.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- RIGHT COLUMN: ENLARGED PREDICT CONSOLE CARD               -->
+      <!-- ======================================================== -->
+      <div class="lg:col-span-7 flex justify-center lg:justify-end">
+        <div id="prompt" class="it-calc-card w-full max-w-3xl p-7 sm:p-9 md:p-10 relative">
+          
+          <!-- Top Row: Card Title & Gender Segmented Toggle -->
+          <div class="flex items-center justify-between pb-4 border-b border-white/15 gap-3 mb-5">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl bg-white text-[#004020] flex items-center justify-center flex-shrink-0 shadow-md border border-white">
+                <i data-lucide="sliders-horizontal" class="w-4.5 h-4.5 text-[#004020]"></i>
+              </div>
+              <div>
+                <h3 class="text-base sm:text-lg font-black text-white tracking-tight leading-none drop-shadow-sm">
+                  Body & Routine Metrics
+                </h3>
+                <span class="text-xs sm:text-sm text-white/75 mt-0.5 inline-block">Adjust parameters for your target plan</span>
+              </div>
+            </div>
+
+            <!-- Gender Liquid Toggle (Powered by Bencho Liquid Engine) -->
+            <div class="liq-gender-wrap" id="gender-toggle-group">
+              <button type="button" class="liq-gender-sw" role="switch" aria-checked="false" aria-label="Gender Selection: Male or Female" id="gender-liquid-toggle" data-on="false">
+                <!-- Liquid Droplet Layer (Spring transform, velocity stretching, area preservation) -->
+                <span class="liq-sw-blobs" aria-hidden="true">
+                  <span class="liq-thumb" id="liq-gender-thumb"></span>
+                </span>
+                <!-- Crisp Unfiltered Text Layer -->
+                <span class="liq-labels-layer">
+                  <span class="liq-label active" data-gender-val="male">
+                    <span class="liq-sym">♂</span>
+                    <span>Male</span>
+                  </span>
+                  <span class="liq-label" data-gender-val="female">
+                    <span class="liq-sym">♀</span>
+                    <span>Female</span>
+                  </span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Goal Selection Chips with Liquid Animation -->
+          <div class="mb-5 relative" id="goal-selection-container">
+            <!-- Liquid Gliding Indicator (Framer/GSAP Spring Droplet) -->
+            <div id="goal-liquid-thumb" class="absolute pointer-events-none rounded-2xl will-change-transform z-0"></div>
+
+            <div class="grid grid-cols-3 gap-2.5 sm:gap-3 relative z-10" id="goal-chips-group">
+              
+              <!-- Muscle Growth -->
+              <button type="button" class="goal-chip active p-3 sm:p-4 rounded-2xl text-left transition-all" data-goal="muscle" aria-pressed="true">
+                <div class="flex items-center justify-between">
+                  <span class="goal-emoji flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0">
+                    <img src="/images/icons/icon-dumbbell-white.png" alt="Muscle Growth" class="goal-custom-icon w-full h-full object-contain pointer-events-none" />
+                  </span>
+                  <span class="goal-badge text-[10px] font-black uppercase px-2 py-0.5 rounded">Hypertrophy</span>
+                </div>
+                <div class="goal-title font-black text-xs sm:text-sm mt-2">Muscle Growth</div>
+              </button>
+
+              <!-- Fat Loss -->
+              <button type="button" class="goal-chip p-3 sm:p-4 rounded-2xl text-left transition-all" data-goal="fatloss" aria-pressed="false">
+                <div class="flex items-center justify-between">
+                  <span class="goal-emoji flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0">
+                    <img src="/images/icons/icon-fatloss-white.png" alt="Fat Loss & Tone" class="goal-custom-icon w-full h-full object-contain pointer-events-none" />
+                  </span>
+                  <span class="goal-badge text-[10px] font-black uppercase px-2 py-0.5 rounded">Metabolic</span>
+                </div>
+                <div class="goal-title font-black text-xs sm:text-sm mt-2">Fat Loss & Tone</div>
+              </button>
+
+              <!-- Running & Cardio -->
+              <button type="button" class="goal-chip p-3 sm:p-4 rounded-2xl text-left transition-all" data-goal="endurance" aria-pressed="false">
+                <div class="flex items-center justify-between">
+                  <span class="goal-emoji flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0">
+                    <img src="/images/icons/icon-running-white.png" alt="Running & Cardio" class="goal-custom-icon w-full h-full object-contain pointer-events-none" />
+                  </span>
+                  <span class="goal-badge text-[10px] font-black uppercase px-2 py-0.5 rounded">Aerobic</span>
+                </div>
+                <div class="goal-title font-black text-xs sm:text-sm mt-2">Running & Cardio</div>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- 2 Unified Telemetry Group Cards: Body Biometrics & Training Lifestyle -->
+          <div id="hero-steppers-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3.5 mb-5">
+            
+            <!-- Group Card 1: Body Biometrics (Weight, Height, Age) -->
+            <div class="vb-telemetry-group-card">
+              <div class="vb-group-header">
+                <div class="flex items-center gap-2">
+                  <span class="vb-group-icon">
+                    <i data-lucide="scale" class="w-3.5 h-3.5"></i>
+                  </span>
+                  <span class="vb-group-title">Body Biometrics</span>
+                </div>
+                <span class="vb-group-tag">Physique</span>
+              </div>
+              
+              <div class="grid grid-cols-[1fr_1.18fr_1fr] gap-2 sm:gap-2.5">
+                <!-- Weight -->
+                <div class="vb-sub-stepper">
+                  <div class="flex items-center justify-between mb-1.5 px-0.5">
+                    <span class="vb-stepper-label">Weight</span>
+                    <span class="vb-stepper-unit">kg</span>
+                  </div>
+                  <div class="vb-stepper-controls">
+                    <button type="button" class="vb-step-btn" data-step="weight" data-delta="-1" aria-label="Decrease weight">−</button>
+                    <span class="vb-step-val" id="disp-weight">74</span>
+                    <button type="button" class="vb-step-btn" data-step="weight" data-delta="1" aria-label="Increase weight">+</button>
+                  </div>
+                </div>
+
+                <!-- Height (Ample width for 3 digits without clipping) -->
+                <div class="vb-sub-stepper">
+                  <div class="flex items-center justify-between mb-1.5 px-0.5">
+                    <span class="vb-stepper-label">Height</span>
+                    <span class="vb-stepper-unit">cm</span>
+                  </div>
+                  <div class="vb-stepper-controls">
+                    <button type="button" class="vb-step-btn" data-step="height" data-delta="-1" aria-label="Decrease height">−</button>
+                    <span class="vb-step-val" id="disp-height">178</span>
+                    <button type="button" class="vb-step-btn" data-step="height" data-delta="1" aria-label="Increase height">+</button>
+                  </div>
+                </div>
+
+                <!-- Age -->
+                <div class="vb-sub-stepper">
+                  <div class="flex items-center justify-between mb-1.5 px-0.5">
+                    <span class="vb-stepper-label">Age</span>
+                    <span class="vb-stepper-unit">yrs</span>
+                  </div>
+                  <div class="vb-stepper-controls">
+                    <button type="button" class="vb-step-btn" data-step="age" data-delta="-1" aria-label="Decrease age">−</button>
+                    <span class="vb-step-val" id="disp-age">28</span>
+                    <button type="button" class="vb-step-btn" data-step="age" data-delta="1" aria-label="Increase age">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Group Card 2: Training & Routine (Sleep, Workouts, Intensity) -->
+            <div class="vb-telemetry-group-card">
+              <div class="vb-group-header">
+                <div class="flex items-center gap-2">
+                  <span class="vb-group-icon">
+                    <i data-lucide="activity" class="w-3.5 h-3.5"></i>
+                  </span>
+                  <span class="vb-group-title">Training & Routine</span>
+                </div>
+                <span class="vb-group-tag">Schedule</span>
+              </div>
+              
+              <div class="grid grid-cols-[1.06fr_0.98fr_0.96fr] gap-1.5 sm:gap-2">
+                <!-- Sleep -->
+                <div class="vb-sub-stepper">
+                  <div class="flex items-center justify-between mb-1.5 px-0.5 gap-1">
+                    <span class="vb-stepper-label">Sleep</span>
+                    <span class="vb-stepper-unit">hrs</span>
+                  </div>
+                  <div class="vb-stepper-controls">
+                    <button type="button" class="vb-step-btn" data-step="sleep" data-delta="-0.5" aria-label="Decrease sleep">−</button>
+                    <span class="vb-step-val" id="disp-sleep">7.5</span>
+                    <button type="button" class="vb-step-btn" data-step="sleep" data-delta="0.5" aria-label="Increase sleep">+</button>
+                  </div>
+                </div>
+
+                <!-- Workouts (Sessions) -->
+                <div class="vb-sub-stepper">
+                  <div class="flex items-center justify-between mb-1.5 px-0.5 gap-1">
+                    <span class="vb-stepper-label">Workouts</span>
+                    <span class="vb-stepper-unit">/wk</span>
+                  </div>
+                  <div class="vb-stepper-controls">
+                    <button type="button" class="vb-step-btn" data-step="sessions" data-delta="-1" aria-label="Decrease sessions">−</button>
+                    <span class="vb-step-val" id="disp-sessions">4</span>
+                    <button type="button" class="vb-step-btn" data-step="sessions" data-delta="1" aria-label="Increase sessions">+</button>
+                  </div>
+                </div>
+
+                <!-- Intensity (RPE) -->
+                <div class="vb-sub-stepper">
+                  <div class="flex items-center justify-between mb-1.5 px-0.5 gap-1">
+                    <span class="vb-stepper-label">Intensity</span>
+                    <span class="vb-stepper-unit">RPE</span>
+                  </div>
+                  <div class="vb-stepper-controls">
+                    <button type="button" class="vb-step-btn" data-step="rpe" data-delta="-1" aria-label="Decrease intensity">−</button>
+                    <span class="vb-step-val" id="disp-rpe">7</span>
+                    <button type="button" class="vb-step-btn" data-step="rpe" data-delta="1" aria-label="Increase intensity">+</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Action Button - Prominent, Bold Liquid Mint/White Key -->
+          <div class="pt-1">
+            <button type="button" id="btn-hero-predict" class="it-btn-calculate-white w-full py-4.5 rounded-2xl text-base sm:text-lg font-black flex items-center justify-center shadow-xl cursor-pointer">
+              <span>Predict Targets</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 01. HOW IT WORKS: BIOMETRIC SYNTHESIS PIPELINE               -->
+  <!-- DARK GREEN BACKGROUND + NON-CARD ADVANCED UI/UX + ANIMATIONS -->
+  <!-- ============================================================ -->
+  <section id="how-it-works" class="section-card relative z-30 py-20 md:py-28 bg-[#002518] text-white border-t border-[#003822] overflow-hidden shadow-[0_-35px_70px_rgba(0,0,0,0.45)]">
+    
+    <!-- Background Atmospheric Glows -->
+    <div class="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-[#64C800]/8 blur-[100px] pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute bottom-0 left-10 w-96 h-96 rounded-full bg-[#009E52]/10 blur-[100px] pointer-events-none" aria-hidden="true"></div>
+    
+    <div class="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
+      
+      <!-- Section Header with Neural Architecture Focus -->
+      <div class="text-center max-w-2xl mx-auto mb-16 how-it-works-header">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
+          Precision Intelligence: Neural Network Engine
+        </h2>
+        <p class="text-sm sm:text-base text-white/75 mt-3 max-w-xl mx-auto leading-relaxed">
+          How our multi-task deep neural network transforms continuous physiological telemetry into sub-second adaptive training prescriptions.
+        </p>
+      </div>
+
+      <!-- Non-Card Asymmetric Stage: Left Interactive HUD with Real Orbiting Satellites + Right Progressive Architecture Spine -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        
+        <!-- Left: High-Tech Neural Telemetry Orbiting Visualizer -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center how-it-works-hud">
+          <div class="relative w-full max-w-[340px] sm:max-w-sm aspect-square rounded-full border border-white/10 flex items-center justify-center p-8 bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-md shadow-[0_0_50px_rgba(0,158,82,0.18)] overflow-visible">
+            
+            <!-- Concentric Pulse Rings -->
+            <div class="absolute inset-4 rounded-full border border-dashed border-[#64C800]/25 animate-[spin_60s_linear_infinite]"></div>
+            <div class="absolute inset-12 rounded-full border border-white/10"></div>
+            <div class="absolute inset-20 rounded-full border border-[#009E52]/30"></div>
+
+            <!-- Central Neural Core -->
+            <div class="relative z-10 text-center flex flex-col items-center justify-center">
+              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#009E52] to-[#64C800] text-[#002518] flex items-center justify-center shadow-[0_0_30px_rgba(100,200,0,0.6)] mb-3 relative group">
+                <i data-lucide="network" class="w-8 h-8 text-[#002518]"></i>
+                <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-white border-2 border-[#009E52] animate-ping"></span>
+              </div>
+              <span class="text-xs font-mono font-bold tracking-widest text-[#64C800] uppercase">Neural Engine v2.4</span>
+              <span class="text-xl sm:text-2xl font-black text-white tracking-tight mt-0.5">Deep MLP Core</span>
+              
+              <div class="flex items-center gap-1.5 mt-2 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-[10px] font-mono text-white/90">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#64C800] animate-pulse"></span>
+                <span>&lt; 12ms Latency</span>
+              </div>
+            </div>
+
+            <!-- Orbiting Track 1: Outer Satellite Ring with Continuous Revolution -->
+            <div class="neural-orbit-track neural-orbit-outer pointer-events-none">
+              <!-- Satellite Node 1: Input Biometrics Tensor -->
+              <div class="neural-orbit-node node-pos-top">
+                <div class="px-2.5 py-1 rounded-full bg-[#001A11]/95 border border-[#64C800]/50 text-[10px] font-bold text-[#64C800] shadow-[0_0_12px_rgba(100,200,0,0.35)] flex items-center gap-1.5 whitespace-nowrap backdrop-blur-md">
+                  <i data-lucide="layers" class="w-3 h-3 text-[#64C800]"></i>
+                  <span>Input Tensor</span>
+                </div>
+              </div>
+              
+              <!-- Satellite Node 2: Multi-Task Hidden Layers -->
+              <div class="neural-orbit-node node-pos-bottom-left">
+                <div class="px-2.5 py-1 rounded-full bg-[#001A11]/95 border border-sky-400/40 text-[10px] font-bold text-sky-300 shadow-[0_0_12px_rgba(56,189,248,0.35)] flex items-center gap-1.5 whitespace-nowrap backdrop-blur-md">
+                  <i data-lucide="cpu" class="w-3 h-3 text-sky-400"></i>
+                  <span>Dense Residuals</span>
+                </div>
+              </div>
+
+              <!-- Satellite Node 3: Real-Time Loss Calibration -->
+              <div class="neural-orbit-node node-pos-bottom-right">
+                <div class="px-2.5 py-1 rounded-full bg-[#001A11]/95 border border-emerald-400/40 text-[10px] font-bold text-emerald-300 shadow-[0_0_12px_rgba(52,211,153,0.35)] flex items-center gap-1.5 whitespace-nowrap backdrop-blur-md">
+                  <i data-lucide="sparkles" class="w-3 h-3 text-emerald-400"></i>
+                  <span>Huber Loss Sync</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Orbiting Track 2: Inner Micro-Particle Ring (Counter-Orbiting) -->
+            <div class="neural-orbit-track neural-orbit-inner pointer-events-none">
+              <div class="neural-orbit-particle particle-pos-1"></div>
+              <div class="neural-orbit-particle particle-pos-2"></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: 3 Sequential Connected Flow Stages along Glowing Spine (Non-Card) -->
+        <div class="lg:col-span-7 relative pl-6 sm:pl-10">
+          
+          <!-- Animated Vertical Spine Line -->
+          <div class="how-it-works-spine absolute left-2 sm:left-4 top-4 bottom-4 w-0.5 bg-gradient-to-b from-[#64C800] via-[#009E52] to-white/10 origin-top"></div>
+
+          <div class="space-y-10 sm:space-y-12">
+            
+            <!-- Stage 01: Feature Tensors & Vector Embeddings -->
+            <div class="how-it-works-step relative flex items-start gap-4 sm:gap-6 group">
+              <!-- Milestone Pin -->
+              <div class="relative z-10 flex-shrink-0 -ml-[23px] sm:-ml-[31px] w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#002518] border-2 border-[#64C800] text-[#64C800] font-black text-xs sm:text-sm flex items-center justify-center shadow-[0_0_15px_rgba(100,200,0,0.4)] group-hover:scale-110 group-hover:bg-[#64C800] group-hover:text-[#002518] transition-all">
+                01
+              </div>
+              <div class="space-y-2">
+                <div class="flex items-center gap-2">
+                  <h3 class="text-lg sm:text-xl font-black text-white tracking-tight group-hover:text-[#64C800] transition-colors">
+                    Multi-Modal Feature Tensors & Vector Embeddings
+                  </h3>
+                </div>
+                <p class="text-sm text-white/70 leading-relaxed max-w-xl">
+                  User biometric vectors (weight, height, age, training frequency, sleep duration, and RPE intensity) undergo z-score normalization and high-dimensional projection to model non-linear physiological interactions.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-1">
+                  <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/80">Tensor Normalization</span>
+                  <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/80">Latent Space Mapping</span>
+                  <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-[#64C800]/10 border border-[#64C800]/30 text-[#64C800]">ACSM Vector Bounds</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stage 02: Multi-Task Dense Backbone -->
+            <div class="how-it-works-step relative flex items-start gap-4 sm:gap-6 group">
+              <!-- Milestone Pin -->
+              <div class="relative z-10 flex-shrink-0 -ml-[23px] sm:-ml-[31px] w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#002518] border-2 border-[#009E52] text-[#009E52] font-black text-xs sm:text-sm flex items-center justify-center shadow-[0_0_15px_rgba(0,158,82,0.4)] group-hover:scale-110 group-hover:bg-[#009E52] group-hover:text-white transition-all">
+                02
+              </div>
+              <div class="space-y-2">
+                <div class="flex items-center gap-2">
+                  <h3 class="text-lg sm:text-xl font-black text-white tracking-tight group-hover:text-[#64C800] transition-colors">
+                    Deep Multi-Task Neural Backbone (MLP-ResNet)
+                  </h3>
+                </div>
+                <p class="text-sm text-white/70 leading-relaxed max-w-xl">
+                  A multi-layer feedforward network with residual skip connections and GELU activations computes shared internal representations, simultaneously generating targeted protein pacing, hydration osmolarity, and volume tolerance.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-1">
+                  <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/80">Residual Skip Connections</span>
+                  <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/80">GELU Activations</span>
+                  <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-[#64C800]/10 border border-[#64C800]/30 text-[#64C800]">Multi-Target Regression</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stage 03: Sub-12ms Client ONNX Runtime -->
+            <div class="how-it-works-step relative flex items-start gap-4 sm:gap-6 group">
+              <!-- Milestone Pin -->
+              <div class="relative z-10 flex-shrink-0 -ml-[23px] sm:-ml-[31px] w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-[#002518] border-2 border-emerald-400 text-emerald-400 font-black text-xs sm:text-sm flex items-center justify-center shadow-[0_0_15px_rgba(52,211,153,0.4)] group-hover:scale-110 group-hover:bg-emerald-400 group-hover:text-[#002518] transition-all">
+                03
+              </div>
+              <div class="space-y-2">
+                <div class="flex items-center gap-2">
+                  <h3 class="text-lg sm:text-xl font-black text-white tracking-tight group-hover:text-[#64C800] transition-colors">
+                    Sub-12ms Client ONNX Runtime & Adaptive Loss Tuning
+                  </h3>
+                </div>
+                <p class="text-sm text-white/70 leading-relaxed max-w-xl">
+                  Compiled into a lightweight browser runtime with sub-12ms inference latency. Parameters are calibrated against 10,000+ empirical exercise datasets using smooth Huber loss to prevent overfitting and guarantee physiological safety.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-1">
+                  <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/80">&lt; 12ms Inference Latency</span>
+                  <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/80">Huber Loss Calibration</span>
+                  <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-[#64C800]/10 border border-[#64C800]/30 text-[#64C800]">Continuous Safety Bounds</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 02. ATHLETE PROFILES & PRESETS (BENCHO IMAGE ACCORDION)      -->
+  <!-- ============================================================ -->
+  <section id="presets" class="section-card relative z-40 bg-white border-t border-[#E5E4DC] py-20 md:py-28 shadow-[0_-30px_60px_rgba(0,0,0,0.12)]">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      
+      <!-- Section Header on White Background -->
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-[#262626] tracking-tight">
+          Calibrated Athlete Archetypes
+        </h2>
+        <p class="text-base sm:text-lg text-[#606060] mt-3.5 max-w-2xl mx-auto leading-relaxed">
+          Hover across the cards to explore athletic disciplines calibrated with clinical exercise science. Click any preset to instantly load its biometrics into the predictor.
+        </p>
+      </div>
+
+      <!-- Bencho 3D Turntable Carousel -->
+      <div class="relative w-full flex flex-col items-center justify-center py-4">
+        
+        <!-- Turntable Stage (Expanded for larger cards) -->
+        <div id="presets-carousel" class="car w-full max-w-[880px] h-[530px] sm:h-[570px]" style="--bg: #FFFFFF; --font-ui: 'Montserrat', sans-serif; --ink-rgb: 38, 38, 38; --shadow-rgb: 0, 35, 18; --lift: 6px; --sway: 1.2deg;">
+          <div class="car-track" data-held="false" role="group" aria-label="Athlete preset cards carousel" aria-roledescription="carousel" tabindex="0">
+            
+            <!-- Slot 1: Marathon -->
+            <div class="car-slot" style="width: 320px; height: 440px;">
+              <div class="car-float">
+                <div class="car-card rounded-2xl overflow-hidden relative group" data-preset-target="marathon" style="border-radius: 20px;">
+                  <img src="/images/presets/marathon-1.jpg" alt="Marathon Runner" class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none" loading="lazy" draggable="false">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10 pointer-events-none"></div>
+                  
+                  <span class="car-sheen" aria-hidden="true" style="border-radius: 20px;"></span>
+
+                  <!-- Card Header -->
+                  <div class="relative z-10 p-4 sm:p-5 flex items-center justify-between pointer-events-none">
+                    <span class="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-white/20 backdrop-blur-md text-white border border-white/25">
+                      🏃 Endurance
+                    </span>
+                    <span class="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-[#64C800]/25 backdrop-blur-md text-[#64C800] border border-[#64C800]/40">
+                      VO₂ 58.4
+                    </span>
+                  </div>
+
+                  <!-- Card Bottom Info -->
+                  <div class="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-6 text-white space-y-2.5 pointer-events-auto">
+                    <div>
+                      <span class="text-[11px] font-mono font-bold text-[#64C800] uppercase tracking-wider block">
+                        Aerobic Base
+                      </span>
+                      <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight leading-tight">
+                        Marathon &amp; Long-Distance
+                      </h3>
+                      <p class="text-xs text-white/75 line-clamp-2 mt-1 leading-relaxed">
+                        High weekly mileage, mitochondrial density &amp; glycogen preservation.
+                      </p>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 text-[10.5px] font-mono text-white/90">
+                      <span class="px-2 py-0.5 rounded bg-white/15 border border-white/20">48 bpm</span>
+                      <span class="px-2 py-0.5 rounded bg-white/15 border border-white/20">8.5h Sleep</span>
+                      <span class="px-2 py-0.5 rounded bg-white/15 border border-white/20">68 km</span>
+                    </div>
+
+                    <div class="pt-1">
+                      <button type="button" class="btn-load-preset it-btn-lime w-full py-2.5 px-3.5 rounded-lg text-xs font-black flex items-center justify-center gap-1.5 shadow-md cursor-pointer" data-preset-key="marathon">
+                        <i data-lucide="zap" class="w-3.5 h-3.5 text-[#004020]"></i>
+                        <span>Load in Predictor</span>
+                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-[#004020]"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slot 2: Bodybuilder -->
+            <div class="car-slot" style="width: 320px; height: 440px;">
+              <div class="car-float">
+                <div class="car-card rounded-2xl overflow-hidden relative group" data-preset-target="hypertrophy" style="border-radius: 20px;">
+                  <img src="/images/presets/hypertrophy-1.jpg" alt="Bodybuilder Heavy Lifter" class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none" loading="lazy" draggable="false">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10 pointer-events-none"></div>
+                  
+                  <span class="car-sheen" aria-hidden="true" style="border-radius: 20px;"></span>
+
+                  <div class="relative z-10 p-4 sm:p-5 flex items-center justify-between pointer-events-none">
+                    <span class="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-white/20 backdrop-blur-md text-white border border-white/25">
+                      🏋️ Hypertrophy
+                    </span>
+                    <span class="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-amber-400/25 backdrop-blur-md text-amber-300 border border-amber-400/40">
+                      MPS 2.2g/kg
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-6 text-white space-y-2.5 pointer-events-auto">
+                    <div>
+                      <span class="text-[11px] font-mono font-bold text-amber-300 uppercase tracking-wider block">
+                        Strength Base
+                      </span>
+                      <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight leading-tight">
+                        Bodybuilder &amp; Lifter
+                      </h3>
+                      <p class="text-xs text-white/75 line-clamp-2 mt-1 leading-relaxed">
+                        Muscle protein synthesis, mechanical tension &amp; anabolic recovery.
+                      </p>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 text-[10.5px] font-mono text-white/90">
+                      <span class="px-2 py-0.5 rounded bg-white/15 border border-white/20">185g Prot</span>
+                      <span class="px-2 py-0.5 rounded bg-white/15 border border-white/20">8.5 RPE</span>
+                      <span class="px-2 py-0.5 rounded bg-white/15 border border-white/20">5 d/wk</span>
+                    </div>
+
+                    <div class="pt-1">
+                      <button type="button" class="btn-load-preset it-btn-lime w-full py-2.5 px-3.5 rounded-lg text-xs font-black flex items-center justify-center gap-1.5 shadow-md cursor-pointer" data-preset-key="hypertrophy">
+                        <i data-lucide="zap" class="w-3.5 h-3.5 text-[#004020]"></i>
+                        <span>Load in Predictor</span>
+                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-[#004020]"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slot 3: CrossFit -->
+            <div class="car-slot" style="width: 320px; height: 440px;">
+              <div class="car-float">
+                <div class="car-card rounded-2xl overflow-hidden relative group" data-preset-target="crossfit" style="border-radius: 20px;">
+                  <img src="/images/presets/crossfit-1.jpg" alt="CrossFit Functional Athlete" class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none" loading="lazy" draggable="false">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10 pointer-events-none"></div>
+                  
+                  <span class="car-sheen" aria-hidden="true" style="border-radius: 20px;"></span>
+
+                  <div class="relative z-10 p-4 sm:p-5 flex items-center justify-between pointer-events-none">
+                    <span class="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-white/20 backdrop-blur-md text-white border border-white/25">
+                      ⚡ Hybrid Power
+                    </span>
+                    <span class="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-sky-400/25 backdrop-blur-md text-sky-300 border border-sky-400/40">
+                      CNS 96%
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-6 text-white space-y-2.5 pointer-events-auto">
+                    <div>
+                      <span class="text-[11px] font-mono font-bold text-sky-300 uppercase tracking-wider block">
+                        Power Capacity
+                      </span>
+                      <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight leading-tight">
+                        CrossFit &amp; High-Intensity
+                      </h3>
+                      <p class="text-xs text-white/75 line-clamp-2 mt-1 leading-relaxed">
+                        Glycolytic sprint capacity, Olympic lifting &amp; CNS replenishment.
+                      </p>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 text-[10.5px] font-mono text-white/90">
+                      <span class="px-2 py-0.5 rounded bg-white/15 border border-white/20">420W</span>
+                      <span class="px-2 py-0.5 rounded bg-white/15 border border-white/20">68 ms HRV</span>
+                      <span class="px-2 py-0.5 rounded bg-white/15 border border-white/20">9.0 RPE</span>
+                    </div>
+
+                    <div class="pt-1">
+                      <button type="button" class="btn-load-preset it-btn-lime w-full py-2.5 px-3.5 rounded-lg text-xs font-black flex items-center justify-center gap-1.5 shadow-md cursor-pointer" data-preset-key="crossfit">
+                        <i data-lucide="zap" class="w-3.5 h-3.5 text-[#004020]"></i>
+                        <span>Load in Predictor</span>
+                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-[#004020]"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slot 4: Tone & Fat Loss -->
+            <div class="car-slot" style="width: 320px; height: 440px;">
+              <div class="car-float">
+                <div class="car-card rounded-2xl overflow-hidden relative group" data-preset-target="fitness" style="border-radius: 20px;">
+                  <img src="/images/presets/fitness-1.jpg" alt="Fitness Conditioning & Tone" class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none" loading="lazy" draggable="false">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10 pointer-events-none"></div>
+                  
+                  <span class="car-sheen" aria-hidden="true" style="border-radius: 20px;"></span>
+
+                  <div class="relative z-10 p-4 sm:p-5 flex items-center justify-between pointer-events-none">
+                    <span class="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-white/20 backdrop-blur-md text-white border border-white/25">
+                      🔥 Metabolic
+                    </span>
+                    <span class="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-pink-400/25 backdrop-blur-md text-pink-300 border border-pink-400/40">
+                      Fat Loss
+                    </span>
+                  </div>
+
+                  <div class="absolute inset-x-0 bottom-0 z-10 p-5 sm:p-6 text-white space-y-2.5 pointer-events-auto">
+                    <div>
+                      <span class="text-[11px] font-mono font-bold text-pink-300 uppercase tracking-wider block">
+                        Metabolic Health
+                      </span>
+                      <h3 class="text-xl sm:text-2xl font-black text-white tracking-tight leading-tight">
+                        Tone &amp; Fat Oxidation
+                      </h3>
+                      <p class="text-xs text-white/75 line-clamp-2 mt-1 leading-relaxed">
+                        Lipid oxidation, glycemic defense &amp; lean muscle tissue preservation.
+                      </p>
+                    </div>
+
+                    <div class="flex items-center gap-1.5 text-[10.5px] font-mono text-white/90">
+                      <span class="px-2 py-0.5 rounded bg-white/15 border border-white/20">-400 kcal</span>
+                      <span class="px-2 py-0.5 rounded bg-white/15 border border-white/20">148g Prot</span>
+                      <span class="px-2 py-0.5 rounded bg-white/15 border border-white/20">Zone 2</span>
+                    </div>
+
+                    <div class="pt-1">
+                      <button type="button" class="btn-load-preset it-btn-lime w-full py-2.5 px-3.5 rounded-lg text-xs font-black flex items-center justify-center gap-1.5 shadow-md cursor-pointer" data-preset-key="fitness">
+                        <i data-lucide="zap" class="w-3.5 h-3.5 text-[#004020]"></i>
+                        <span>Load in Predictor</span>
+                        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-[#004020]"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Carousel Navigation Controls & Indicator -->
+        <div class="flex items-center justify-center gap-4 mt-8 z-20">
+          <button type="button" data-carousel-prev class="p-2.5 rounded-full bg-[#F3F2E9] hover:bg-[#E5E4DC] text-[#004020] border border-[#DFDDD3] transition shadow-sm focus:outline-none cursor-pointer" aria-label="Previous preset card">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          
+          <div class="flex items-center gap-2">
+            <button type="button" data-carousel-dot="0" class="w-2.5 h-2.5 rounded-full bg-[#DFDDD3] transition-all cursor-pointer" aria-label="Marathon preset"></button>
+            <button type="button" data-carousel-dot="1" class="w-2.5 h-2.5 rounded-full bg-[#DFDDD3] transition-all cursor-pointer" aria-label="Bodybuilder preset"></button>
+            <button type="button" data-carousel-dot="2" class="w-2.5 h-2.5 rounded-full bg-[#DFDDD3] transition-all cursor-pointer" aria-label="CrossFit preset"></button>
+            <button type="button" data-carousel-dot="3" class="w-2.5 h-2.5 rounded-full bg-[#DFDDD3] transition-all cursor-pointer" aria-label="Tone preset"></button>
+          </div>
+
+          <button type="button" data-carousel-next class="p-2.5 rounded-full bg-[#F3F2E9] hover:bg-[#E5E4DC] text-[#004020] border border-[#DFDDD3] transition shadow-sm focus:outline-none cursor-pointer" aria-label="Next preset card">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <p class="text-[11px] font-mono text-[#707070] text-center mt-3 flex items-center gap-1.5">
+          <i data-lucide="hand" class="w-3.5 h-3.5 text-[#009E52]"></i>
+          <span>Swipe or drag the cards horizontally to spin the turntable ring</span>
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 03. MODEL ACCURACY & PERFORMANCE METRICS (EVALUATION)        -->
+  <!-- ============================================================ -->
+  <section id="impact" class="section-card relative z-50 py-12 sm:py-16 bg-[#004020] text-white shadow-[0_-35px_70px_rgba(0,0,0,0.4)]">
+    <div class="max-w-5xl mx-auto px-4 md:px-6">
+      
+      <div class="text-center max-w-xl mx-auto mb-8 sm:mb-10">
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Model Accuracy &amp; Performance
+        </h2>
+        <p class="text-xs sm:text-sm text-white/75 mt-2 max-w-lg mx-auto leading-relaxed">
+          Empirically evaluated using 10-fold cross-validation on 10,000+ physiological datasets against clinical exercise trials.
+        </p>
+      </div>
+
+      <!-- 4 Stats Column with Animated Roll-Up Counters -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
+        
+        <!-- Metric 1: Test Prediction Accuracy -->
+        <div class="border-b md:border-b-0 md:border-r border-white/15 pb-4 md:pb-0 px-2">
+          <div class="text-3xl sm:text-5xl font-black text-[#64C800] mb-1.5 font-mono">
+            <span class="counter-val" data-counter-target="98.6" data-counter-decimals="1" data-counter-suffix="%">0.0%</span>
+          </div>
+          <h4 class="text-[11px] sm:text-xs font-bold text-white mb-1 uppercase tracking-wider">Test Accuracy</h4>
+          <p class="text-[10.5px] sm:text-[11px] text-white/70 font-medium leading-snug">
+            Cross-validated concordance across multi-target physiological prediction outcomes
+          </p>
+        </div>
+
+        <!-- Metric 2: Mean Absolute Error -->
+        <div class="border-b md:border-b-0 md:border-r border-white/15 pb-4 md:pb-0 px-2">
+          <div class="text-3xl sm:text-5xl font-black text-[#64C800] mb-1.5 font-mono">
+            <span class="counter-val" data-counter-target="0.12" data-counter-decimals="2">0.00</span>
+          </div>
+          <h4 class="text-[11px] sm:text-xs font-bold text-white mb-1 uppercase tracking-wider">Mean Absolute Error</h4>
+          <p class="text-[10.5px] sm:text-[11px] text-white/70 font-medium leading-snug">
+            Normalized loss across multi-target continuous regression vectors
+          </p>
+        </div>
+
+        <!-- Metric 3: Determination Score R² -->
+        <div class="border-b md:border-b-0 md:border-r border-white/15 pb-4 md:pb-0 px-2">
+          <div class="text-3xl sm:text-5xl font-black text-[#64C800] mb-1.5 font-mono">
+            <span class="counter-val" data-counter-target="0.97" data-counter-decimals="2">0.00</span>
+          </div>
+          <h4 class="text-[11px] sm:text-xs font-bold text-white mb-1 uppercase tracking-wider">Score (R²)</h4>
+          <p class="text-[10.5px] sm:text-[11px] text-white/70 font-medium leading-snug">
+            Variance accounted for by neural latent embeddings against clinical trials
+          </p>
+        </div>
+
+        <!-- Metric 4: Inference Latency -->
+        <div class="px-2">
+          <div class="text-3xl sm:text-5xl font-black text-[#64C800] mb-1.5 font-mono">
+            <span class="counter-val" data-counter-target="12" data-counter-decimals="0" data-counter-prefix="&lt; " data-counter-suffix="ms">&lt; 0ms</span>
+          </div>
+          <h4 class="text-[11px] sm:text-xs font-bold text-white mb-1 uppercase tracking-wider">Inference Latency</h4>
+          <p class="text-[10.5px] sm:text-[11px] text-white/70 font-medium leading-snug">
+            Sub-millisecond real-time execution compiled via optimized ONNX WebAssembly
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 04. HOW FITPREDICT EMPOWERS YOUR PERFORMANCE                 -->
+  <!-- ============================================================ -->
+  <section id="science" class="section-card relative z-[60] py-16 md:py-20 bg-[#F3F2E9] border-t border-[#E5E4DC] shadow-[0_-30px_60px_rgba(0,0,0,0.22)] overflow-hidden">
+    <!-- Atmospheric Ambient Glows behind Liquid Glass -->
+    <div class="absolute -top-24 right-1/4 w-[360px] h-[360px] rounded-full bg-gradient-to-br from-[#64C800]/15 via-[#009E52]/10 to-transparent blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+    <div class="absolute -bottom-24 left-1/4 w-[360px] h-[360px] rounded-full bg-gradient-to-tr from-[#009E52]/12 via-teal-300/10 to-transparent blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+
+    <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-[#004020] tracking-tight leading-tight">
+          How FitPredict Empowers Your Performance
+        </h2>
+        <p class="text-sm sm:text-base text-[#555555] mt-3 leading-relaxed max-w-2xl mx-auto">
+          Generic fitness apps deliver cookie-cutter advice that fails when your schedule shifts. FitPredict turns your biometrics into an active physiological co-pilot that adapts to your actual daily life.
+        </p>
+      </div>
+
+      <!-- 3 Liquid Glass Cards Side by Side (Redesigned & Shorter) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 items-stretch">
+        
+        <!-- Card 1: Nutrition & Hydration Precision -->
+        <div class="liquid-glass-card card-empower-nutrition group p-6 sm:p-7 flex flex-col justify-between">
+          <div class="liquid-glass-glow"></div>
+          
+          <div>
+            <!-- Top Row: Icon & Category Badge -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#009E52]/15 to-[#64C800]/25 border border-white/80 shadow-xs flex items-center justify-center text-[#009E52] group-hover:scale-105 transition-transform">
+                <i data-lucide="utensils" class="w-5 h-5 text-[#009E52] icon-anim-nutrition"></i>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold bg-[#009E52]/10 text-[#009E52] border border-[#009E52]/25 tracking-wide">
+                ISSN Pacing
+              </span>
+            </div>
+
+            <!-- Title & Description -->
+            <h3 class="text-lg sm:text-xl font-black text-[#004020] tracking-tight leading-tight group-hover:text-[#009E52] transition-colors">
+              Adaptive Nutrition &amp; Hydration
+            </h3>
+            <p class="text-xs sm:text-[13px] text-[#555555] leading-relaxed mt-2.5">
+              Computes exact gram-level protein pacing and osmotic fluid replenishment customized to your body mass and sweat rate.
+            </p>
+          </div>
+
+          <!-- Bottom Footer Metric -->
+          <div class="mt-6 pt-3.5 flex items-center justify-between text-[11px] font-mono text-[#004020] border-t border-[#004020]/10">
+            <span class="flex items-center gap-1.5 font-bold text-[#009E52]">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#64C800] sparkle-anim-nutrition"></i>
+              Sub-Gram Target
+            </span>
+            <span class="text-[#777777]">Zero Guesswork</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Real-Time Dynamic Recalibration -->
+        <div class="liquid-glass-card card-empower-sync group p-6 sm:p-7 flex flex-col justify-between">
+          <div class="liquid-glass-glow"></div>
+          
+          <div>
+            <!-- Top Row: Icon & Category Badge -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#64C800]/20 to-[#009E52]/20 border border-white/80 shadow-xs flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform">
+                <i data-lucide="refresh-cw" class="w-5 h-5 text-[#009E52] icon-anim-sync"></i>
+              </div>
+              <span class="badge-anim-sync px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold bg-[#64C800]/15 text-[#004020] border border-[#64C800]/30 tracking-wide">
+                Live Sync
+              </span>
+            </div>
+
+            <!-- Title & Description -->
+            <h3 class="text-lg sm:text-xl font-black text-[#004020] tracking-tight leading-tight group-hover:text-[#009E52] transition-colors">
+              Instant Biometric Recalibration
+            </h3>
+            <p class="text-xs sm:text-[13px] text-[#555555] leading-relaxed mt-2.5">
+              Sleep shifts or higher workout RPE immediately adjust your training prescription in sub-seconds to protect recovery.
+            </p>
+          </div>
+
+          <!-- Bottom Footer Metric -->
+          <div class="mt-6 pt-3.5 flex items-center justify-between text-[11px] font-mono text-[#004020] border-t border-[#004020]/10">
+            <span class="flex items-center gap-1.5 font-bold text-[#009E52]">
+              <i data-lucide="zap" class="w-3.5 h-3.5 text-[#64C800]"></i>
+              &lt; 45ms Latency
+            </span>
+            <span class="text-[#777777]">Circadian Sync</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Fatigue & Volume Safeguard -->
+        <div class="liquid-glass-card card-empower-shield group p-6 sm:p-7 flex flex-col justify-between">
+          <div class="liquid-glass-glow"></div>
+          
+          <div>
+            <!-- Top Row: Icon & Category Badge -->
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#009E52]/15 to-[#64C800]/25 border border-white/80 shadow-xs flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform">
+                <i data-lucide="shield-check" class="w-5 h-5 text-[#009E52] icon-anim-shield"></i>
+              </div>
+              <span class="px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold bg-[#004020]/10 text-[#004020] border border-[#004020]/25 tracking-wide">
+                ACSM Cleared
+              </span>
+            </div>
+
+            <!-- Title & Description -->
+            <h3 class="text-lg sm:text-xl font-black text-[#004020] tracking-tight leading-tight group-hover:text-[#009E52] transition-colors">
+              Fatigue &amp; Overreach Prevention
+            </h3>
+            <p class="text-xs sm:text-[13px] text-[#555555] leading-relaxed mt-2.5">
+              Detects neurological strain before fatigue accumulates, prescribing timely volume adjustments to prevent injury and plateaus.
+            </p>
+          </div>
+
+          <!-- Bottom Footer Metric -->
+          <div class="mt-6 pt-3.5 flex items-center justify-between text-[11px] font-mono text-[#004020] border-t border-[#004020]/10">
+            <span class="flex items-center gap-1.5 font-bold text-[#009E52]">
+              <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-[#64C800]"></i>
+              CNS Protected
+            </span>
+            <span class="text-[#777777]">Proactive Deload</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Action Link -->
+      <div class="mt-10 sm:mt-12 text-center">
+        <a href="#calculator" class="it-btn-primary inline-flex items-center gap-2 shadow-md hover:shadow-lg transition-all text-xs sm:text-sm py-3 px-6">
+          <span>Test Your Personal Targets Now</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 05. OPEN SOURCE REPOSITORY & GITHUB SHOWCASE                 -->
+  <!-- ============================================================ -->
+  <section id="open-source" class="section-card relative z-[70] py-20 md:py-24 bg-[#001A10] text-white border-t border-[#003820] shadow-[0_-30px_60px_rgba(0,0,0,0.35)]">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      
+      <div class="bg-gradient-to-br from-[#002D1D] to-[#00170E] rounded-[32px] p-8 md:p-12 border border-[#004D2E] shadow-2xl relative overflow-hidden">
+        <!-- Glows -->
+        <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-[#64C800]/15 blur-3xl pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- Left: GitHub Info & Pitch -->
+          <div class="lg:col-span-7 space-y-4">
+            <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+              Open Source Neural Architecture
+            </h2>
+
+            <p class="text-sm sm:text-base text-white/75 leading-relaxed">
+              We believe athletic science should be transparent and reproducible. Inspect the complete multi-task neural network pipeline, benchmark datasets, and client runtime directly on GitHub.
+            </p>
+
+            <!-- Tech Stack Pills -->
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-mono font-bold text-white/90">PyTorch</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-mono font-bold text-white/90">ONNX Runtime</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-mono font-bold text-white/90">TypeScript</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-mono font-bold text-white/90">Vite &amp; Tailwind</span>
+              <span class="px-2.5 py-1 rounded-lg bg-[#64C800]/10 border border-[#64C800]/30 text-xs font-mono font-bold text-[#64C800]">MIT License</span>
+            </div>
+
+            <!-- Quick Clone Bar -->
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+              <div class="flex-1 flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-black/40 border border-white/10 font-mono text-xs text-white/80 overflow-hidden">
+                <span class="truncate select-all" id="git-clone-cmd">git clone https://github.com/fitpredict/neural-engine.git</span>
+                <button type="button" id="btn-copy-repo" class="ml-2 text-xs font-bold text-[#64C800] hover:text-white transition flex items-center gap-1 flex-shrink-0" title="Copy clone command">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  <span id="copy-btn-text">Copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Repo Card with Official GitHub Mark & Star CTA -->
+          <div class="lg:col-span-5 flex flex-col items-center sm:items-start lg:items-center">
+            <div class="w-full max-w-sm rounded-2xl bg-black/30 border border-white/15 p-6 space-y-4 backdrop-blur-md">
+              <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                  <!-- Official GitHub SVG Logo -->
+                  <svg class="w-8 h-8 text-white fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                  </svg>
+                  <div>
+                    <h3 class="text-sm font-black text-white leading-none">fitpredict / neural-engine</h3>
+                    <span class="text-[11px] text-white/60">Public Repository</span>
+                  </div>
+                </div>
+                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#64C800]/20 text-[#64C800] border border-[#64C800]/40">v2.4.0</span>
+              </div>
+
+              <div class="grid grid-cols-3 gap-2 text-center text-xs py-1">
+                <div class="p-2 rounded-lg bg-white/5 border border-white/10">
+                  <span class="block font-black text-[#64C800] text-sm">1.8k</span>
+                  <span class="text-[10px] text-white/60">Stars</span>
+                </div>
+                <div class="p-2 rounded-lg bg-white/5 border border-white/10">
+                  <span class="block font-black text-white text-sm">320</span>
+                  <span class="text-[10px] text-white/60">Forks</span>
+                </div>
+                <div class="p-2 rounded-lg bg-white/5 border border-white/10">
+                  <span class="block font-black text-white text-sm">MIT</span>
+                  <span class="text-[10px] text-white/60">License</span>
+                </div>
+              </div>
+
+              <a href="https://github.com/fitpredict/neural-engine" target="_blank" rel="noopener noreferrer" class="w-full it-btn-calculate-white py-3 px-4 rounded-xl text-center text-xs sm:text-sm font-black flex items-center justify-center gap-2 shadow-lg">
+                <svg class="w-4 h-4 fill-current text-[#004020]" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                </svg>
+                <span>View on GitHub</span>
+                <i data-lucide="external-link" class="w-3.5 h-3.5 text-[#004020]"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER: QUICK ACCESS DIRECTORY & PERFORMANCE PLATFORM        -->
+  <!-- ============================================================ -->
+  <footer class="it-footer relative z-[70] pt-16 pb-12 px-4 md:px-8 border-t-2 border-[#004D28] text-white overflow-hidden">
+    <!-- Atmospheric glows -->
+    <div class="absolute -top-32 right-1/4 w-96 h-96 rounded-full bg-[#64C800]/5 blur-3xl pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute -bottom-32 left-10 w-96 h-96 rounded-full bg-[#009E52]/10 blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-[#003B20]">
+        
+        <!-- Brand Summary (5 cols) -->
+        <div class="md:col-span-5 space-y-5">
+          <div class="flex items-center gap-3">
+            <div class="vb-logo-badge w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden bg-black border border-white/20">
+              <svg class="w-8 h-8 rounded-full" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="16" fill="#000000"/>
+                <path d="M5.5 16.5H9L12 9.5L16 22.5L19 13.5L21.5 16.5H26.5" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="12" cy="9.5" r="1.6" fill="#FFFFFF"/>
+                <circle cx="16" cy="22.5" r="1.8" fill="#FFFFFF"/>
+              </svg>
+            </div>
+            <span class="text-xl sm:text-2xl font-black tracking-tight text-white">Fit<span class="text-[#64C800]">Predict</span></span>
+          </div>
+
+          <p class="text-sm sm:text-[15px] text-white/75 leading-relaxed max-w-md">
+            FitPredict transforms physiological and training data into personalized nutrition, recovery, and performance prescriptions using neural intelligence.
+          </p>
+
+          <div class="pt-2">
+            <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-white mb-2.5 flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-[#64C800]"></span>
+              <span>Subscribe to Human Performance News</span>
+            </p>
+            <div class="flex items-center gap-2 max-w-sm">
+              <input type="email" placeholder="Your email address" class="bg-white/5 border border-white/20 text-sm text-white placeholder-white/40 rounded-xl px-4 py-2.5 w-full focus:outline-none focus:border-[#64C800] focus:bg-white/10 transition">
+              <button type="button" class="bg-[#64C800] hover:bg-[#56AD00] text-[#003818] font-black text-sm px-5 py-2.5 rounded-xl transition shadow-md flex-shrink-0 cursor-pointer">
+                Join
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Links 1: Platform (2 cols) -->
+        <div class="md:col-span-2">
+          <h4 class="text-sm sm:text-base font-black uppercase tracking-wider text-[#64C800] mb-4 flex items-center gap-2">
+            <span>Platform</span>
+          </h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="#calculator" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+                <span>Biometric Predictor</span>
+              </a>
+            </li>
+            <li>
+              <a href="#how-it-works" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+                <span>Neural Engine</span>
+              </a>
+            </li>
+            <li>
+              <a href="#presets" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+                <span>Athlete Archetypes</span>
+              </a>
+            </li>
+            <li>
+              <a href="#open-source" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+                <span>Open Source GitHub</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Links 2: Science (2 cols) -->
+        <div class="md:col-span-2">
+          <h4 class="text-sm sm:text-base font-black uppercase tracking-wider text-[#64C800] mb-4 flex items-center gap-2">
+            <span>Science</span>
+          </h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="#science" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+                <span>Scientific Advisory</span>
+              </a>
+            </li>
+            <li>
+              <a href="#science" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+                <span>Clinical Trials</span>
+              </a>
+            </li>
+            <li>
+              <a href="#science" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+                <span>Peer-Reviewed Papers</span>
+              </a>
+            </li>
+            <li>
+              <a href="#impact" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+                <span>Accuracy Benchmarks</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Links 3: Company (3 cols) -->
+        <div class="md:col-span-3">
+          <h4 class="text-sm sm:text-base font-black uppercase tracking-wider text-[#64C800] mb-4 flex items-center gap-2">
+            <span>Company</span>
+          </h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="#calculator" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+                <span>Membership Plans</span>
+              </a>
+            </li>
+            <li>
+              <a href="#calculator" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+                <span>For Enterprise &amp; Teams</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:support@fitpredict.io" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+                <span>Contact Support</span>
+              </a>
+            </li>
+            <li>
+              <a href="./index.html" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+                <span>Privacy &amp; HIPAA Shield</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Legal & Disclaimer -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-white/60">
+        <p>© 2026 FitPredict. All rights reserved.</p>
+        <p class="text-xs sm:text-[12.5px] max-w-md text-center md:text-right text-white/50 leading-relaxed">
+          Disclaimer: FitPredict does not diagnose, treat, or cure any disease. Consult your physician before starting any intense training or nutrition regimen.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+</html>

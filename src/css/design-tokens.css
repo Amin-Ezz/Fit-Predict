@@ -1,0 +1,37 @@
+/* FitPredict InsideTracker Design System & Tokens */
+:root {
+  /* InsideTracker Core Palette */
+  --it-bg: #F9F9F7;
+  --it-card: #FFFFFF;
+  --it-stone: #F3F2E9;
+  --it-stone-dark: #EDEBDE;
+  --it-forest: #004020;
+  --it-forest-dark: #002518;
+  --it-forest-light: #005550;
+  --it-green: #64C800;
+  --it-green-hover: #56AD00;
+  --it-green-dark: #00A050;
+  --it-dark: #262626;
+  --it-darker: #1A1A1A;
+  --it-muted: #707070;
+  --it-faint: #9E9E9E;
+  --it-border: #E5E4DC;
+  --it-border-light: #EFEFEA;
+
+  /* Typography */
+  --font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Elevation */
+  --shadow-it-card: 0 4px 20px -2px rgba(0, 40, 20, 0.06), 0 2px 6px -1px rgba(0, 40, 20, 0.03);
+  --shadow-it-hover: 0 16px 40px -6px rgba(0, 40, 20, 0.12), 0 4px 12px -2px rgba(0, 40, 20, 0.06);
+  --shadow-it-pill: 0 4px 14px rgba(100, 200, 0, 0.35);
+}

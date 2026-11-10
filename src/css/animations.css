@@ -1,0 +1,167 @@
+/* FitPredict Motion & Keyframe Animations - Vibeld Navy & White Aesthetic */
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulseNavyDot {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(11, 21, 40, 0.4);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(11, 21, 40, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(11, 21, 40, 0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Subtle Aurora Ambient Sheen */
+@keyframes ambientGlowPulse {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-dot-navy {
+  animation: pulseNavyDot 2s infinite;
+}
+
+.animate-glow-pulse {
+  animation: ambientGlowPulse 7s ease-in-out infinite;
+}
+
+.shimmer-loading {
+  background: linear-gradient(90deg, #F8FAFC 25%, #E2E8F0 50%, #F8FAFC 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
+
+/* Vertical Fluted / Reeded Glass Optical Texture Overlay */
+.fluted-glass-overlay {
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.06) 0px,
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px,
+    transparent 12px,
+    rgba(0, 0, 0, 0.06) 13px,
+    transparent 14px
+  );
+  pointer-events: none;
+}
+
+/* Card Hover Micro-interactions */
+.vb-card-hover {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+.vb-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px -6px rgba(11, 21, 40, 0.09);
+  border-color: #cbd5e1;
+}
+
+/* ============================================================ */
+/* Hero Rotating Headline Word (Word Rotator)                   */
+/* ============================================================ */
+.word-rotator {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: baseline;
+  transition: width 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rot-word {
+  display: inline-block;
+  will-change: transform, opacity, filter;
+}
+
+/* Off-cycle words: stacked overlays, invisible until it is their turn */
+.rot-abs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.rot-word.rot-entering {
+  visibility: visible;
+  opacity: 1;
+  animation: rotSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.rot-word.rot-leaving {
+  visibility: visible;
+  opacity: 1;
+  animation: rotSlideOut 0.6s cubic-bezier(0.55, 0, 0.55, 0.2) both;
+}
+
+@keyframes rotSlideIn {
+  from {
+    transform: translateY(0.45em);
+    opacity: 0;
+    filter: blur(6px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes rotSlideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+  to {
+    transform: translateY(-0.45em);
+    opacity: 0;
+    filter: blur(6px);
+  }
+}
+
+/* Reduced motion preference compliance */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-float-slow,
+  .animate-dot-navy,
+  .animate-glow-pulse {
+    animation: none !important;
+  }
+}

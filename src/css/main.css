@@ -1,0 +1,2945 @@
+@import '@fontsource/montserrat/400.css';
+@import '@fontsource/montserrat/600.css';
+@import '@fontsource/montserrat/700.css';
+@import '@fontsource/montserrat/800.css';
+@import '@fontsource/montserrat/900.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/saira-condensed/900.css';
+@import '@fontsource/kanit/900-italic.css';
+@import '@fontsource/chakra-petch/700-italic.css';
+@import './design-tokens.css';
+@import './animations.css';
+
+@font-face {
+  font-family: 'Surgena';
+  src: url('/fonts/Surgena-SemiBold.ttf') format('truetype');
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================ */
+/* BASE DOCUMENT CONFIGURATION — FITPREDICT ATHLETIC THEME  */
+/* ============================================================ */
+html {
+  direction: ltr;
+  text-align: left;
+  font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #F9F9F7;
+  color: #262626;
+  scroll-behavior: auto !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis Smooth Scroll Configuration */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #F9F9F7;
+  color: #262626;
+}
+
+/* ============================================================ */
+/* PROMINENT ATHLETIC DARK GREEN SCROLLBAR (Medium & Embossed)   */
+/* ============================================================ */
+::-webkit-scrollbar {
+  width: 13px;
+  height: 13px;
+}
+::-webkit-scrollbar-track {
+  background: #EBE9DF;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.16);
+}
+::-webkit-scrollbar-thumb {
+  min-height: 70px;
+  min-width: 70px;
+  background: linear-gradient(180deg, #00582B 0%, #003A1D 55%, #002412 100%);
+  border-radius: 9999px;
+  border: 2px solid #EBE9DF;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.38), inset 0 1px 1px rgba(100, 200, 0, 0.5), inset 0 -1px 1px rgba(0, 0, 0, 0.5);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #007038 0%, #004D27 55%, #003217 100%);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.46), inset 0 1.5px 1.5px rgba(100, 200, 0, 0.7), inset 0 -1px 1px rgba(0, 0, 0, 0.55);
+}
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #003318 0%, #00200F 100%);
+  box-shadow: inset 0 1.5px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Firefox Support */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #004020 #EBE9DF;
+}
+
+/* ============================================================ */
+/* DYNAMIC NAVBAR (Clean Glassmorphism over Video, Frosted Light on Scroll) */
+/* ============================================================ */
+.vb-nav-shell {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Initial Top State over Video: Pure Clean Glassmorphism (حالت شیشه‌ای بدون بعد و افکت 3D) */
+.vb-nav-liquid {
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.vb-brand-text {
+  font-family: 'Surgena', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+}
+
+.vb-logo-badge {
+  border-radius: 9999px !important;
+  overflow: hidden !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* 1. Initial State in Hero (Unscrolled): White Background, Black Line */
+.vb-nav-liquid .vb-logo-badge,
+.vb-logo-badge {
+  background-color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+}
+.vb-nav-liquid .vb-logo-bg,
+.vb-logo-bg {
+  fill: #FFFFFF !important;
+}
+.vb-nav-liquid .vb-logo-line,
+.vb-logo-line {
+  stroke: #000000 !important;
+}
+.vb-nav-liquid .vb-logo-dot,
+.vb-logo-dot {
+  fill: #000000 !important;
+}
+
+.vb-nav-liquid .vb-nav-center-link,
+.vb-nav-liquid .vb-brand-text {
+  color: #FFFFFF !important;
+  text-shadow: none !important;
+}
+
+.vb-nav-liquid .vb-nav-center-link:hover {
+  color: #64C800 !important;
+}
+
+/* Scrolled State: InsideTracker Frosted Light Glass */
+.vb-nav-scrolled {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(229, 228, 220, 0.9) !important;
+  box-shadow: 0 10px 32px -4px rgba(0, 40, 20, 0.1) !important;
+}
+
+.vb-nav-scrolled .vb-nav-center-link {
+  color: #262626 !important;
+  text-shadow: none !important;
+}
+
+.vb-nav-scrolled .vb-nav-center-link:hover {
+  color: #005550 !important;
+}
+
+.vb-nav-scrolled .vb-brand-text {
+  color: #000000 !important;
+  text-shadow: none !important;
+}
+
+/* 2. Scrolled State Logo: Black Background, White Line (High Contrast on White Nav) */
+.vb-nav-scrolled .vb-logo-badge {
+  background-color: #000000 !important;
+  border: 1px solid #000000 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18) !important;
+}
+.vb-nav-scrolled .vb-logo-bg {
+  fill: #000000 !important;
+}
+.vb-nav-scrolled .vb-logo-line {
+  stroke: #FFFFFF !important;
+}
+.vb-nav-scrolled .vb-logo-dot {
+  fill: #FFFFFF !important;
+}
+
+.vb-nav-scrolled #mobile-menu-btn {
+  color: #004020 !important;
+  border-color: #E5E4DC !important;
+}
+
+/* InsideTracker Header Components */
+.it-badge-new {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  background-color: #7B68EE !important;
+  color: #FFFFFF !important;
+  border-radius: 9999px;
+  padding: 1px 4.5px;
+  margin-left: 0.5px;
+  line-height: 1;
+  position: relative;
+  top: -2.5px;
+  letter-spacing: 0.03em;
+  box-shadow: 0 1px 3px rgba(123, 104, 238, 0.35);
+  pointer-events: none;
+  vertical-align: middle;
+}
+
+.vb-nav-scrolled .it-badge-new,
+.vb-nav-liquid .it-badge-new {
+  color: #FFFFFF !important;
+  background-color: #7B68EE !important;
+}
+
+/* ============================================================ */
+/* INSIDETRACKER BUTTON & CTA STYLES                           */
+/* ============================================================ */
+/* InsideTracker Emerald Membership Button (Matches Screenshot) */
+.it-btn-emerald {
+  background-color: #009E52;
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 0.65rem 1.45rem;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+.it-btn-emerald:hover {
+  background-color: #008745;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+  color: #FFFFFF;
+}
+
+/* InsideTracker Lime Header Pill (Shop Now in Screenshot) */
+.it-btn-lime {
+  background-color: #64C800;
+  color: #000000 !important;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.45rem 1.25rem;
+  font-size: 0.8125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(100, 200, 0, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+.it-btn-lime:hover {
+  background-color: #72E600;
+  box-shadow: 0 4px 14px rgba(100, 200, 0, 0.5);
+  transform: translateY(-1px);
+  color: #000000 !important;
+}
+
+.it-btn-primary {
+  background-color: #64C800;
+  color: #004020;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.9375rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(100, 200, 0, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+.it-btn-primary:hover {
+  background-color: #56AD00;
+  box-shadow: 0 8px 24px rgba(100, 200, 0, 0.5);
+  transform: translateY(-2px);
+  color: #002518;
+}
+.it-btn-primary:active {
+  transform: translateY(0);
+}
+
+.it-btn-secondary {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.9375rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+.it-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.24);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.it-btn-outline {
+  border: 1.5px solid #004020;
+  color: #004020;
+  background-color: transparent;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.65rem 1.5rem;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.it-btn-outline:hover {
+  background-color: #004020;
+  color: #FFFFFF;
+}
+
+/* Nav Pill Button */
+.vb-hero-build,
+.vb-pill-build {
+  background-color: #64C800;
+  color: #004020;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 12px rgba(100, 200, 0, 0.3);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+.vb-hero-build:hover,
+.vb-pill-build:hover {
+  background-color: #56AD00;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(100, 200, 0, 0.45);
+}
+.vb-hero-build-sm {
+  padding: 0.4rem 1rem;
+  font-size: 0.8125rem;
+}
+
+/* ============================================================ */
+/* HERO SECTION: ATMOSPHERIC VIDEO & INSIDETRACKER STYLING      */
+/* ============================================================ */
+.it-hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #002518;
+  color: #FFFFFF;
+}
+
+.it-hero-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.65;
+}
+
+.it-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 37, 24, 0.72) 0%, rgba(0, 45, 23, 0.82) 60%, rgba(0, 37, 24, 0.96) 100%);
+  z-index: 1;
+}
+
+/* Media Logos Row (FEATURED ON) */
+.it-featured-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.it-media-logo {
+  height: 24px;
+  opacity: 0.65;
+  filter: grayscale(100%) brightness(180%);
+  transition: all 0.25s ease;
+}
+.it-media-logo:hover {
+  opacity: 1;
+  filter: grayscale(0%) brightness(100%);
+}
+
+/* ============================================================ */
+/* CLEANMAX-INSPIRED SCROLL TRANSITIONS & CARD STACKING         */
+/* ============================================================ */
+.hero-scroll-wrapper {
+  position: relative;
+  min-height: 120vh; /* Smooth hero exit with immediate next card connection */
+}
+
+@media (max-width: 991px) {
+  .hero-scroll-wrapper {
+    min-height: 110vh;
+  }
+}
+
+.hero-sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.hero-bg-video-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center center;
+  will-change: transform, border-radius;
+  overflow: hidden;
+}
+
+.hero-scroll-dim-overlay {
+  display: none !important;
+}
+
+.hero-content-wrap {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+.vb-hero-headline,
+.calc-section-title {
+  font-family: 'Surgena', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+}
+
+.calc-section-title {
+  color: #000000 !important;
+}
+
+/* Calculator Section Left Content Entrance (Slide from left to right) */
+.calc-info-headline,
+.calc-info-lede {
+  will-change: transform, opacity;
+}
+
+/* Calculator Section Left Dot Matrix Background */
+.calc-dots-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 55%;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.125) 1.25px, transparent 1.25px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(ellipse 85% 75% at 30% 50%, black 50%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 30% 50%, black 50%, transparent 100%);
+}
+
+@media (max-width: 1023px) {
+  .calc-dots-bg {
+    max-width: 100%;
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 50%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 50%, transparent 100%);
+  }
+}
+
+/* Stacking Card Sheet Effect (CleanMax Sheet Layering) */
+.section-card {
+  position: relative;
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  box-shadow: 0 -25px 60px -10px rgba(0, 0, 0, 0.35);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .section-card {
+    border-top-left-radius: 48px;
+    border-top-right-radius: 48px;
+    box-shadow: 0 -35px 80px -15px rgba(0, 0, 0, 0.42);
+  }
+}
+
+@media (min-width: 1280px) {
+  .section-card {
+    border-top-left-radius: 56px;
+    border-top-right-radius: 56px;
+    box-shadow: 0 -40px 90px -15px rgba(0, 0, 0, 0.45);
+  }
+}
+
+/* ============================================================ */
+/* DEDICATED PREDICTION ENGINE SECTION (INSIDETRACKER STYLED)   */
+/* ============================================================ */
+#calculator {
+  scroll-margin-top: 0;
+  scroll-snap-align: none;
+}
+
+.it-calc-card {
+  background: linear-gradient(160deg, #00361F 0%, #002518 45%, #001810 100%);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 2px solid rgba(100, 200, 0, 0.45);
+  border-radius: 32px;
+  box-shadow: 
+    0 30px 80px -15px rgba(0, 30, 15, 0.6),
+    0 0 40px -5px rgba(0, 158, 82, 0.3),
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+/* Crisp White Keys inside Green Predict Console */
+.it-calc-card .gender-btn {
+  background: rgba(255, 255, 255, 0.7);
+  color: #004020;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.it-calc-card .gender-btn:hover {
+  background: #FFFFFF;
+  color: #004020;
+  transform: translateY(-1px);
+}
+.it-calc-card .gender-btn.active {
+  background: #FFFFFF !important;
+  color: #004020 !important;
+  border-color: #64C800 !important;
+  box-shadow: 0 0 0 2px #64C800, 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+  font-weight: 900 !important;
+}
+
+/* Light Green Goal Chips (Requested: سبز روشن برای ۳ کلید Muscle Growth و بقیه) */
+/* Goal Selection Container & Liquid Thumb (Requested: انیمیشنی مثل male و female) */
+#goal-selection-container {
+  position: relative;
+  isolation: isolate;
+}
+
+#goal-liquid-thumb {
+  background: linear-gradient(135deg, rgba(0, 68, 35, 0.95) 0%, rgba(0, 42, 21, 0.98) 100%) !important;
+  border: 2px solid #64C800 !important;
+  box-shadow: 
+    0 0 0 1px #64C800, 
+    0 8px 24px -2px rgba(100, 200, 0, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.35) !important;
+  border-radius: 16px;
+  pointer-events: none;
+  z-index: 1;
+  transition: none; /* Controlled directly by GSAP spring physics */
+  box-sizing: border-box;
+}
+
+/* Goal Chips: Translucent Mint Glass Baseline */
+.it-calc-card .goal-chip {
+  position: relative;
+  z-index: 2;
+  background: rgba(236, 253, 245, 0.10) !important;
+  border: 1.5px solid rgba(134, 239, 172, 0.28) !important;
+  border-radius: 16px;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px -2px rgba(0, 0, 0, 0.25) !important;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.it-calc-card .goal-chip:hover {
+  background: rgba(236, 253, 245, 0.20) !important;
+  border-color: rgba(74, 222, 128, 0.6) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px -2px rgba(34, 197, 94, 0.3) !important;
+}
+.it-calc-card .goal-chip .goal-badge {
+  background: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all 0.25s ease;
+}
+.it-calc-card .goal-chip.active {
+  background: transparent !important;
+  border-color: transparent !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+}
+.it-calc-card .goal-chip.active .goal-title {
+  color: #FFFFFF !important;
+  font-weight: 900 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+.it-calc-card .goal-chip.active .goal-badge {
+  background: #64C800 !important;
+  color: #002518 !important;
+  border-color: #64C800 !important;
+  font-weight: 900 !important;
+}
+
+/* Custom Transparent White Icons */
+.goal-custom-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+}
+.it-calc-card .goal-chip:hover .goal-custom-icon {
+  transform: scale(1.15);
+  filter: drop-shadow(0 2px 8px rgba(100, 200, 0, 0.6));
+}
+
+/* ============================================================ */
+/* 2 UNIFIED TELEMETRY GROUP CARDS & LIQUID GLASS SUB-STEPPERS  */
+/* ============================================================ */
+
+/* Outer Unified Telemetry Card */
+.it-calc-card .vb-telemetry-group-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  border: 1.5px solid rgba(255, 255, 255, 0.26) !important;
+  border-radius: 20px;
+  padding: 0.75rem 0.85rem !important;
+  box-shadow: 
+    0 10px 30px 0 rgba(0, 25, 12, 0.35),
+    inset 0 1.5px 1.5px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1.5px 2px 0 rgba(0, 0, 0, 0.25) !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.it-calc-card .vb-telemetry-group-card:hover {
+  border-color: rgba(100, 200, 0, 0.5) !important;
+  box-shadow: 
+    0 14px 38px 0 rgba(0, 35, 15, 0.45),
+    0 0 25px rgba(100, 200, 0, 0.2),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Group Card Header */
+.vb-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.vb-group-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: rgba(100, 200, 0, 0.2);
+  border: 1px solid rgba(100, 200, 0, 0.4);
+  color: #64C800;
+}
+.vb-group-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+.vb-group-tag {
+  font-size: 9px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1px 6px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Sub-Stepper Inside Unified Group Card */
+.it-calc-card .vb-sub-stepper {
+  background: rgba(0, 25, 12, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 14px;
+  padding: 0.5rem 0.35rem !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.it-calc-card .vb-sub-stepper:hover {
+  background: rgba(0, 35, 18, 0.5) !important;
+  border-color: rgba(100, 200, 0, 0.5) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Stepper Box Compatibility (if referenced anywhere) */
+.it-calc-card .vb-stepper-box {
+  background: rgba(0, 25, 12, 0.35) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 14px;
+  padding: 0.5rem 0.35rem !important;
+}
+
+/* Stepper Title Label */
+.it-calc-card .vb-stepper-label {
+  font-size: 8.2px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Stepper Unit Badge (Guarantees /wk and RPE NEVER overflow) */
+.it-calc-card .vb-stepper-unit {
+  font-size: 7.5px;
+  font-weight: 800;
+  color: #64C800 !important;
+  background: rgba(100, 200, 0, 0.16) !important;
+  border: 1px solid rgba(100, 200, 0, 0.36) !important;
+  padding: 0.5px 3px !important;
+  border-radius: 4px;
+  line-height: 1.1;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  display: inline-block;
+}
+
+/* Controls Row: Minus, Odometer Number, Plus */
+.it-calc-card .vb-stepper-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3px;
+  width: 100%;
+}
+
+.it-calc-card .vb-step-val {
+  font-size: 16px;
+  font-weight: 900;
+  color: #FFFFFF !important;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.03em;
+  text-align: center;
+  flex: 1;
+  min-width: 0;
+  line-height: 1;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+#disp-height {
+  font-size: 15.5px !important;
+  letter-spacing: -0.04em !important;
+}
+
+#disp-sleep {
+  font-size: 15px !important;
+  letter-spacing: -0.03em !important;
+}
+
+#disp-sleep .vb-odometer-strip > span {
+  font-size: 15px !important;
+}
+
+#disp-sleep .vb-odometer-col {
+  width: 0.54em !important;
+}
+
+#disp-sleep .vb-odometer-dot {
+  font-size: 15px !important;
+  width: 0.25em !important;
+}
+
+/* Liquid Glass Micro-Buttons for Stepper Adjustments (− / +) */
+.it-calc-card .vb-step-btn {
+  width: 19px;
+  height: 19px;
+  min-width: 19px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  color: #FFFFFF !important;
+  font-size: 13px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  user-select: none;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.4) !important;
+}
+.it-calc-card .vb-step-btn:hover {
+  background: #64C800 !important;
+  color: #002518 !important;
+  border-color: #64C800 !important;
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(100, 200, 0, 0.7) !important;
+}
+.it-calc-card .vb-step-btn:active {
+  transform: scale(0.92);
+}
+
+/* Liquid Glass Quick Preset Pills */
+.it-calc-card .vb-example-chip {
+  background: rgba(255, 255, 255, 0.16) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.35) !important;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+.it-calc-card .vb-example-chip:hover {
+  background: rgba(255, 255, 255, 0.28) !important;
+  border-color: #64C800 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35) !important;
+}
+.it-calc-card .vb-example-chip.active {
+  background: linear-gradient(135deg, rgba(100, 200, 0, 0.35) 0%, rgba(0, 158, 82, 0.3) 100%) !important;
+  border-color: #64C800 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 0 2px #64C800, 0 4px 16px rgba(100, 200, 0, 0.4) !important;
+  font-weight: 900 !important;
+}
+
+/* Luminous White & Mint Liquid Calculate Action Button */
+.it-btn-calculate-white {
+  position: relative;
+  background: linear-gradient(135deg, #FFFFFF 0%, #ECFDF5 50%, #D1FAE5 100%) !important;
+  color: #004020 !important;
+  font-weight: 900 !important;
+  border-radius: 20px;
+  padding: 1.25rem 2rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: 2px solid rgba(255, 255, 255, 0.95) !important;
+  cursor: pointer;
+  box-shadow: 0 12px 35px -4px rgba(0, 0, 0, 0.5), 0 0 25px rgba(100, 200, 0, 0.35) !important;
+  text-decoration: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease !important;
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
+.it-btn-calculate-white:hover {
+  border-color: #64C800 !important;
+  box-shadow: 0 16px 42px -4px rgba(0, 0, 0, 0.6), 0 0 35px rgba(100, 200, 0, 0.6) !important;
+  filter: brightness(1.03);
+  transform: scale(1.015) translateZ(0);
+}
+.it-btn-calculate-white:active {
+  transform: scale(0.985) translateZ(0);
+  box-shadow: 0 8px 24px -2px rgba(0, 0, 0, 0.5), 0 0 18px rgba(100, 200, 0, 0.4) !important;
+}
+
+.calc-results-card {
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(28px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+  border: 2px solid #000000 !important;
+  border-radius: 32px !important;
+  box-shadow: 
+    0 24px 50px -10px rgba(0, 0, 0, 0.09),
+    0 4px 16px rgba(0, 0, 0, 0.04),
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.03) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle optical liquid glass sheen across the top of the chassis */
+.calc-results-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 30px 30px 0 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================ */
+/* DISTINCT 3 INSIGHT CARDS WITH UNIQUE ICON ANIMATIONS         */
+/* ============================================================ */
+
+/* Card 1: Bio-Nutritional Protein Synthesis (Warm Amber Palette) */
+.calc-card-protein {
+  background: linear-gradient(135deg, rgba(255, 251, 235, 0.95) 0%, rgba(254, 243, 199, 0.55) 100%);
+  border: 1.5px solid rgba(245, 158, 11, 0.35);
+  border-radius: 20px;
+  padding: 1.05rem 1.2rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px -2px rgba(217, 119, 6, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+.calc-card-protein:hover {
+  border-color: #D97706;
+  transform: translateY(-2px) translateX(4px);
+  box-shadow: 0 12px 28px -6px rgba(217, 119, 6, 0.22);
+}
+.calc-card-protein::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #F59E0B, #D97706);
+}
+
+/* Card 2: Osmolarity & Fluid Dynamics (Glacier Sapphire Palette) */
+.calc-card-fluid {
+  background: linear-gradient(135deg, rgba(240, 249, 255, 0.95) 0%, rgba(224, 242, 254, 0.55) 100%);
+  border: 1.5px solid rgba(14, 165, 233, 0.35);
+  border-radius: 20px;
+  padding: 1.05rem 1.2rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px -2px rgba(14, 165, 233, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+.calc-card-fluid:hover {
+  border-color: #0284C7;
+  transform: translateY(-2px) translateX(4px);
+  box-shadow: 0 12px 28px -6px rgba(14, 165, 233, 0.22);
+}
+.calc-card-fluid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #38BDF8, #0284C7);
+}
+
+/* Card 3: Adaptive Training Volume (Dynamic Emerald Palette) */
+.calc-card-volume {
+  background: linear-gradient(135deg, rgba(240, 253, 244, 0.95) 0%, rgba(220, 252, 231, 0.55) 100%);
+  border: 1.5px solid rgba(0, 158, 82, 0.35);
+  border-radius: 20px;
+  padding: 1.05rem 1.2rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px -2px rgba(0, 158, 82, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+.calc-card-volume:hover {
+  border-color: #009E52;
+  transform: translateY(-2px) translateX(4px);
+  box-shadow: 0 12px 28px -6px rgba(0, 158, 82, 0.24);
+}
+.calc-card-volume::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #64C800, #009E52);
+}
+
+/* ============================================================ */
+/* UNIQUE CONTINUOUS + INTERACTIVE ICON ANIMATIONS              */
+/* ============================================================ */
+
+/* 1. Protein Flask Animation: Smooth Floating Tilt + Chemical Bubble Pulse */
+@keyframes iconProteinPulse {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 2px rgba(245, 158, 11, 0.4));
+  }
+  35% {
+    transform: translateY(-2.5px) rotate(-6deg) scale(1.06);
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.75));
+  }
+  70% {
+    transform: translateY(1px) rotate(4deg) scale(0.98);
+    filter: drop-shadow(0 0 4px rgba(217, 119, 6, 0.5));
+  }
+}
+.icon-anim-protein {
+  display: inline-flex;
+  animation: iconProteinPulse 3.2s ease-in-out infinite;
+}
+.calc-card-protein:hover .icon-anim-protein {
+  animation-duration: 1.3s;
+}
+
+/* 2. Fluid Droplets Animation: Fluid Drop Bounce & Ripple Swell */
+@keyframes iconFluidWave {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 0 2px rgba(14, 165, 233, 0.3));
+  }
+  30% {
+    transform: translateY(-3.5px) scale(1.08, 0.95);
+    filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.75));
+  }
+  55% {
+    transform: translateY(2px) scale(0.96, 1.05);
+  }
+  75% {
+    transform: translateY(-1px) scale(1.02);
+  }
+}
+.icon-anim-fluid {
+  display: inline-flex;
+  animation: iconFluidWave 2.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+.calc-card-fluid:hover .icon-anim-fluid {
+  animation-duration: 1.1s;
+}
+
+/* 3. Volume Gauge Animation: Speedometer Needle Sweeping & Power Meter */
+@keyframes iconVolumeGauge {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 2px rgba(0, 158, 82, 0.4));
+  }
+  25% {
+    transform: rotate(12deg) scale(1.08);
+    filter: drop-shadow(0 0 8px rgba(100, 200, 0, 0.8));
+  }
+  50% {
+    transform: rotate(-10deg) scale(1.04);
+    filter: drop-shadow(0 0 6px rgba(0, 158, 82, 0.6));
+  }
+  75% {
+    transform: rotate(6deg) scale(1.02);
+  }
+}
+.icon-anim-volume {
+  display: inline-flex;
+  animation: iconVolumeGauge 3s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+.calc-card-volume:hover .icon-anim-volume {
+  animation-duration: 1.1s;
+}
+
+/* Legacy fallback support */
+.calc-info-item {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(222, 220, 210, 0.85);
+  border-radius: 18px;
+  padding: 0.95rem 1.15rem;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px -2px rgba(0, 40, 20, 0.04);
+}
+.calc-info-item:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #009E52;
+  transform: translateX(5px);
+  box-shadow: 0 10px 24px -6px rgba(0, 40, 20, 0.10);
+}
+
+.it-calc-inner-box {
+  background: #E8E7DF;
+  border: 1px solid #DEDCD2;
+  border-radius: 16px;
+}
+
+/* Stepper Box inside Calculator - Distinct Telemetry Card (Crisp White Key) */
+.vb-stepper-box {
+  background: #FFFFFF;
+  border: 1px solid #DEDCD2;
+  border-radius: 16px;
+  padding: 0.65rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.35rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+.vb-stepper-box:hover {
+  border-color: #009E52;
+  box-shadow: 0 6px 14px -4px rgba(0, 40, 20, 0.08);
+  transform: translateY(-1px);
+}
+
+.vb-stepper-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #555555;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.vb-stepper-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vb-step-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  background: #F3F2E9;
+  border: 1px solid #DEDCD2;
+  color: #004020;
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  outline: none;
+}
+.vb-step-btn:hover {
+  background: #004020;
+  color: #FFFFFF;
+  border-color: #004020;
+  transform: scale(1.08);
+  box-shadow: 0 2px 6px rgba(0, 40, 20, 0.2);
+}
+.vb-step-btn:active {
+  transform: scale(0.92);
+}
+
+.vb-step-val {
+  font-size: 19px;
+  font-weight: 900;
+  color: #004020;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Legacy Goal Chips Fallback */
+.goal-chip:not(.it-calc-card .goal-chip) {
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+/* Gender Toggle Buttons */
+.gender-btn {
+  color: #707070;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.gender-btn:hover {
+  color: #004020;
+}
+.gender-btn.active {
+  background: #004020 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(0, 40, 20, 0.25);
+}
+
+/* Preset Chips */
+.vb-example-chip {
+  background: #FFFFFF;
+  border: 1px solid #E5E4DC;
+  border-radius: 9999px;
+  padding: 0.4rem 0.95rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #005550;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+.vb-example-chip:hover {
+  background: #F3F2E9;
+  border-color: #009E52;
+  color: #004020;
+  transform: translateY(-1px);
+}
+.vb-example-chip.active {
+  background: #004020 !important;
+  color: #FFFFFF !important;
+  border-color: #004020 !important;
+  box-shadow: 0 4px 12px rgba(0, 40, 20, 0.2) !important;
+}
+
+/* Primary Calculate Button */
+.it-btn-calculate {
+  background: linear-gradient(135deg, #004020 0%, #006834 45%, #009E52 100%);
+  color: #FFFFFF;
+  font-weight: 800;
+  border-radius: 18px;
+  padding: 1.15rem 2rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border: 1px solid rgba(100, 200, 0, 0.35);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px -4px rgba(0, 158, 82, 0.35);
+  text-decoration: none;
+}
+.it-btn-calculate:hover {
+  background: linear-gradient(135deg, #003018 0%, #00783C 45%, #00B35C 100%);
+  box-shadow: 0 14px 32px -4px rgba(0, 158, 82, 0.5);
+  transform: translateY(-2px);
+  border-color: rgba(100, 200, 0, 0.65);
+}
+.it-btn-calculate:active {
+  transform: translateY(0);
+}
+
+/* Result Cards inside Predictor - Distinct Multi-Color Tinted Cards */
+.it-result-card {
+  border-radius: 20px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card fill sweep shimmer effect on Predict */
+.it-result-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.7) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.it-result-card.animate-fill-sweep::before {
+  animation: cardFillSweep 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardFillSweep {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Target Prescription Card Icon Badges & Micro-Interactions */
+.target-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.target-card-icon:hover {
+  transform: scale(1.22);
+}
+
+.target-card-icon svg,
+.target-card-icon i {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+  transform-origin: center center;
+}
+
+/* 1. Flame Icon Hover Animation (Daily Protein) */
+@keyframes flameHoverAnim {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  20% {
+    transform: scale(1.3) rotate(-14deg);
+  }
+  40% {
+    transform: scale(1.18) rotate(12deg);
+  }
+  60% {
+    transform: scale(1.34) rotate(-10deg);
+  }
+  80% {
+    transform: scale(1.22) rotate(8deg);
+  }
+  100% {
+    transform: scale(1.26) rotate(0deg);
+  }
+}
+
+.target-icon-flame {
+  background: rgba(255, 237, 213, 0.72) !important;
+  backdrop-filter: blur(8px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(160%) !important;
+  border: 1px solid rgba(251, 146, 60, 0.45) !important;
+  color: #EA580C;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95), 0 2px 6px rgba(234, 88, 12, 0.15) !important;
+}
+.target-icon-flame:hover,
+.it-result-card-protein:hover .target-icon-flame {
+  background: rgba(255, 237, 213, 0.95) !important;
+  border-color: #FB923C !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 1), 0 0 12px rgba(234, 88, 12, 0.35) !important;
+}
+
+.target-icon-flame:hover svg,
+.target-icon-flame:hover i,
+.it-result-card-protein:hover .target-icon-flame svg,
+.it-result-card-protein:hover .target-icon-flame i {
+  animation: flameHoverAnim 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite alternate;
+  filter: drop-shadow(0 0 6px rgba(234, 88, 12, 0.6));
+}
+
+/* 2. Droplet Icon Hover Animation (Hydration) */
+@keyframes dropletHoverAnim {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  25% {
+    transform: scale(1.35, 0.8) translateY(2px);
+  }
+  50% {
+    transform: scale(0.85, 1.35) translateY(-5px);
+  }
+  75% {
+    transform: scale(1.2, 0.95) translateY(1px);
+  }
+  100% {
+    transform: scale(1.22) translateY(0);
+  }
+}
+
+.target-icon-droplet {
+  background: rgba(224, 242, 254, 0.72) !important;
+  backdrop-filter: blur(8px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(160%) !important;
+  border: 1px solid rgba(56, 189, 248, 0.45) !important;
+  color: #0284C7;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95), 0 2px 6px rgba(2, 132, 199, 0.15) !important;
+}
+.target-icon-droplet:hover,
+.it-result-card-water:hover .target-icon-droplet {
+  background: rgba(224, 242, 254, 0.95) !important;
+  border-color: #7DD3FC !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 1), 0 0 12px rgba(2, 132, 199, 0.35) !important;
+}
+
+.target-icon-droplet:hover svg,
+.target-icon-droplet:hover i,
+.it-result-card-water:hover .target-icon-droplet svg,
+.it-result-card-water:hover .target-icon-droplet i {
+  animation: dropletHoverAnim 0.75s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 6px rgba(2, 132, 199, 0.6));
+}
+
+/* 3. Activity Icon Hover Animation (Training) */
+@keyframes activityHoverAnim {
+  0% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.4);
+  }
+  30% {
+    transform: scale(1.12);
+  }
+  48% {
+    transform: scale(1.42);
+  }
+  68% {
+    transform: scale(1.16);
+  }
+  100% {
+    transform: scale(1.26);
+  }
+}
+
+.target-icon-activity {
+  background: rgba(209, 250, 229, 0.72) !important;
+  backdrop-filter: blur(8px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(160%) !important;
+  border: 1px solid rgba(52, 211, 153, 0.45) !important;
+  color: #059669;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.95), 0 2px 6px rgba(5, 150, 105, 0.15) !important;
+}
+.target-icon-activity:hover,
+.it-result-card-activity:hover .target-icon-activity {
+  background: rgba(209, 250, 229, 0.95) !important;
+  border-color: #6EE7B7 !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 1), 0 0 12px rgba(5, 150, 105, 0.35) !important;
+}
+
+.target-icon-activity:hover svg,
+.target-icon-activity:hover i,
+.it-result-card-activity:hover .target-icon-activity svg,
+.it-result-card-activity:hover .target-icon-activity i {
+  animation: activityHoverAnim 0.7s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(5, 150, 105, 0.6));
+}
+
+/* 3 Result Cards - Translucent Frosted Liquid Glass Cards with Colored Thin Rims */
+.it-result-card-protein,
+.it-result-card-water,
+.it-result-card-activity {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(16px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(150%) !important;
+  box-shadow: 
+    0 4px 16px -2px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.02),
+    inset 0 1px 1.5px rgba(255, 255, 255, 1) !important;
+  border-radius: 20px !important;
+  color: #000000 !important;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 1. Daily Protein Card: Thin Warm Orange Rim */
+.it-result-card-protein {
+  border: 1.5px solid rgba(234, 88, 12, 0.45) !important;
+}
+.it-result-card-protein:hover {
+  background: rgba(255, 255, 255, 0.90) !important;
+  border-color: rgba(234, 88, 12, 0.85) !important;
+  box-shadow: 
+    0 10px 28px -4px rgba(234, 88, 12, 0.18),
+    0 2px 8px rgba(0, 0, 0, 0.03),
+    inset 0 1.5px 2px rgba(255, 255, 255, 1) !important;
+  transform: translateY(-2px);
+}
+
+/* 2. Hydration & Electrolytes Card: Thin Sky Blue Rim */
+.it-result-card-water {
+  border: 1.5px solid rgba(2, 132, 199, 0.45) !important;
+}
+.it-result-card-water:hover {
+  background: rgba(255, 255, 255, 0.90) !important;
+  border-color: rgba(2, 132, 199, 0.85) !important;
+  box-shadow: 
+    0 10px 28px -4px rgba(2, 132, 199, 0.18),
+    0 2px 8px rgba(0, 0, 0, 0.03),
+    inset 0 1.5px 2px rgba(255, 255, 255, 1) !important;
+  transform: translateY(-2px);
+}
+
+/* 3. Training & Activity Card: Thin Emerald Green Rim */
+.it-result-card-activity {
+  border: 1.5px solid rgba(5, 150, 105, 0.45) !important;
+}
+.it-result-card-activity:hover {
+  background: rgba(255, 255, 255, 0.90) !important;
+  border-color: rgba(5, 150, 105, 0.85) !important;
+  box-shadow: 
+    0 10px 28px -4px rgba(5, 150, 105, 0.18),
+    0 2px 8px rgba(0, 0, 0, 0.03),
+    inset 0 1.5px 2px rgba(255, 255, 255, 1) !important;
+  transform: translateY(-2px);
+}
+
+/* Diagonal glass light reflection on cards */
+.it-result-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Liquid Glass Microfluidic Progress Track */
+.target-liquid-track {
+  height: 14px;
+  background: rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 
+    inset 0 1.5px 3px rgba(0, 0, 0, 0.12),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.75),
+    0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+
+/* Outer Glass Cylindrical Specular Glare along upper rim */
+.target-liquid-track::before {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 3px;
+  right: 3px;
+  height: 38%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.0) 100%);
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Individual Progress Fill Bars - Energy Liquid Fill */
+.target-gauge-fill {
+  position: relative;
+  height: 100%;
+  border-radius: 9999px;
+  overflow: hidden;
+  will-change: width;
+}
+
+/* Advancing Meniscus Cap (Glowing Liquid Surface-Tension Bulb) */
+.target-gauge-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 14px;
+  border-radius: 9999px;
+  background: radial-gradient(ellipse at 75% 50%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.4) 45%, transparent 75%);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* Wave Layers */
+.target-wave {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat-x;
+  pointer-events: none;
+}
+
+/* 1. Protein Gauge (Warm Amber Energy Elixir) */
+#hero-res-protein-gauge {
+  background: linear-gradient(180deg, #FB923C 0%, #EA580C 50%, #C2410C 100%) !important;
+  box-shadow: 0 2px 10px rgba(234, 88, 12, 0.5), inset 0 1px 1.5px rgba(255, 255, 255, 0.6) !important;
+}
+#hero-res-protein-gauge .target-wave-back {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14'%3E%3Cpath fill='%23C2410C' fill-opacity='0.6' d='M0 6 Q 12.5 10 25 6 T 50 6 T 75 6 T 100 6 V 14 H 0 Z'/%3E%3C/svg%3E");
+  background-size: 72px 100%;
+  animation: liquidWaveFlow 2.8s linear infinite;
+  z-index: 1;
+}
+#hero-res-protein-gauge .target-wave-front {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14'%3E%3Cpath fill='%23F97316' fill-opacity='0.85' d='M0 5 Q 12.5 1 25 5 T 50 5 T 75 5 T 100 5 V 14 H 0 Z'/%3E%3Cpath fill='none' stroke='%23FEF08A' stroke-width='2' stroke-linecap='round' d='M0 5 Q 12.5 1 25 5 T 50 5 T 75 5 T 100 5'/%3E%3C/svg%3E");
+  background-size: 54px 100%;
+  animation: liquidWaveFlow 1.6s linear infinite;
+  z-index: 2;
+}
+
+/* 2. Hydration Gauge (Aquatic Energy Blue) */
+#hero-res-water-gauge {
+  background: linear-gradient(180deg, #38BDF8 0%, #0284C7 50%, #0369A1 100%) !important;
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.5), inset 0 1px 1.5px rgba(255, 255, 255, 0.6) !important;
+}
+#hero-res-water-gauge .target-wave-back {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14'%3E%3Cpath fill='%230369A1' fill-opacity='0.6' d='M0 6 Q 12.5 10 25 6 T 50 6 T 75 6 T 100 6 V 14 H 0 Z'/%3E%3C/svg%3E");
+  background-size: 72px 100%;
+  animation: liquidWaveFlow 2.8s linear infinite;
+  z-index: 1;
+}
+#hero-res-water-gauge .target-wave-front {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14'%3E%3Cpath fill='%230EA5E9' fill-opacity='0.85' d='M0 5 Q 12.5 1 25 5 T 50 5 T 75 5 T 100 5 V 14 H 0 Z'/%3E%3Cpath fill='none' stroke='%23E0F2FE' stroke-width='2' stroke-linecap='round' d='M0 5 Q 12.5 1 25 5 T 50 5 T 75 5 T 100 5'/%3E%3C/svg%3E");
+  background-size: 54px 100%;
+  animation: liquidWaveFlow 1.6s linear infinite;
+  z-index: 2;
+}
+
+/* 3. Training & Activity Gauge (Spline Energy Green Match) */
+#hero-res-activity-gauge {
+  background: linear-gradient(180deg, #10B981 0%, #059669 50%, #047857 100%) !important;
+  box-shadow: 0 2px 10px rgba(5, 150, 105, 0.5), inset 0 1px 1.5px rgba(255, 255, 255, 0.6) !important;
+}
+#hero-res-activity-gauge .target-wave-back {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14'%3E%3Cpath fill='%23047857' fill-opacity='0.6' d='M0 6 Q 12.5 10 25 6 T 50 6 T 75 6 T 100 6 V 14 H 0 Z'/%3E%3C/svg%3E");
+  background-size: 72px 100%;
+  animation: liquidWaveFlow 2.8s linear infinite;
+  z-index: 1;
+}
+#hero-res-activity-gauge .target-wave-front {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14'%3E%3Cpath fill='%2310B981' fill-opacity='0.85' d='M0 5 Q 12.5 1 25 5 T 50 5 T 75 5 T 100 5 V 14 H 0 Z'/%3E%3Cpath fill='none' stroke='%23CCFF00' stroke-width='2' stroke-linecap='round' d='M0 5 Q 12.5 1 25 5 T 50 5 T 75 5 T 100 5'/%3E%3C/svg%3E");
+  background-size: 54px 100%;
+  animation: liquidWaveFlow 1.6s linear infinite;
+  z-index: 2;
+}
+
+/* Internal Fluid Caustic Swell */
+.target-liquid-swell {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.35) 0%, transparent 65%);
+  animation: liquidSwellPulse 2.2s ease-in-out infinite alternate;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 4;
+}
+
+@keyframes liquidWaveFlow {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 108px;
+  }
+}
+
+@keyframes liquidSwellPulse {
+  0% {
+    opacity: 0.3;
+    transform: scaleX(0.85);
+  }
+  100% {
+    opacity: 0.85;
+    transform: scaleX(1.15);
+  }
+}
+
+/* Obsidian Liquid Glass Pills */
+.target-liquid-pill {
+  background: rgba(0, 0, 0, 0.90) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.35), 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+  color: #FFFFFF !important;
+}
+
+/* Overview Liquid Button */
+.target-liquid-btn {
+  background: #000000 !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.35), 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.target-liquid-btn:hover {
+  background: #18181B !important;
+  box-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.45), 0 6px 16px rgba(0, 0, 0, 0.28) !important;
+  transform: translateY(-1px);
+}
+
+/* Zero-Lag GPU Micro-Animations for 3D Elements */
+@keyframes flame3dFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -4px, 0) scale3d(1.03, 1.03, 1);
+  }
+}
+.flame-3d-anim {
+  animation: flame3dFloat 3.2s ease-in-out infinite;
+  will-change: transform;
+  transform-origin: bottom center;
+}
+
+@keyframes dropletFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -3px, 0);
+  }
+}
+.droplet-3d-anim {
+  animation: dropletFloat 2.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes heartbeat3d {
+  0%, 100% {
+    transform: scale3d(1, 1, 1);
+  }
+  14% {
+    transform: scale3d(1.08, 1.08, 1);
+  }
+  28% {
+    transform: scale3d(1, 1, 1);
+  }
+  42% {
+    transform: scale3d(1.12, 1.12, 1);
+  }
+  70% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+.heart-3d-anim {
+  animation: heartbeat3d 2.4s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+  will-change: transform;
+  transform-origin: center center;
+}
+
+@keyframes waterWaveShimmer {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(2px, 0, 0);
+    opacity: 1;
+  }
+}
+.water-wave-anim {
+  animation: waterWaveShimmer 3s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Optimal Range Gauge Bar (Multi-Color fill support) */
+.it-gauge-track {
+  height: 8px;
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+.it-gauge-optimal,
+.it-gauge-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================ */
+/* SECTION PILL BADGES & TYPOGRAPHY                             */
+/* ============================================================ */
+.it-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  background: #EAF7E1;
+  color: #005550;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.it-heading-xl {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #004020;
+}
+
+.it-heading-lg {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #004020;
+}
+
+.it-body-lead {
+  font-size: clamp(1rem, 1.5vw, 1.1875rem);
+  line-height: 1.65;
+  color: #555555;
+}
+
+/* ============================================================ */
+/* LIQUID GLASS CARDS (HOW FITPREDICT EMPOWERS PERFORMANCE)     */
+/* ============================================================ */
+.liquid-glass-card {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.86) 55%, rgba(240, 253, 244, 0.78) 100%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 2.5px solid #004020 !important;
+  border-radius: 24px;
+  box-shadow: 0 10px 26px -6px rgba(0, 40, 20, 0.12),
+              0 2px 6px -1px rgba(0, 0, 0, 0.04),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(100, 200, 0, 0.6) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.liquid-glass-card:hover {
+  transform: translateY(-6px);
+  border-color: #002814 !important;
+  box-shadow: 0 20px 42px -10px rgba(0, 64, 32, 0.28),
+              0 0 0 1px #004020,
+              inset 0 1px 0 0 rgba(255, 255, 255, 1);
+}
+
+.liquid-glass-glow {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 130px;
+  height: 130px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(100, 200, 0, 0.20) 0%, rgba(0, 158, 82, 0.08) 50%, transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0.65;
+}
+
+.liquid-glass-card:hover .liquid-glass-glow {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* Card 1 Animation: Nutrition & Hydration Pacing Floating Bounce */
+@keyframes nutritionFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(3deg);
+  }
+}
+@keyframes sparkleShimmer {
+  0%, 100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2) rotate(12deg);
+  }
+}
+.icon-anim-nutrition {
+  animation: nutritionFloat 3.5s ease-in-out infinite;
+}
+.sparkle-anim-nutrition {
+  animation: sparkleShimmer 2.2s ease-in-out infinite;
+}
+.card-empower-nutrition:hover .icon-anim-nutrition {
+  animation: nutritionFloat 1.2s ease-in-out infinite;
+}
+
+/* Card 2 Animation: Instant Biometric Recalibration Radar Spin */
+@keyframes syncRadarSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  65% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes liveSyncPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 158, 82, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(100, 200, 0, 0);
+  }
+}
+.icon-anim-sync {
+  display: inline-flex;
+  animation: syncRadarSpin 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.badge-anim-sync {
+  animation: liveSyncPulse 2.4s infinite;
+}
+.card-empower-sync:hover .icon-anim-sync {
+  animation: syncRadarSpin 1.1s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+/* Card 3 Animation: Fatigue Shield Heartbeat Aura */
+@keyframes shieldHeartbeat {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0 rgba(0, 158, 82, 0));
+  }
+  30% {
+    transform: scale(1.10);
+    filter: drop-shadow(0 0 8px rgba(100, 200, 0, 0.5));
+  }
+  45% {
+    transform: scale(0.97);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+}
+.icon-anim-shield {
+  animation: shieldHeartbeat 2.8s ease-in-out infinite;
+}
+.card-empower-shield:hover .icon-anim-shield {
+  animation-duration: 1.2s;
+}
+
+/* ============================================================ */
+/* OPEN SOURCE SECTION & FOOTER: SEAMLESS DARK ZONE CONTINUITY  */
+/* ============================================================ */
+#open-source {
+  background-color: #001A10 !important;
+  position: relative;
+  z-index: 70;
+  opacity: 1 !important;
+}
+
+#open-source::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -40px;
+  height: 60px;
+  background-color: #001A10;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.it-footer {
+  position: relative;
+  z-index: 71;
+  background: linear-gradient(180deg, #001D12 0%, #00150D 50%, #000E08 100%);
+  color: #E5E4DC;
+  border-top: 2px solid #004D28;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+.it-footer a.footer-nav-link {
+  color: rgba(255, 255, 255, 0.78);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.it-footer a.footer-nav-link:hover {
+  color: #64C800;
+  transform: translateX(4px);
+}
+.it-footer a.footer-nav-link i {
+  transition: transform 0.22s ease, opacity 0.22s ease;
+  opacity: 0.6;
+}
+.it-footer a.footer-nav-link:hover i {
+  transform: translateX(2px);
+  opacity: 1;
+  color: #64C800;
+}
+
+/* ============================================================ */
+/* HOW IT WORKS: DARK GREEN BIOMETRIC PIPELINE (NON-CARD)       */
+/* ============================================================ */
+.how-it-works-spine {
+  will-change: transform;
+}
+.how-it-works-hud {
+  will-change: transform, opacity;
+}
+.how-it-works-step {
+  will-change: transform, opacity;
+  transition: transform 0.25s ease;
+}
+.how-it-works-step:hover {
+  transform: translateX(4px);
+}
+
+/* ============================================================ */
+/* BENCHO ROLLING COUNTER (MIT LICENSED — bencho.dev/licence)   */
+/* ============================================================ */
+
+/* ══ Rolling counter ═════════════════════════════════════ */
+
+.rct {
+  /* Bencho Token Mappings — localized to FitPredict design system */
+  --card: var(--it-card, #FFFFFF);
+  --fill-slab: var(--it-stone, #F3F2E9);
+  --fill-on: var(--it-dark, #262626);
+  --ink: var(--it-dark, #262626);
+  --font-ui: var(--font-display, 'Montserrat', sans-serif);
+  --pane-edge: var(--it-border, #E5E4DC);
+  --signal: var(--it-green, #64C800);
+
+  font-family: var(--font-ui);
+
+  /* positioned so the canvas's grab halo does not paint over
+     the buttons — see the note on .gen */
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+
+  /* 5px round each key — above, below and at the box's end —
+     and the corner is the box's less that same 5, so the keys
+     sit concentric in it at any Corner */
+  padding: 5px;
+  border-radius: var(--rct-r, 16px);
+  background: var(--fill-slab, var(--card));
+  color: var(--fill-on, var(--ink));
+}
+
+[data-stroke="on"] .rct { box-shadow: 0 0 0 1px var(--pane-edge); }
+
+.rct-btn {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: var(--rct-cell, 46px);
+  flex: none;
+  padding: 0;
+  border: 0;
+  border-radius: var(--rct-in, 11px);
+  background: color-mix(in srgb, var(--fill-on, #17181a) 6%, var(--fill-slab, #ffffff));
+  color: inherit;
+  cursor: pointer;
+  transition: scale 200ms cubic-bezier(0.3, 0.9, 0.4, 1), background-color 160ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.rct-btn:hover { background: color-mix(in srgb, var(--fill-on, #17181a) 10%, var(--fill-slab, #ffffff)); }
+
+.rct-btn:active { scale: 0.9; transition-duration: 110ms; }
+
+.rct-btn:focus-visible, .rct-num:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--fill-slab, #ffffff), 0 0 0 4px var(--signal, #2231dd);
+}
+
+/* the number hugs its digits and the buttons hug the number:
+   a column arriving or leaving animates its own width, so the
+   pill grows and shrinks with the count rather than keeping
+   room for five digits it is not showing */
+.rct-num {
+  display: flex;
+  justify-content: center;
+  padding: 0 14px;
+  height: var(--rct-cell, 46px);
+  font-size: 30px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: var(--rct-cell, 46px);
+  cursor: ns-resize;
+  touch-action: none;
+  user-select: none;
+  border-radius: 8px;
+  /* rolling digits fade at the window's top and bottom edge */
+  mask-image: linear-gradient(transparent, #000 20%, #000 80%, transparent);
+  -webkit-mask-image: linear-gradient(transparent, #000 20%, #000 80%, transparent);
+}
+
+.rct-pair { display: flex; }
+
+.rct-col {
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  height: var(--rct-cell, 46px);
+  transition: width 320ms cubic-bezier(0.3, 1.2, 0.4, 1), opacity 220ms ease;
+}
+
+.rct-col[data-on] { width: 0.64em; opacity: 1; }
+
+.rct-strip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  will-change: transform;
+}
+
+.rct-strip > span { height: var(--rct-cell, 46px); }
+
+.rct-sep {
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: width 320ms cubic-bezier(0.3, 1.2, 0.4, 1), opacity 220ms ease;
+}
+
+.rct-sep[data-on] { width: 0.26em; opacity: 1; }
+
+/* In-Card Dark Glass Preset Tokens for RollingCounter */
+#prompt .rct {
+  --card: rgba(255, 255, 255, 0.08);
+  --fill-slab: rgba(255, 255, 255, 0.14);
+  --fill-on: #FFFFFF;
+  --ink: #FFFFFF;
+  --pane-edge: rgba(255, 255, 255, 0.25);
+  --signal: #64C800;
+}
+
+/* ============================================================ */
+/* TELEMETRY STEPPER ODOMETER (POWERED BY BENCHO SPRING PHYSICS)*/
+/* ============================================================ */
+.vb-odometer-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  min-width: 28px;
+  flex: 1 1 auto;
+  overflow: hidden;
+  cursor: ns-resize;
+  user-select: none;
+  touch-action: none;
+}
+
+.vb-odometer-col {
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  overflow: hidden;
+  vertical-align: top;
+  width: 0.60em;
+  text-align: center;
+  flex-shrink: 0;
+  transition: width 200ms cubic-bezier(0.3, 1.2, 0.4, 1), opacity 150ms ease;
+}
+
+.vb-odometer-col[data-hidden="true"] {
+  display: none !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  opacity: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.vb-odometer-strip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  will-change: transform;
+}
+
+.vb-odometer-strip > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  line-height: 28px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.vb-odometer-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.32em;
+  height: 28px;
+  line-height: 28px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 19px;
+  font-weight: 900;
+  color: #FFFFFF;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================================ */
+/* BENCHO LIQUID TOGGLE (MIT LICENSED — bencho.dev/licence)     */
+/* ============================================================ */
+
+/* ── the rest of them ────────────────────────────────────────
+   Not every block has a ::before to hang a border on, and
+   giving each one a pseudo-element it does not otherwise need
+   is a lot of stylesheet for a hairline. A 1px spread shadow
+   is the same mark by another means — the create menu has
+   used exactly this since it was written, for exactly this
+   reason — and it composites without touching layout.
+
+   This is what makes Stroke honest on every entry rather than
+   on the dozen that happened to be built on a glass pane. */
+[data-stroke="on"] .bal,
+[data-stroke="on"] .bar-rail,
+[data-stroke="on"] .fan-core,
+[data-stroke="on"] .step-pill,
+[data-stroke="on"] .liq-sw,
+[data-stroke="on"] .deck-card,
+[data-stroke="on"] .tick-row {
+  box-shadow: 0 0 0 1px var(--pane-edge);
+}
+
+/* ── and the node card ─────────────────────────────────────
+   It drew its hairline unconditionally for a revision, which
+   is the one thing a block with a Stroke control must not do:
+   the control then reads as broken in the Off position,
+   because the edge it promises to remove is still there. The
+   ring follows the card's own corner, which is a knob. */
+[data-stroke="on"] .nod-card {
+  box-shadow: 0 0 0 1px var(--pane-edge);
+  border-radius: var(--nod-r, 20px);
+}
+
+/* ════ liquid ═══════════════════════════════════════════════
+   Three studies in one filter. Prefix liq-.
+
+   Every one of these is two layers in register: opaque shapes
+   on a layer carrying url(#liq-goo), and anything that needs
+   a crisp edge — text, a hit area — riding above on a layer
+   that carries no filter at all. The goo eats translucency
+   and mangles glyphs, so nothing else can share the layer. */
+
+/* ── 1 · liquid toggle ───────────────────────────────────── */
+.liq-well {
+  width: 240px; height: 130px;
+  display: grid; place-items: center;
+}
+
+/* ── BLACK AND WHITE, AND NO EDGE OF ITS OWN ────────────────
+   The on state was a green wash with a green ring, which made
+   this the only block on the bench asserting a colour nothing
+   else uses — and a switch does not need a hue to say it is
+   on. It inverts instead: a light track with a dark thumb
+   becomes a dark track with a light one, which is the strongest
+   thing two colours can say and the only thing this component
+   has to say.
+
+   `--fill-on` / `--fill-slab` rather than --ink / --board, so
+   the pair follows the Fill control the entry declares instead
+   of naming a colour twice.
+
+   And no inset ring. It carried one unconditionally, which is
+   an edge the Stroke switch cannot take away — the same bug
+   the sleep pill, the command bar and the Notify pill all had.
+   Stroke's own rule is a few hundred lines up. */
+.liq-sw {
+  /* Bencho Token Mappings — mapped locally to FitPredict system */
+  --board: var(--it-bg, #F9F9F7);
+  --card: var(--it-card, #FFFFFF);
+  --fill-slab: var(--it-stone, #F3F2E9);
+  --fill-on: var(--it-dark, #262626);
+  --ink: var(--it-forest, #004020);
+  --pane-edge: var(--it-border, #E5E4DC);
+  --nod-r: 20px;
+
+  position: relative;
+  width: 92px; height: 46px;
+  padding: 0; border: 0;
+  /* ── ALWAYS A PILL ────────────────────────────────────────
+     It took a Corner knob for a while and does not any more.
+     A switch is a pill: that is the shape the gesture is named
+     after, and squaring it turns a thing you slide into a
+     thing you click. The droplet inside followed the knob too,
+     concentrically, and the same argument applies twice over —
+     one number that could only ever make the component less
+     like itself. */
+  border-radius: 999px;
+  /* ── OFF IS THE SLAB, NOT A GREY ─────────────────────────
+     The two states are the two ends of the fill's own ramp,
+     and OFF is the light end of it: the track is the slab —
+     white on a light fill, near-black on a dark one — and the
+     dot is a grey mixed toward it. ON is the inversion, ink
+     track and slab dot, which is what it always was.
+
+     Read across the pair, the TRACK carries the state and the
+     dot is along for the ride. It was the other way round:
+     the off track was a 12% wash and the dot was full ink, so
+     the loud half of the switch was the part that only moves.
+
+     It reads because the card behind is not white — the stage
+     is the board's own grey, so a white pill on it is an
+     object. Stroke's hairline is there for anywhere it is
+     not. */
+  background: var(--fill-slab, var(--card));
+  cursor: pointer;
+  /* it is a rail you can push along, not only a button */
+  touch-action: none;
+  transition: background 420ms ease;
+}
+
+.liq-sw[data-on="true"] { background: var(--fill-on, var(--ink)); }
+
+.liq-sw-blobs {
+  position: absolute; inset: 0;
+}
+
+/* opaque on purpose: a goo filter over a translucent fill
+   thresholds the alpha away and the shape disappears */
+/* left: 0 is not optional. These are inline elements, so with
+   left: auto the static position is wherever the line box put
+   them — and the button they sit in centres its text, which
+   pushed both blobs to the middle of the track and the thumb
+   clean off the end of it. */
+/* ── the droplet, and it is the ONLY body ───────────────────
+   There was a second, smaller blob running behind it on a
+   lagging spring; the goo between them necked into a thread,
+   which is what a trail is and what it looks like. It is one
+   body that stretches now — see the note in Liquid.tsx, and
+   the dragging ball's, which lost the same thing first.
+
+   `left: 0` is not optional. It is an inline element, so with
+   `left: auto` the static position is wherever the line box
+   put it — and the button it sits in centres its text, which
+   pushed the thumb to the middle of the track.
+
+   OPAQUE on purpose: a goo filter over a translucent fill
+   thresholds the alpha away and the shape disappears. Which
+   is why the grey is a `color-mix` and not an alpha — see the
+   note where the off colour is chosen. */
+.liq-thumb {
+  position: absolute;
+  left: 0; top: 50%;
+  /* the size comes from Liquid.tsx, which also needs it for the
+     travel — one number, so the circle and the distance it
+     crosses cannot disagree */
+  width: var(--liq-thumb, 36px); height: var(--liq-thumb, 36px);
+  margin-top: calc(var(--liq-thumb, 36px) / -2);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--fill-on, var(--ink)) 19%, var(--fill-slab, var(--card)));
+  /* transform is Framer's — a CSS transition on the same
+     property re-interpolates every frame the spring writes,
+     and what you see is the easing, not the spring. The colour
+     is the only thing here that eases, and it is the only one
+     that can: everything else about this element is written
+     into one transform by Framer. */
+  transition: background 420ms ease;
+}
+
+/* ON inverts the pair: ink track, slab droplet. The two states
+   are the two ends of the fill's ramp and never two values of
+   the same one. */
+.liq-sw[data-on="true"] .liq-thumb { background: var(--fill-slab, var(--board)); }
+
+@media (prefers-reduced-motion: reduce) {
+  .liq-thumb, .liq-pill, .liq-bead { transition-duration: 160ms; }
+}
+
+/* ============================================================ */
+/* FITPREDICT SPECIALIZED LIQUID GENDER SWITCHER               */
+/* ============================================================ */
+.liq-gender-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.liq-gender-sw {
+  --board: rgba(0, 37, 24, 0.95);
+  --card: rgba(255, 255, 255, 0.12);
+  --fill-slab: rgba(0, 20, 10, 0.45);
+  --fill-on: #64C800;
+  --ink: #002518;
+  --pane-edge: rgba(255, 255, 255, 0.22);
+
+  position: relative;
+  width: 140px;
+  height: 38px;
+  padding: 0;
+  border: 1.5px solid var(--pane-edge);
+  border-radius: 999px;
+  background: var(--fill-slab);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 25, 12, 0.25);
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.liq-gender-sw:hover {
+  border-color: rgba(100, 200, 0, 0.5);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 0 16px rgba(100, 200, 0, 0.25);
+}
+
+.liq-gender-sw:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4), 0 0 0 4px #64C800;
+}
+
+.liq-gender-sw .liq-sw-blobs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.liq-gender-sw .liq-thumb {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 66px;
+  height: 30px;
+  margin-top: -15px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #E6F4EA 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35), inset 0 1px 1px #FFFFFF;
+  will-change: transform;
+  transform-origin: center center;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.liq-gender-sw[data-on="true"] .liq-thumb {
+  background: linear-gradient(135deg, #64C800 0%, #4E9E00 100%);
+  box-shadow: 0 2px 10px rgba(100, 200, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.liq-labels-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.liq-label {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.25s ease, font-weight 0.25s ease, transform 0.25s ease;
+  user-select: none;
+}
+
+.liq-label.active {
+  color: #00381B;
+  font-weight: 900;
+  transform: scale(1.04);
+}
+
+.liq-gender-sw[data-on="true"] .liq-label[data-gender-val="female"].active {
+  color: #002518;
+}
+
+.liq-sym {
+  font-size: 13px;
+  line-height: 1;
+}
+
+/* ============================================================ */
+/* NEURAL PLANETARY ORBIT SYSTEM (PRECISION INTELLIGENCE)       */
+/* ============================================================ */
+.neural-orbit-track {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.neural-orbit-outer {
+  width: 104%;
+  height: 104%;
+  animation: orbitRotate 28s linear infinite;
+  border: 1px dashed rgba(100, 200, 0, 0.22);
+}
+
+.neural-orbit-inner {
+  width: 70%;
+  height: 70%;
+  animation: orbitCounterRotateTrack 16s linear infinite;
+  border: 1px dotted rgba(255, 255, 255, 0.14);
+}
+
+.neural-orbit-node {
+  position: absolute;
+  pointer-events: auto;
+  animation: orbitCounterRotate 28s linear infinite;
+}
+
+/* 3 Satellite Node Coordinates at 120-degree Triad */
+.node-pos-top {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.node-pos-bottom-left {
+  top: 76%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.node-pos-bottom-right {
+  top: 76%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+}
+
+/* Inner Particles */
+.neural-orbit-particle {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #64C800;
+  box-shadow: 0 0 10px #64C800, 0 0 20px #64C800;
+}
+
+.particle-pos-1 {
+  top: -3.5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.particle-pos-2 {
+  bottom: -3.5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes orbitRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes orbitCounterRotateTrack {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+@keyframes orbitCounterRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* ============================================================ */
+/* NON-CARD BIOMETRIC TELEMETRY STREAM (PERSONALIZED PLAN)      */
+/* ============================================================ */
+.bio-telemetry-pipeline {
+  isolation: isolate;
+}
+
+.bio-stream-node {
+  transition: transform 0.25s ease;
+}
+
+.bio-stream-node:hover {
+  transform: translateX(4px);
+}
+
+.bio-node-pin {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+/* ============================================================ */
+/* METRICS ROLL-UP COUNTER STYLING                              */
+/* ============================================================ */
+.counter-val {
+  display: inline-block;
+  will-change: contents;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================================ */
+/* BENCHO IMAGE ACCORDION                                       */
+/* ============================================================ */
+/* ══ Image accordion ════════════════════════════════════════
+   A row of pictures cropped to slivers, one of which opens
+   under the pointer. The arithmetic of who pays for that is
+   in Accordion.tsx — five grow numbers on five springs — and
+   what is here is the box they negotiate inside and the crop
+   that keeps a photograph a photograph while it happens. */
+.acc {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  /* the strip's radius is set in the component and it is the
+     SAME number every picture takes — see RMAX in
+     Accordion.tsx. It used to be a flat 12 of its own, which
+     cut the first picture's left corners and the last one's
+     right at a radius the other three never saw.
+
+     The clip stays because flex widths land on fractions and a
+     cell can overhang its container by a sub-pixel; it is no
+     longer doing any shaping of its own. */
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  /* a picture is not a text selection, and a finger dragged
+     across the strip should read as a hover rather than as an
+     attempt to scroll the page sideways */
+  touch-action: pan-y;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 15, 10, 0.6);
+}
+
+.acc-cell {
+  position: relative;
+  /* ── the grow number is the WHOLE story ──────────────────
+     `flex-basis: 0` so nothing is reserved before the
+     negotiation starts — with `auto` the pictures' own widths
+     get a vote and the grow numbers only divide what is left
+     over, which makes the same setting mean different things
+     at different counts.
+
+     And `min-width: 0`, which is the one that bites: a flex
+     item will not shrink below its content by default, and
+     the content here is an image. Without it the four
+     pictures paying for the open one stop shrinking at their
+     intrinsic width and the row overflows its own strip. */
+  flex-basis: 0;
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+  /* the radius is set per cell from the gap — see RMAX in
+     Accordion.tsx — because a rounded picture against a
+     rounded picture with no air between them shows a notch of
+     page at every join */
+  transition: opacity 0.25s ease;
+}
+
+.acc-cell img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* ── `cover`, and the height is what fixes the scale ──────
+     The strip's height never changes, and the pictures are
+     all the same ratio, so the scale `cover` picks never
+     changes either. Widening a cell therefore admits more of
+     the photograph on each side and moves nothing that was
+     already showing — which is what makes this read as a
+     window opening rather than as a picture being pulled
+     about. `contain` would letterbox and a plain width would
+     stretch; both were the wrong answer to the same question. */
+  object-fit: cover;
+  -webkit-user-drag: none;
+}
+
+/* Preset Cards Accordion Enhancements */
+.preset-accordion-card {
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  background-color: #00180D;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.preset-accordion-card:hover {
+  border-color: rgba(100, 200, 0, 0.5);
+  box-shadow: 0 20px 48px rgba(0, 35, 18, 0.45);
+}
+
+.preset-accordion-card[data-open="true"] {
+  z-index: 10;
+  border-color: #64C800;
+}
+
+.preset-accordion-card[data-open="true"] .btn-load-preset {
+  background-color: #64C800 !important;
+  color: #004020 !important;
+  box-shadow: 0 0 24px rgba(100, 200, 0, 0.5);
+}
+
+/* ============================================================ */
+/* BENCHO 3D TURNTABLE CAROUSEL                                 */
+/* ============================================================ */
+/* ══ Carousel ═══════════════════════════════════════════════
+   A row of cards that drift at rest, give under the pointer,
+   and can be thrown. Three motions on three nested elements,
+   one transform each — see the note in Carousel.tsx for why
+   they cannot share a node. */
+.car {
+  position: relative;
+  font-family: var(--font-ui, 'Montserrat', sans-serif);
+  --bg: #FFFFFF;
+  --font-ui: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
+  --ink-rgb: 38, 38, 38;
+  --shadow-rgb: 0, 35, 18;
+  --lift: 6px;
+  --sway: 1.2deg;
+  margin: 0 auto;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ── the frame is only a frame ─────────────────────────────
+   No background, no clip, no mask. This was a box that cut
+   the cards at its edges, and before that a mask that faded
+   them out there, and both were answers to the question of
+   what happens to a card when it runs out of block. The cards
+   are on a ring now and never reach an edge, so the question
+   is gone and so is everything that was answering it.
+
+   Which also means nothing here forces `transform-style:
+   flat` any more — overflow and mask both did, and both were
+   safe only because the perspective sits two levels down on
+   `.car-float`. It no longer has to be. */
+.car-track {
+  position: absolute;
+  inset: 0;
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.car-track[data-held="true"] {
+  cursor: grabbing;
+}
+
+.car-track:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px rgba(var(--ink-rgb), 0.4);
+}
+
+/* the slot holds WHERE on the ring and the card's own resting
+   ANGLE, written per frame by the component — so it carries no
+   transition of its own, or the easing and the drag would
+   re-interpolate against each other and what you would see is
+   the transition rather than the finger */
+.car-slot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ── the drift ──────────────────────────────────────────────
+   Keyframes rather than a loop: a rAF per card would be a
+   permanent loop for motion nobody is watching, and a wall
+   holding several of these blocks would run a dozen. This
+   runs on the compositor and pauses itself when the tab
+   hides. The period is set per card and deliberately does not
+   divide into its neighbours' — that is what stops the row
+   breathing in unison.
+
+   The perspective lives HERE, not on the track: on the track
+   a card at the edge of the row would tilt toward the middle
+   of the stage rather than toward the finger on it. Each card
+   is its own object being touched and wants its own vanishing
+   point. */
+.car-float {
+  width: 100%;
+  height: 100%;
+  perspective: 760px;
+  animation: car-bob 5s ease-in-out infinite;
+}
+
+.car-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  box-shadow: 0 20px 48px -8px rgba(0, 35, 18, 0.45);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  /* no transition: the tilt is sprung in the component, and a
+     transition on top would be a second opinion about how this
+     card settles */
+}
+
+.car-sheen {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .car-float { animation: none; }
+}
+
+@keyframes car-bob {
+  0%, 100% {
+    transform: translateY(calc(var(--lift, 4px) * -1)) rotate(calc(var(--sway, 1deg) * -1));
+  }
+  50% {
+    transform: translateY(var(--lift, 4px)) rotate(var(--sway, 1deg));
+  }
+}
+
+[data-carousel-dot].active {
+  background-color: #004020 !important;
+  width: 24px !important;
+  border-radius: 9999px !important;
+}
+
+/* ============================================================ */
+/* HERO KINETIC WORD ROTATOR & TYPOGRAPHY REVEAL                */
+/* ============================================================ */
+[data-rotator] {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: bottom;
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.rot-word {
+  display: inline-block;
+  white-space: nowrap;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+  will-change: transform, opacity;
+}
+
+.rot-word.rot-abs {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(110%);
+}
+
+.rot-word.rot-abs.rot-leaving {
+  opacity: 0;
+  transform: translateY(-110%);
+}
+
+.rot-word.rot-entering {
+  animation: rot-slide-in 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes rot-slide-in {
+  from {
+    transform: translateY(110%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.hero-line {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+
+
+
+
+
+
