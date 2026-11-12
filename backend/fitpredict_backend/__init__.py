@@ -1,1 +1,0 @@
-# FitPredict Django Backend
