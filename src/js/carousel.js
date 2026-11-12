@@ -397,14 +397,28 @@ export function initPresetCarousel(onSelectPreset) {
   const container = document.getElementById('presets-carousel');
   if (!container) return null;
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+
   const carousel = new BenchoCarousel(container, {
-    orbit: 260,
-    depth: 105,
+    orbit: isMobile ? 150 : 260,
+    depth: isMobile ? 65 : 105,
     settle: 48,
     autoplay: true,
     autoplayInterval: 2700,
     onSelectPreset
   });
+
+  // Responsive orbit & depth recalibration on resize
+  window.addEventListener('resize', () => {
+    const mobileNow = window.innerWidth < 640;
+    const targetOrbit = mobileNow ? 150 : 260;
+    const targetDepth = mobileNow ? 65 : 105;
+    if (carousel.orbit !== targetOrbit) {
+      carousel.orbit = targetOrbit;
+      carousel.depth = targetDepth;
+      carousel.paint();
+    }
+  }, { passive: true });
 
   // Navigation Arrows (search container and document)
   const btnPrev = container.querySelector('[data-carousel-prev]') || document.querySelector('[data-carousel-prev]');

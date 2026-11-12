@@ -61,7 +61,12 @@ export function initEmpowerNetwork() {
       let d = '';
 
       if (window.innerWidth < 768) {
-        d = '';
+        // On mobile: draw clean vertical connecting line from Core to first branch card
+        if (idx === 0) {
+          d = `M ${startX} ${startY} V ${targetY}`;
+        } else {
+          d = '';
+        }
       } else {
         const deltaX = targetX - startX;
         if (Math.abs(deltaX) < 25) {

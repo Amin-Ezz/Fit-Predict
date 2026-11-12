@@ -49,8 +49,8 @@
             <span class="text-black font-bold">Start Prediction</span>
           </a>
 
-          <button type="button" id="mobile-menu-btn" class="md:hidden p-2 rounded-full border border-white/20 text-white hover:bg-white/10 focus:outline-none" aria-label="Toggle navigation menu">
-            <i data-lucide="menu" class="w-4 h-4"></i>
+          <button type="button" id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-full border border-white/30 text-white hover:bg-white/15 flex items-center justify-center transition-colors focus:outline-none" aria-label="Toggle navigation menu">
+            <i data-lucide="menu" class="w-5 h-5"></i>
           </button>
         </div>
 
@@ -59,18 +59,21 @@
   </div>
 
   <!-- Mobile Mega Menu Backdrop & Floating Drawer -->
-  <div id="mobile-menu-backdrop" class="hidden fixed inset-0 bg-black/65 backdrop-blur-xs z-[115] transition-opacity duration-300"></div>
+  <div id="mobile-menu-backdrop" class="hidden fixed inset-0 bg-black/40 backdrop-blur-md z-[115] transition-opacity duration-300"></div>
 
-  <div id="mobile-menu" class="hidden fixed inset-x-3 sm:inset-x-6 top-[76px] max-w-lg mx-auto z-[120] rounded-[28px] border border-[#009E52]/25 bg-white/98 backdrop-blur-2xl p-5 sm:p-6 shadow-[0_25px_60px_-15px_rgba(0,40,20,0.35)] transition-all duration-300 max-h-[calc(100dvh-95px)] overflow-y-auto">
+  <div id="mobile-menu" class="hidden fixed inset-x-3 sm:inset-x-6 top-[72px] max-w-lg mx-auto z-[120] rounded-[28px] border border-[#00E575]/35 bg-white/98 backdrop-blur-2xl p-5 sm:p-6 shadow-[0_25px_60px_-15px_rgba(0,40,20,0.25)] transition-all duration-300 max-h-[calc(100dvh-88px)] overflow-y-auto">
     
     <!-- Mega Menu Header -->
     <div class="flex items-center justify-between pb-3.5 border-b border-[#EAE8DE]">
-      <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-[#64C800] animate-pulse"></span>
-        <span class="text-xs font-mono font-bold uppercase tracking-wider text-[#004020]">Navigation Directory</span>
+      <div class="flex items-center gap-2.5">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00E575] opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#009E52]"></span>
+        </span>
+        <span class="text-xs font-mono font-extrabold uppercase tracking-widest text-[#004020]">Navigation Directory</span>
       </div>
-      <button type="button" id="mobile-menu-close" class="p-1.5 rounded-full hover:bg-black/5 text-[#555555] hover:text-[#004020] transition cursor-pointer" aria-label="Close menu">
-        <i data-lucide="x" class="w-5 h-5"></i>
+      <button type="button" id="mobile-menu-close" class="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#F0FDF4] border border-neutral-200 hover:border-[#009E52]/30 flex items-center justify-center text-[#262626] hover:text-[#004020] transition cursor-pointer shadow-xs" aria-label="Close menu">
+        <i data-lucide="x" class="w-4 h-4"></i>
       </button>
     </div>
 
@@ -79,98 +82,98 @@
       
       <!-- Group 1: AI Engine & Biometrics -->
       <div class="space-y-1.5">
-        <span class="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#009E52] block px-1">
+        <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-[#009E52] block px-1">
           AI Performance Engine
         </span>
-        <div class="grid grid-cols-1 gap-1">
-          <a href="#calculator" class="mobile-nav-link flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F0FDF4] border border-transparent hover:border-[#009E52]/20 transition group">
+        <div class="grid grid-cols-1 gap-1.5">
+          <a href="#calculator" class="mobile-nav-link flex items-center justify-between p-3 rounded-2xl bg-neutral-50/80 hover:bg-[#F0FDF4] border border-neutral-200/60 hover:border-[#00E575]/40 transition group">
             <div class="flex items-center gap-3">
-              <span class="w-7 h-7 rounded-lg bg-[#004020]/10 flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform flex-shrink-0">
-                <i data-lucide="calculator" class="w-3.5 h-3.5 text-[#009E52]"></i>
+              <span class="w-8 h-8 rounded-xl bg-[#00E575]/15 border border-[#00E575]/30 flex items-center justify-center text-[#007038] group-hover:scale-105 transition-transform flex-shrink-0 shadow-xs">
+                <i data-lucide="calculator" class="w-4 h-4 text-[#007038]"></i>
               </span>
               <div>
-                <span class="block text-[13.5px] font-bold text-[#004020] leading-tight">Biometric Predictor</span>
-                <span class="text-[10.5px] text-[#666666]">Target macro, hydration &amp; deload</span>
+                <span class="block text-sm font-bold text-[#002518] leading-tight">Biometric Predictor</span>
+                <span class="text-[11px] text-neutral-600 font-medium">Target macro, hydration &amp; deload</span>
               </div>
             </div>
-            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
           </a>
 
-          <a href="#how-it-works" class="mobile-nav-link flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F0FDF4] border border-transparent hover:border-[#009E52]/20 transition group">
+          <a href="#how-it-works" class="mobile-nav-link flex items-center justify-between p-3 rounded-2xl bg-neutral-50/80 hover:bg-[#F0FDF4] border border-neutral-200/60 hover:border-[#00E575]/40 transition group">
             <div class="flex items-center gap-3">
-              <span class="w-7 h-7 rounded-lg bg-[#004020]/10 flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform flex-shrink-0">
-                <i data-lucide="cpu" class="w-3.5 h-3.5 text-[#009E52]"></i>
+              <span class="w-8 h-8 rounded-xl bg-[#64C800]/15 border border-[#64C800]/30 flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform flex-shrink-0 shadow-xs">
+                <i data-lucide="cpu" class="w-4 h-4 text-[#004020]"></i>
               </span>
               <div>
-                <span class="block text-[13.5px] font-bold text-[#004020] leading-tight">Neural Engine</span>
-                <span class="text-[10.5px] text-[#666666]">Multi-task inference pipeline</span>
+                <span class="block text-sm font-bold text-[#002518] leading-tight">Neural Engine Visualizer</span>
+                <span class="text-[11px] text-neutral-600 font-medium">Multi-task live canvas pipeline</span>
               </div>
             </div>
-            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
           </a>
         </div>
       </div>
 
       <!-- Group 2: Profiles & Science -->
       <div class="space-y-1.5">
-        <span class="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#009E52] block px-1">
+        <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-[#009E52] block px-1">
           Athletics &amp; Science
         </span>
-        <div class="grid grid-cols-1 gap-1">
-          <a href="#presets" class="mobile-nav-link flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F0FDF4] border border-transparent hover:border-[#009E52]/20 transition group">
+        <div class="grid grid-cols-1 gap-1.5">
+          <a href="#presets" class="mobile-nav-link flex items-center justify-between p-3 rounded-2xl bg-neutral-50/80 hover:bg-[#F0FDF4] border border-neutral-200/60 hover:border-[#00E575]/40 transition group">
             <div class="flex items-center gap-3">
-              <span class="w-7 h-7 rounded-lg bg-[#004020]/10 flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform flex-shrink-0">
-                <i data-lucide="users" class="w-3.5 h-3.5 text-[#009E52]"></i>
+              <span class="w-8 h-8 rounded-xl bg-[#EA580C]/15 border border-[#EA580C]/30 flex items-center justify-center text-[#EA580C] group-hover:scale-105 transition-transform flex-shrink-0 shadow-xs">
+                <i data-lucide="users" class="w-4 h-4 text-[#EA580C]"></i>
               </span>
               <div>
-                <span class="block text-[13.5px] font-bold text-[#004020] leading-tight">Athlete Archetypes</span>
-                <span class="text-[10.5px] text-[#666666]">Endurance, Lifter, CrossFit &amp; Tone</span>
+                <span class="block text-sm font-bold text-[#002518] leading-tight">Athlete Archetypes</span>
+                <span class="text-[11px] text-neutral-600 font-medium">Endurance, Lifter, CrossFit &amp; Tone</span>
               </div>
             </div>
-            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
           </a>
 
-          <a href="#science" class="mobile-nav-link flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F0FDF4] border border-transparent hover:border-[#009E52]/20 transition group">
+          <a href="#science" class="mobile-nav-link flex items-center justify-between p-3 rounded-2xl bg-neutral-50/80 hover:bg-[#F0FDF4] border border-neutral-200/60 hover:border-[#00E575]/40 transition group">
             <div class="flex items-center gap-3">
-              <span class="w-7 h-7 rounded-lg bg-[#004020]/10 flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform flex-shrink-0">
-                <i data-lucide="activity" class="w-3.5 h-3.5 text-[#009E52]"></i>
+              <span class="w-8 h-8 rounded-xl bg-[#7C3AED]/15 border border-[#7C3AED]/30 flex items-center justify-center text-[#7C3AED] group-hover:scale-105 transition-transform flex-shrink-0 shadow-xs">
+                <i data-lucide="activity" class="w-4 h-4 text-[#7C3AED]"></i>
               </span>
               <div>
-                <span class="block text-[13.5px] font-bold text-[#004020] leading-tight">Performance Safeguards</span>
-                <span class="text-[10.5px] text-[#666666]">ISSN &amp; ACSM validated science</span>
+                <span class="block text-sm font-bold text-[#002518] leading-tight">Performance Safeguards</span>
+                <span class="text-[11px] text-neutral-600 font-medium">ISSN &amp; ACSM validated science</span>
               </div>
             </div>
-            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
           </a>
 
-          <a href="#impact" class="mobile-nav-link flex items-center justify-between p-2.5 rounded-xl hover:bg-[#F0FDF4] border border-transparent hover:border-[#009E52]/20 transition group">
+          <a href="#impact" class="mobile-nav-link flex items-center justify-between p-3 rounded-2xl bg-neutral-50/80 hover:bg-[#F0FDF4] border border-neutral-200/60 hover:border-[#00E575]/40 transition group">
             <div class="flex items-center gap-3">
-              <span class="w-7 h-7 rounded-lg bg-[#004020]/10 flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform flex-shrink-0">
-                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-[#009E52]"></i>
+              <span class="w-8 h-8 rounded-xl bg-[#0284C7]/15 border border-[#0284C7]/30 flex items-center justify-center text-[#0284C7] group-hover:scale-105 transition-transform flex-shrink-0 shadow-xs">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-[#0284C7]"></i>
               </span>
               <div>
-                <span class="block text-[13.5px] font-bold text-[#004020] leading-tight">Model Accuracy</span>
-                <span class="text-[10.5px] text-[#666666]">98.6% cross-validated concordances</span>
+                <span class="block text-sm font-bold text-[#002518] leading-tight">Model Accuracy</span>
+                <span class="text-[11px] text-neutral-600 font-medium">98.6% cross-validated concordances</span>
               </div>
             </div>
-            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
           </a>
         </div>
       </div>
 
-      <!-- Group 3: Open Science -->
+      <!-- Group 3: Open Science & Repository -->
       <div class="pt-0.5">
-        <a href="#open-source" class="mobile-nav-link flex items-center justify-between p-2.5 rounded-xl bg-[#001A10] text-white hover:bg-[#002818] transition group">
+        <a href="#open-source" class="mobile-nav-link flex items-center justify-between p-3 rounded-2xl bg-gradient-to-r from-[#F0FDF4] to-[#ECFDF5] border border-[#009E52]/25 hover:border-[#009E52]/50 shadow-xs transition group">
           <div class="flex items-center gap-3">
-            <span class="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center text-[#64C800] flex-shrink-0">
-              <i data-lucide="git-branch" class="w-3.5 h-3.5 text-[#64C800]"></i>
+            <span class="w-8 h-8 rounded-xl bg-[#004020] flex items-center justify-center text-[#64C800] flex-shrink-0 shadow-xs">
+              <i data-lucide="git-branch" class="w-4 h-4 text-[#64C800]"></i>
             </span>
             <div>
-              <span class="block text-[13.5px] font-bold text-white leading-tight">Open Source Code</span>
-              <span class="text-[10.5px] text-white/70">PyTorch &amp; ONNX engine runtime</span>
+              <span class="block text-sm font-bold text-[#004020] leading-tight">Open Source Code</span>
+              <span class="text-[11px] text-[#335544] font-medium">GitHub PyTorch &amp; ONNX runtime</span>
             </div>
           </div>
-          <span class="px-2 py-0.5 rounded text-[9.5px] font-mono font-bold bg-[#64C800]/20 text-[#64C800] border border-[#64C800]/40">MIT</span>
+          <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#004020] text-[#64C800] border border-[#64C800]/40">MIT</span>
         </a>
       </div>
 
@@ -178,7 +181,7 @@
 
     <!-- Bottom Action CTA -->
     <div class="pt-3 border-t border-[#EAE8DE]">
-      <a href="#calculator" class="mobile-nav-link it-btn-lime w-full py-3 text-xs sm:text-sm font-black flex items-center justify-center gap-2 rounded-xl shadow-md">
+      <a href="#calculator" class="mobile-nav-link it-btn-lime w-full py-3.5 text-xs sm:text-sm font-black flex items-center justify-center gap-2 rounded-2xl shadow-md uppercase tracking-wider">
         <i data-lucide="sparkles" class="w-4 h-4 text-[#004020]"></i>
         <span>Start AI Prediction</span>
       </a>
@@ -215,7 +218,7 @@
         <div class="max-w-2xl text-left">
 
           <!-- Headline -->
-          <h1 class="vb-hero-headline text-5xl sm:text-6xl md:text-7xl lg:text-[5.4rem] font-semibold text-white tracking-tight leading-[1.02] mb-5 drop-shadow-md">
+          <h1 class="vb-hero-headline text-4xl sm:text-6xl md:text-7xl lg:text-[5.4rem] font-semibold text-white tracking-tight leading-[1.02] mb-5 drop-shadow-md">
             <span class="block overflow-hidden"><span class="hero-line block">Predict</span></span>
             <span class="block overflow-hidden"><span class="hero-line block text-white">your peak</span></span>
           </h1>
@@ -255,7 +258,7 @@
       <!-- ======================================================== -->
       <!-- LEFT COLUMN: DEFAULT OVERVIEW OR PREDICTION RESULTS     -->
       <!-- ======================================================== -->
-      <div class="lg:col-span-5 calc-left-container relative z-10 min-h-[460px] flex flex-col justify-center">
+      <div class="lg:col-span-5 calc-left-container relative z-10 min-h-0 lg:min-h-[460px] flex flex-col justify-center">
         
         <!-- 1. DEFAULT OVERVIEW & INSIGHTS (VISIBLE INITIALLY) -->
         <div id="calc-info-default" class="calc-info-col space-y-6">
@@ -1108,7 +1111,7 @@
         </svg>
 
         <!-- Central Core Node at Top (FitPredict AI Core) -->
-        <div id="empower-core-wrapper" class="relative z-10 flex flex-col items-center text-center mb-16 sm:mb-20">
+        <div id="empower-core-wrapper" class="relative z-10 flex flex-col items-center text-center mb-10 sm:mb-20">
           <div id="empower-core-node" class="empower-core-card px-8 py-5 flex flex-col items-center justify-center cursor-pointer group shadow-xl w-full max-w-xs">
             <!-- Brain AI Chip Vector Icon (Enlarged, Borderless) -->
             <svg class="w-16 h-16 sm:w-20 sm:h-20 text-[#004020] mb-3 group-hover:scale-105 transition-transform" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
