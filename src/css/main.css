@@ -36,6 +36,7 @@ html {
   scroll-behavior: auto !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
 }
 
 /* Lenis Smooth Scroll Configuration */
@@ -57,7 +58,7 @@ html.lenis, html.lenis body {
 
 body {
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   background-color: #F9F9F7;
   color: #262626;
 }
@@ -113,8 +114,10 @@ html {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
 }
 
-.vb-brand-text {
+.vb-brand-text,
+.brand-surgena {
   font-family: 'Surgena', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  font-style: normal !important;
   font-weight: 600 !important;
   letter-spacing: -0.01em;
 }
@@ -440,23 +443,23 @@ html {
 /* ============================================================ */
 .hero-scroll-wrapper {
   position: relative;
-  min-height: 120vh; /* Smooth hero exit with immediate next card connection */
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 @media (max-width: 991px) {
   .hero-scroll-wrapper {
-    min-height: 110vh;
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 }
 
 .hero-sticky-container {
-  position: sticky;
-  top: 0;
+  position: relative;
   height: 100vh;
   height: 100dvh;
   width: 100%;
   overflow: hidden;
-  will-change: transform;
 }
 
 .hero-bg-video-wrap {
@@ -479,7 +482,11 @@ html {
 }
 
 .vb-hero-headline,
-.calc-section-title {
+.calc-section-title,
+.how-it-works-title,
+.presets-section-title,
+.impact-section-title,
+.science-section-title {
   font-family: 'Surgena', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
   font-style: normal !important;
   font-weight: 600 !important;
@@ -520,31 +527,66 @@ html {
   }
 }
 
-/* Stacking Card Sheet Effect (CleanMax Sheet Layering) */
+/* Stacking Card Sheet Lip Effect (Subtle Top Overlap — Only the Top Edge is Elevated) */
 .section-card {
-  position: relative;
+  position: relative !important;
+  margin-top: -28px;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
-  box-shadow: 0 -25px 60px -10px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 -18px 45px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -4px rgba(0, 0, 0, 0.16);
   transform: translateZ(0);
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   will-change: transform;
+}
+
+#calculator {
+  margin-top: 0 !important;
 }
 
 @media (min-width: 768px) {
   .section-card {
-    border-top-left-radius: 48px;
-    border-top-right-radius: 48px;
-    box-shadow: 0 -35px 80px -15px rgba(0, 0, 0, 0.42);
+    margin-top: -38px;
+    border-top-left-radius: 44px;
+    border-top-right-radius: 44px;
+    box-shadow: 0 -22px 55px -10px rgba(0, 0, 0, 0.35), 0 -8px 20px -5px rgba(0, 0, 0, 0.2);
+  }
+  #calculator {
+    margin-top: 0 !important;
   }
 }
 
 @media (min-width: 1280px) {
   .section-card {
-    border-top-left-radius: 56px;
-    border-top-right-radius: 56px;
-    box-shadow: 0 -40px 90px -15px rgba(0, 0, 0, 0.45);
+    margin-top: -46px;
+    border-top-left-radius: 52px;
+    border-top-right-radius: 52px;
+    box-shadow: 0 -26px 65px -12px rgba(0, 0, 0, 0.38), 0 -10px 24px -6px rgba(0, 0, 0, 0.22);
   }
+  #calculator {
+    margin-top: 0 !important;
+  }
+}
+
+/* Luminous highlight hairline along top curved edge */
+.section-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 3%;
+  right: 3%;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.22) 20%, rgba(100, 200, 0, 0.5) 50%, rgba(255, 255, 255, 0.22) 80%, transparent 100%);
+  pointer-events: none;
+  z-index: 50;
+  border-radius: 9999px;
+}
+
+#calculator::before,
+#presets::before,
+#science::before,
+.it-footer::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 64, 32, 0.12) 20%, rgba(100, 200, 0, 0.4) 50%, rgba(0, 64, 32, 0.12) 80%, transparent 100%);
 }
 
 /* ============================================================ */
@@ -2015,32 +2057,31 @@ html {
 
 .it-footer {
   position: relative;
-  z-index: 71;
-  background: linear-gradient(180deg, #001D12 0%, #00150D 50%, #000E08 100%);
-  color: #E5E4DC;
-  border-top: 2px solid #004D28;
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
+  z-index: 80;
+  background: #FFFFFF !important;
+  color: #262626 !important;
+  border-top: 1px solid #E5E4DC !important;
 }
 .it-footer a.footer-nav-link {
-  color: rgba(255, 255, 255, 0.78);
+  color: #555555 !important;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
 }
 .it-footer a.footer-nav-link:hover {
-  color: #64C800;
+  color: #004020 !important;
   transform: translateX(4px);
 }
 .it-footer a.footer-nav-link i {
   transition: transform 0.22s ease, opacity 0.22s ease;
-  opacity: 0.6;
+  opacity: 0.75;
+  color: #009E52 !important;
 }
 .it-footer a.footer-nav-link:hover i {
   transform: translateX(2px);
   opacity: 1;
-  color: #64C800;
+  color: #004020 !important;
 }
 
 /* ============================================================ */
@@ -2936,6 +2977,70 @@ html {
   display: inline-block;
   will-change: transform, opacity;
 }
+
+/* ============================================================ */
+/* EMPOWER PERFORMANCE BRANCHING NETWORK (WHITE THEME COMPATIBLE) */
+/* ============================================================ */
+.empower-core-card {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 24px;
+  border: 1.5px solid #00B359;
+  box-shadow: 0 10px 30px -5px rgba(0, 40, 20, 0.06), 0 0 18px rgba(0, 179, 89, 0.25), 0 0 32px rgba(100, 200, 0, 0.14);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+}
+
+.empower-core-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: #64C800;
+  box-shadow: 0 16px 40px -8px rgba(0, 64, 32, 0.16), 0 0 24px rgba(0, 179, 89, 0.38), 0 0 40px rgba(100, 200, 0, 0.22);
+}
+
+.empower-branch-card {
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 22px;
+  border: 1.5px solid #00B359;
+  box-shadow: 0 10px 30px -5px rgba(0, 40, 20, 0.06), 0 0 18px rgba(0, 179, 89, 0.25), 0 0 32px rgba(100, 200, 0, 0.14);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+}
+
+.empower-branch-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: #64C800;
+  box-shadow: 0 16px 40px -8px rgba(0, 64, 32, 0.16), 0 0 24px rgba(0, 179, 89, 0.38), 0 0 40px rgba(100, 200, 0, 0.22);
+}
+
+.empower-branch-card.empower-flare {
+  border-color: #00E575;
+  box-shadow: 0 16px 40px -6px rgba(0, 158, 82, 0.2), 0 0 28px rgba(0, 229, 117, 0.4), 0 0 45px rgba(100, 200, 0, 0.28);
+  transform: translateY(-2px);
+}
+
+.empower-base-path {
+  stroke: rgba(0, 64, 32, 0.18);
+  stroke-width: 2.2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.empower-pulse-path {
+  stroke: #009E52;
+  stroke-width: 3.2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 5px rgba(0, 158, 82, 0.6));
+}
+
+.empower-orb {
+  fill: #004020;
+  stroke: #64C800;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px rgba(100, 200, 0, 0.8));
+}
+
 
 
 

@@ -440,6 +440,7 @@ export function initCleanMaxScrollTransitions() {
   const impact = document.getElementById('impact');
   const science = document.getElementById('science');
   const openSource = document.getElementById('open-source');
+  const footer = document.querySelector('footer');
 
   // Shared Sub-Reveals (Spine line, Telemetry HUD, Science advisory cards)
   const initSubReveals = () => {
@@ -524,249 +525,117 @@ export function initCleanMaxScrollTransitions() {
   initSubReveals();
 
   // ============================================================
-  // DESKTOP & TABLETS (>= 768px)
-  // Prominent, Highly Visible CleanMax Stacking Card Depth
+  // SECTION TRANSITIONS: SUBTLE TOP LIP ELEVATION (Zero Lag)
+  // Only the top curved edge of each section is subtly elevated over the previous section
   // ============================================================
   mm.add('(min-width: 768px)', () => {
-    // 1. Hero Exit Scrub Transition
+    // 1. Hero Exit Transition (Subtle fade out without pinning the full screen)
     if (heroWrapper && heroContent) {
-      const heroTl = gsap.timeline({
+      gsap.to(heroContent, {
+        y: -40,
+        opacity: 0,
+        ease: 'power1.out',
         scrollTrigger: {
           trigger: heroWrapper,
           start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.35,
+          end: 'bottom 50%',
+          scrub: true,
         }
       });
-
-      heroTl.to(heroContent, {
-        y: -60,
-        opacity: 0,
-        duration: 0.85,
-        ease: 'power1.out',
-      }, 0);
-
-      if (heroVideoWrap) {
-        heroTl.to(heroVideoWrap, {
-          scale: 0.96,
-          duration: 0.9,
-          ease: 'power1.out',
-        }, 0);
-      }
     }
 
-    // 2. Calculator Entrance Scrub (Rolls over hero as stacked sheet)
+    // 2. Calculator Predict Card Gentle Entry
     if (calculator) {
-      const calcInfo = calculator.querySelector('.calc-left-container');
       const calcPrompt = calculator.querySelector('#prompt');
-
-      const calcEnterTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: calculator,
-          start: 'top 85%',
-          end: 'top 20%',
-          scrub: 0.5,
-        }
-      });
-
-      // Right-side predict card scrubs in smoothly
       if (calcPrompt) {
-        calcEnterTl.fromTo(calcPrompt,
-          { y: 75, scale: 0.95, opacity: 0.25 },
-          { y: 0, scale: 1, opacity: 1, ease: 'power2.out', duration: 1 },
-          0
+        gsap.fromTo(calcPrompt,
+          { y: 35, opacity: 0.6 },
+          {
+            y: 0,
+            opacity: 1,
+            ease: 'power1.out',
+            scrollTrigger: {
+              trigger: calculator,
+              start: 'top 85%',
+              end: 'top 40%',
+              scrub: true,
+            }
+          }
         );
       }
     }
 
-    // 3. Prominent Stacking Transitions (scale: 0.98, top center origin - zero black flicker)
-    // 3.1 Calculator -> How It Works
-    if (howItWorks && calculator) {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: howItWorks,
-          start: 'top bottom',
-          end: 'top top',
-          scrub: 0.4,
-        }
-      }).to(calculator, {
-        scale: 0.98,
-        transformOrigin: 'top center',
-        ease: 'power1.out',
-      });
-    }
+    // 3. Subtle Top-Lip Elevation Reveal (Only the very top edge gently rises over the previous section)
+    const sectionFlow = [
+      calculator,
+      howItWorks,
+      presets,
+      impact,
+      science,
+      openSource,
+      footer
+    ].filter(Boolean);
 
-    // 3.2 How It Works -> Presets
-    if (presets && howItWorks) {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: presets,
-          start: 'top bottom',
-          end: 'top top',
-          scrub: 0.4,
+    sectionFlow.forEach((sec, idx) => {
+      if (idx === 0) return; // Calculator is right below Hero
+      gsap.fromTo(sec,
+        { y: 20 },
+        {
+          y: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sec,
+            start: 'top bottom',
+            end: 'top 70%',
+            scrub: true,
+          }
         }
-      }).to(howItWorks, {
-        scale: 0.98,
-        transformOrigin: 'top center',
-        ease: 'power1.out',
-      });
-    }
-
-    // 3.3 Presets -> Impact
-    if (impact && presets) {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: impact,
-          start: 'top bottom',
-          end: 'top top',
-          scrub: 0.4,
-        }
-      }).to(presets, {
-        scale: 0.98,
-        transformOrigin: 'top center',
-        ease: 'power1.out',
-      });
-    }
-
-    // 3.4 Impact -> Science
-    if (science && impact) {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: science,
-          start: 'top bottom',
-          end: 'top top',
-          scrub: 0.4,
-        }
-      }).to(impact, {
-        scale: 0.98,
-        transformOrigin: 'top center',
-        ease: 'power1.out',
-      });
-    }
-
-    // 3.5 Science -> Open Source
-    if (openSource && science) {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: openSource,
-          start: 'top bottom',
-          end: 'top top',
-          scrub: 0.4,
-        }
-      }).to(science, {
-        scale: 0.98,
-        transformOrigin: 'top center',
-        ease: 'power1.out',
-      });
-    }
-
-    // Anchor Open Source
-    if (openSource) {
-      gsap.set(openSource, { scale: 1, y: 0 });
-    }
+      );
+    });
   });
 
-  // ============================================================
-  // MOBILE SCREENS (< 768px)
-  // Visible Touch-Optimized Stacking Transitions
-  // ============================================================
+  // Mobile Screens (< 768px)
   mm.add('(max-width: 767px)', () => {
     if (heroWrapper && heroContent) {
-      gsap.timeline({
+      gsap.to(heroContent, {
+        y: -30,
+        opacity: 0,
+        ease: 'power1.out',
         scrollTrigger: {
           trigger: heroWrapper,
           start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.35,
+          end: 'bottom 60%',
+          scrub: true,
         }
-      })
-      .to(heroContent, {
-        y: -40,
-        opacity: 0,
-        duration: 0.85,
-        ease: 'power1.out',
-      }, 0);
-    }
-
-    // Mobile Stacking Transitions (Noticeable & Silky)
-    if (howItWorks && calculator) {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: howItWorks,
-          start: 'top bottom',
-          end: 'top top',
-          scrub: 0.3,
-        }
-      }).to(calculator, {
-        scale: 0.98,
-        transformOrigin: 'top center',
-        ease: 'power1.out',
       });
     }
 
-    if (presets && howItWorks) {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: presets,
-          start: 'top bottom',
-          end: 'top top',
-          scrub: 0.3,
-        }
-      }).to(howItWorks, {
-        scale: 0.98,
-        transformOrigin: 'top center',
-        ease: 'power1.out',
-      });
-    }
+    const sectionFlowMobile = [
+      calculator,
+      howItWorks,
+      presets,
+      impact,
+      science,
+      openSource,
+      footer
+    ].filter(Boolean);
 
-    if (impact && presets) {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: impact,
-          start: 'top bottom',
-          end: 'top top',
-          scrub: 0.3,
+    sectionFlowMobile.forEach((sec, idx) => {
+      if (idx === 0) return;
+      gsap.fromTo(sec,
+        { y: 15 },
+        {
+          y: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sec,
+            start: 'top bottom',
+            end: 'top 75%',
+            scrub: true,
+          }
         }
-      }).to(presets, {
-        scale: 0.98,
-        transformOrigin: 'top center',
-        ease: 'power1.out',
-      });
-    }
-
-    if (science && impact) {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: science,
-          start: 'top bottom',
-          end: 'top top',
-          scrub: 0.3,
-        }
-      }).to(impact, {
-        scale: 0.98,
-        transformOrigin: 'top center',
-        ease: 'power1.out',
-      });
-    }
-
-    if (openSource && science) {
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: openSource,
-          start: 'top bottom',
-          end: 'top top',
-          scrub: 0.3,
-        }
-      }).to(science, {
-        scale: 0.98,
-        transformOrigin: 'top center',
-        ease: 'power1.out',
-      });
-    }
-
-    if (openSource) {
-      gsap.set(openSource, { scale: 1, y: 0 });
-    }
+      );
+    });
   });
 }
 

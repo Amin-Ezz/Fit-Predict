@@ -187,7 +187,7 @@
   </div>
 
   <!-- ============================================================ -->
-  <!-- HERO SECTION: FULL BACKGROUND VIDEO (D:\Projects\Fit Predict\vid.mp4) -->
+  <!-- HERO SECTION: FULL BACKGROUND VIDEO                          -->
   <!-- CLEAN HERO (PREDICT EVERY BIOMARKER WITH UNOBSTRUCTED VIDEO)  -->
   <!-- ============================================================ -->
   <div id="hero-scroll-wrapper" class="hero-scroll-wrapper relative">
@@ -625,18 +625,18 @@
   <!-- 01. HOW IT WORKS: BIOMETRIC SYNTHESIS PIPELINE               -->
   <!-- DARK GREEN BACKGROUND + NON-CARD ADVANCED UI/UX + ANIMATIONS -->
   <!-- ============================================================ -->
-  <section id="how-it-works" class="section-card relative z-30 py-20 md:py-28 bg-[#002518] text-white border-t border-[#003822] overflow-hidden shadow-[0_-35px_70px_rgba(0,0,0,0.45)]">
+  <section id="how-it-works" class="section-card relative z-30 py-20 md:py-28 bg-[#002518] text-white border-t border-[#003822] overflow-hidden shadow-[0_-35px_70px_rgba(0,0,0,0.45)] flex flex-col justify-center">
     
     <!-- Background Atmospheric Glows -->
     <div class="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-[#64C800]/8 blur-[100px] pointer-events-none" aria-hidden="true"></div>
     <div class="absolute bottom-0 left-10 w-96 h-96 rounded-full bg-[#009E52]/10 blur-[100px] pointer-events-none" aria-hidden="true"></div>
     
-    <div class="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
+    <div class="max-w-6xl mx-auto px-4 md:px-8 relative z-10 my-auto w-full">
       
       <!-- Section Header with Neural Architecture Focus -->
       <div class="text-center max-w-2xl mx-auto mb-16 how-it-works-header">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
-          Precision Intelligence: Neural Network Engine
+        <h2 class="how-it-works-title text-3xl sm:text-4xl md:text-5xl font-semibold text-white tracking-tight leading-tight">
+          Neural Network Engine
         </h2>
         <p class="text-sm sm:text-base text-white/75 mt-3 max-w-xl mx-auto leading-relaxed">
           How our multi-task deep neural network transforms continuous physiological telemetry into sub-second adaptive training prescriptions.
@@ -646,63 +646,10 @@
       <!-- Non-Card Asymmetric Stage: Left Interactive HUD with Real Orbiting Satellites + Right Progressive Architecture Spine -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
         
-        <!-- Left: High-Tech Neural Telemetry Orbiting Visualizer -->
-        <div class="lg:col-span-5 flex flex-col items-center justify-center how-it-works-hud">
-          <div class="relative w-full max-w-[340px] sm:max-w-sm aspect-square rounded-full border border-white/10 flex items-center justify-center p-8 bg-gradient-to-b from-white/[0.04] to-transparent backdrop-blur-md shadow-[0_0_50px_rgba(0,158,82,0.18)] overflow-visible">
-            
-            <!-- Concentric Pulse Rings -->
-            <div class="absolute inset-4 rounded-full border border-dashed border-[#64C800]/25 animate-[spin_60s_linear_infinite]"></div>
-            <div class="absolute inset-12 rounded-full border border-white/10"></div>
-            <div class="absolute inset-20 rounded-full border border-[#009E52]/30"></div>
-
-            <!-- Central Neural Core -->
-            <div class="relative z-10 text-center flex flex-col items-center justify-center">
-              <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#009E52] to-[#64C800] text-[#002518] flex items-center justify-center shadow-[0_0_30px_rgba(100,200,0,0.6)] mb-3 relative group">
-                <i data-lucide="network" class="w-8 h-8 text-[#002518]"></i>
-                <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-white border-2 border-[#009E52] animate-ping"></span>
-              </div>
-              <span class="text-xs font-mono font-bold tracking-widest text-[#64C800] uppercase">Neural Engine v2.4</span>
-              <span class="text-xl sm:text-2xl font-black text-white tracking-tight mt-0.5">Deep MLP Core</span>
-              
-              <div class="flex items-center gap-1.5 mt-2 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-[10px] font-mono text-white/90">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#64C800] animate-pulse"></span>
-                <span>&lt; 12ms Latency</span>
-              </div>
-            </div>
-
-            <!-- Orbiting Track 1: Outer Satellite Ring with Continuous Revolution -->
-            <div class="neural-orbit-track neural-orbit-outer pointer-events-none">
-              <!-- Satellite Node 1: Input Biometrics Tensor -->
-              <div class="neural-orbit-node node-pos-top">
-                <div class="px-2.5 py-1 rounded-full bg-[#001A11]/95 border border-[#64C800]/50 text-[10px] font-bold text-[#64C800] shadow-[0_0_12px_rgba(100,200,0,0.35)] flex items-center gap-1.5 whitespace-nowrap backdrop-blur-md">
-                  <i data-lucide="layers" class="w-3 h-3 text-[#64C800]"></i>
-                  <span>Input Tensor</span>
-                </div>
-              </div>
-              
-              <!-- Satellite Node 2: Multi-Task Hidden Layers -->
-              <div class="neural-orbit-node node-pos-bottom-left">
-                <div class="px-2.5 py-1 rounded-full bg-[#001A11]/95 border border-sky-400/40 text-[10px] font-bold text-sky-300 shadow-[0_0_12px_rgba(56,189,248,0.35)] flex items-center gap-1.5 whitespace-nowrap backdrop-blur-md">
-                  <i data-lucide="cpu" class="w-3 h-3 text-sky-400"></i>
-                  <span>Dense Residuals</span>
-                </div>
-              </div>
-
-              <!-- Satellite Node 3: Real-Time Loss Calibration -->
-              <div class="neural-orbit-node node-pos-bottom-right">
-                <div class="px-2.5 py-1 rounded-full bg-[#001A11]/95 border border-emerald-400/40 text-[10px] font-bold text-emerald-300 shadow-[0_0_12px_rgba(52,211,153,0.35)] flex items-center gap-1.5 whitespace-nowrap backdrop-blur-md">
-                  <i data-lucide="sparkles" class="w-3 h-3 text-emerald-400"></i>
-                  <span>Huber Loss Sync</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Orbiting Track 2: Inner Micro-Particle Ring (Counter-Orbiting) -->
-            <div class="neural-orbit-track neural-orbit-inner pointer-events-none">
-              <div class="neural-orbit-particle particle-pos-1"></div>
-              <div class="neural-orbit-particle particle-pos-2"></div>
-            </div>
-
+        <!-- Left: Precision Neural Network Architecture (Shifted Left, Hollow Green Frames, Visible Lines) -->
+        <div class="lg:col-span-5 flex flex-col justify-center items-start how-it-works-hud w-full relative">
+          <div class="w-full relative h-[480px] sm:h-[510px] flex items-center justify-start">
+            <canvas id="live-neural-network-canvas" class="w-full h-full block cursor-crosshair"></canvas>
           </div>
         </div>
 
@@ -727,7 +674,7 @@
                   </h3>
                 </div>
                 <p class="text-sm text-white/70 leading-relaxed max-w-xl">
-                  User biometric vectors (weight, height, age, training frequency, sleep duration, and RPE intensity) undergo z-score normalization and high-dimensional projection to model non-linear physiological interactions.
+                  Biometric telemetry undergoes z-score normalization to map high-dimensional non-linear physiological relationships.
                 </p>
                 <div class="flex flex-wrap gap-2 pt-1">
                   <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/80">Tensor Normalization</span>
@@ -750,7 +697,7 @@
                   </h3>
                 </div>
                 <p class="text-sm text-white/70 leading-relaxed max-w-xl">
-                  A multi-layer feedforward network with residual skip connections and GELU activations computes shared internal representations, simultaneously generating targeted protein pacing, hydration osmolarity, and volume tolerance.
+                  Deep feedforward layers with residual connections compute shared representations for simultaneous multi-target predictions.
                 </p>
                 <div class="flex flex-wrap gap-2 pt-1">
                   <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/80">Residual Skip Connections</span>
@@ -773,7 +720,7 @@
                   </h3>
                 </div>
                 <p class="text-sm text-white/70 leading-relaxed max-w-xl">
-                  Compiled into a lightweight browser runtime with sub-12ms inference latency. Parameters are calibrated against 10,000+ empirical exercise datasets using smooth Huber loss to prevent overfitting and guarantee physiological safety.
+                  Executes in-browser in under 12ms via optimized ONNX, calibrated on 10,000+ clinical datasets for guaranteed safety.
                 </p>
                 <div class="flex flex-wrap gap-2 pt-1">
                   <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-md bg-white/5 border border-white/10 text-white/80">&lt; 12ms Inference Latency</span>
@@ -797,12 +744,12 @@
   <!-- ============================================================ -->
   <!-- 02. ATHLETE PROFILES & PRESETS (BENCHO IMAGE ACCORDION)      -->
   <!-- ============================================================ -->
-  <section id="presets" class="section-card relative z-40 bg-white border-t border-[#E5E4DC] py-20 md:py-28 shadow-[0_-30px_60px_rgba(0,0,0,0.12)]">
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
+  <section id="presets" class="section-card relative z-40 bg-white border-t border-[#E5E4DC] py-20 md:py-28 shadow-[0_-35px_80px_rgba(0,0,0,0.35)] flex flex-col justify-center">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 my-auto w-full">
       
       <!-- Section Header on White Background -->
       <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-[#262626] tracking-tight">
+        <h2 class="presets-section-title text-4xl sm:text-5xl lg:text-6xl font-semibold text-[#262626] tracking-tight">
           Calibrated Athlete Archetypes
         </h2>
         <p class="text-base sm:text-lg text-[#606060] mt-3.5 max-w-2xl mx-auto leading-relaxed">
@@ -1048,11 +995,11 @@
   <!-- ============================================================ -->
   <!-- 03. MODEL ACCURACY & PERFORMANCE METRICS (EVALUATION)        -->
   <!-- ============================================================ -->
-  <section id="impact" class="section-card relative z-50 py-12 sm:py-16 bg-[#004020] text-white shadow-[0_-35px_70px_rgba(0,0,0,0.4)]">
-    <div class="max-w-5xl mx-auto px-4 md:px-6">
+  <section id="impact" class="section-card relative z-50 py-12 sm:py-16 bg-[#004020] text-white shadow-[0_-35px_70px_rgba(0,0,0,0.45)] flex flex-col justify-center">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 my-auto w-full">
       
       <div class="text-center max-w-xl mx-auto mb-8 sm:mb-10">
-        <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+        <h2 class="impact-section-title text-2xl sm:text-4xl font-semibold text-white tracking-tight leading-tight">
           Model Accuracy &amp; Performance
         </h2>
         <p class="text-xs sm:text-sm text-white/75 mt-2 max-w-lg mx-auto leading-relaxed">
@@ -1113,135 +1060,151 @@
   </section>
 
   <!-- ============================================================ -->
-  <!-- 04. HOW FITPREDICT EMPOWERS YOUR PERFORMANCE                 -->
+  <!-- 04. HOW FITPREDICT EMPOWERS YOUR PERFORMANCE (BRANCHING CORE) -->
   <!-- ============================================================ -->
-  <section id="science" class="section-card relative z-[60] py-16 md:py-20 bg-[#F3F2E9] border-t border-[#E5E4DC] shadow-[0_-30px_60px_rgba(0,0,0,0.22)] overflow-hidden">
-    <!-- Atmospheric Ambient Glows behind Liquid Glass -->
-    <div class="absolute -top-24 right-1/4 w-[360px] h-[360px] rounded-full bg-gradient-to-br from-[#64C800]/15 via-[#009E52]/10 to-transparent blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
-    <div class="absolute -bottom-24 left-1/4 w-[360px] h-[360px] rounded-full bg-gradient-to-tr from-[#009E52]/12 via-teal-300/10 to-transparent blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+  <section id="science" class="section-card relative z-[60] py-16 md:py-24 bg-white text-[#262626] border-t border-[#E5E4DC] shadow-[0_-25px_60px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col justify-center">
+    <!-- Atmospheric Ambient Glows behind Branching Core -->
+    <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[540px] h-[540px] rounded-full bg-[#64C800]/5 blur-[150px] pointer-events-none -z-10" aria-hidden="true"></div>
 
-    <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 relative z-10 my-auto w-full">
       
       <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-[#004020] tracking-tight leading-tight">
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <h2 class="science-section-title text-3xl sm:text-4xl md:text-5xl font-semibold text-[#262626] tracking-tight leading-tight">
           How FitPredict Empowers Your Performance
         </h2>
-        <p class="text-sm sm:text-base text-[#555555] mt-3 leading-relaxed max-w-2xl mx-auto">
-          Generic fitness apps deliver cookie-cutter advice that fails when your schedule shifts. FitPredict turns your biometrics into an active physiological co-pilot that adapts to your actual daily life.
+        <p class="text-sm sm:text-base text-[#606060] mt-3 leading-relaxed max-w-2xl mx-auto">
+          Our central physiological AI engine autonomously coordinates synchronized performance domains in real time, turning raw telemetry into dynamic training adaptations.
         </p>
       </div>
 
-      <!-- 3 Liquid Glass Cards Side by Side (Redesigned & Shorter) -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 items-stretch">
+      <!-- Branching Architecture Network Diagram (Reference Design) -->
+      <div id="empower-network-container" class="relative w-full max-w-5xl mx-auto">
         
-        <!-- Card 1: Nutrition & Hydration Precision -->
-        <div class="liquid-glass-card card-empower-nutrition group p-6 sm:p-7 flex flex-col justify-between">
-          <div class="liquid-glass-glow"></div>
-          
-          <div>
-            <!-- Top Row: Icon & Category Badge -->
-            <div class="flex items-center justify-between mb-4">
-              <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#009E52]/15 to-[#64C800]/25 border border-white/80 shadow-xs flex items-center justify-center text-[#009E52] group-hover:scale-105 transition-transform">
-                <i data-lucide="utensils" class="w-5 h-5 text-[#009E52] icon-anim-nutrition"></i>
-              </div>
-              <span class="px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold bg-[#009E52]/10 text-[#009E52] border border-[#009E52]/25 tracking-wide">
-                ISSN Pacing
-              </span>
-            </div>
+        <!-- Dynamic SVG Circuit Tracks with Animated Flowing Beams -->
+        <svg id="empower-network-svg" class="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="beamGradMint" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#006432" />
+              <stop offset="50%" stop-color="#009E52" />
+              <stop offset="100%" stop-color="#64C800" />
+            </linearGradient>
+          </defs>
 
-            <!-- Title & Description -->
-            <h3 class="text-lg sm:text-xl font-black text-[#004020] tracking-tight leading-tight group-hover:text-[#009E52] transition-colors">
-              Adaptive Nutrition &amp; Hydration
+          <!-- 3 Base static circuit paths -->
+          <path id="empower-base-path-0" class="empower-base-path" />
+          <path id="empower-base-path-1" class="empower-base-path" />
+          <path id="empower-base-path-2" class="empower-base-path" />
+
+          <!-- 3 Animated flowing laser beams -->
+          <path id="empower-pulse-path-0" class="empower-pulse-path" stroke="url(#beamGradMint)" />
+          <path id="empower-pulse-path-1" class="empower-pulse-path" stroke="url(#beamGradMint)" />
+          <path id="empower-pulse-path-2" class="empower-pulse-path" stroke="url(#beamGradMint)" />
+
+          <!-- 3 Traveling light orbs -->
+          <circle id="empower-orb-0" class="empower-orb" r="4.5" />
+          <circle id="empower-orb-1" class="empower-orb" r="4.5" />
+          <circle id="empower-orb-2" class="empower-orb" r="4.5" />
+        </svg>
+
+        <!-- Central Core Node at Top (FitPredict AI Core) -->
+        <div id="empower-core-wrapper" class="relative z-10 flex flex-col items-center text-center mb-16 sm:mb-20">
+          <div id="empower-core-node" class="empower-core-card px-8 py-5 flex flex-col items-center justify-center cursor-pointer group shadow-xl w-full max-w-xs">
+            <!-- Brain AI Chip Vector Icon (Enlarged, Borderless) -->
+            <svg class="w-16 h-16 sm:w-20 sm:h-20 text-[#004020] mb-3 group-hover:scale-105 transition-transform" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Microchip Pins -->
+              <line x1="20" y1="27" x2="23" y2="27" stroke="#004020" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="20" y1="32" x2="23" y2="32" stroke="#004020" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="20" y1="37" x2="23" y2="37" stroke="#004020" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="41" y1="27" x2="44" y2="27" stroke="#004020" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="41" y1="32" x2="44" y2="32" stroke="#004020" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="41" y1="37" x2="44" y2="37" stroke="#004020" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="27" y1="20" x2="27" y2="23" stroke="#004020" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="32" y1="20" x2="32" y2="23" stroke="#004020" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="37" y1="20" x2="37" y2="23" stroke="#004020" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="27" y1="41" x2="27" y2="44" stroke="#004020" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="32" y1="41" x2="32" y2="44" stroke="#004020" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="37" y1="41" x2="37" y2="44" stroke="#004020" stroke-width="1.8" stroke-linecap="round"/>
+              <!-- Central Microchip Body -->
+              <rect x="23" y="23" width="18" height="18" rx="3.5" fill="#004020" stroke="#004020" stroke-width="2"/>
+              <text x="32" y="35" text-anchor="middle" font-family="'Chakra Petch', monospace" font-size="9" font-weight="900" fill="#FFFFFF" letter-spacing="0.5">AI</text>
+              <!-- Left Brain Lobe -->
+              <path d="M 23 25 C 17 22, 11 25, 12 32 C 10 35, 11 41, 16 43 C 14 47, 19 50, 23 46" stroke="#004020" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <path d="M 23 20 C 19 16, 12 17, 14 24" stroke="#004020" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+              <circle cx="12" cy="32" r="1.5" fill="#004020"/>
+              <circle cx="16" cy="43" r="1.5" fill="#004020"/>
+              <!-- Right Brain Lobe -->
+              <path d="M 41 25 C 47 22, 53 25, 52 32 C 54 35, 53 41, 48 43 C 50 47, 45 50, 41 46" stroke="#004020" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <path d="M 41 20 C 45 16, 52 17, 50 24" stroke="#004020" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+              <circle cx="52" cy="32" r="1.5" fill="#004020"/>
+              <circle cx="48" cy="43" r="1.5" fill="#004020"/>
+            </svg>
+
+            <!-- Core Label (Inside Card) -->
+            <h3 class="brand-surgena text-base sm:text-lg font-black text-[#262626] tracking-tight">
+              FitPredict AI Core
             </h3>
-            <p class="text-xs sm:text-[13px] text-[#555555] leading-relaxed mt-2.5">
-              Computes exact gram-level protein pacing and osmotic fluid replenishment customized to your body mass and sweat rate.
+            <p class="text-[11px] font-mono font-bold text-[#008040] tracking-wider uppercase mt-0.5">
+              Neural Orchestrator
             </p>
-          </div>
-
-          <!-- Bottom Footer Metric -->
-          <div class="mt-6 pt-3.5 flex items-center justify-between text-[11px] font-mono text-[#004020] border-t border-[#004020]/10">
-            <span class="flex items-center gap-1.5 font-bold text-[#009E52]">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#64C800] sparkle-anim-nutrition"></i>
-              Sub-Gram Target
-            </span>
-            <span class="text-[#777777]">Zero Guesswork</span>
           </div>
         </div>
 
-        <!-- Card 2: Real-Time Dynamic Recalibration -->
-        <div class="liquid-glass-card card-empower-sync group p-6 sm:p-7 flex flex-col justify-between">
-          <div class="liquid-glass-glow"></div>
+        <!-- 3-Column Node Network Grid (All 3 Peripheral Branches Side-by-Side in One Row) -->
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           
-          <div>
-            <!-- Top Row: Icon & Category Badge -->
-            <div class="flex items-center justify-between mb-4">
-              <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#64C800]/20 to-[#009E52]/20 border border-white/80 shadow-xs flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform">
-                <i data-lucide="refresh-cw" class="w-5 h-5 text-[#009E52] icon-anim-sync"></i>
+          <!-- Column 1 (Left): Branch 0: Adaptive Nutrition (Warm Amber-Orange) -->
+          <div class="flex justify-center">
+            <div id="empower-branch-0" class="empower-branch-card p-6 flex flex-col items-center text-center justify-center group cursor-pointer w-full max-w-sm">
+              <div class="w-14 h-14 rounded-2xl bg-[#EA580C]/10 border border-[#EA580C]/25 flex items-center justify-center text-[#EA580C] group-hover:scale-110 transition-transform shadow-sm">
+                <i data-lucide="utensils" class="w-6 h-6 text-[#EA580C]"></i>
               </div>
-              <span class="badge-anim-sync px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold bg-[#64C800]/15 text-[#004020] border border-[#64C800]/30 tracking-wide">
-                Live Sync
-              </span>
+              <h3 class="text-base sm:text-lg font-black text-[#EA580C] mt-3.5 transition-colors">
+                Adaptive Nutrition
+              </h3>
+              <p class="text-xs text-[#606060] mt-1.5 leading-relaxed max-w-[240px]">
+                Sub-gram protein pacing and metabolic fuel custom-tailored to body mass and training load.
+              </p>
             </div>
-
-            <!-- Title & Description -->
-            <h3 class="text-lg sm:text-xl font-black text-[#004020] tracking-tight leading-tight group-hover:text-[#009E52] transition-colors">
-              Instant Biometric Recalibration
-            </h3>
-            <p class="text-xs sm:text-[13px] text-[#555555] leading-relaxed mt-2.5">
-              Sleep shifts or higher workout RPE immediately adjust your training prescription in sub-seconds to protect recovery.
-            </p>
           </div>
 
-          <!-- Bottom Footer Metric -->
-          <div class="mt-6 pt-3.5 flex items-center justify-between text-[11px] font-mono text-[#004020] border-t border-[#004020]/10">
-            <span class="flex items-center gap-1.5 font-bold text-[#009E52]">
-              <i data-lucide="zap" class="w-3.5 h-3.5 text-[#64C800]"></i>
-              &lt; 45ms Latency
-            </span>
-            <span class="text-[#777777]">Circadian Sync</span>
-          </div>
-        </div>
-
-        <!-- Card 3: Fatigue & Volume Safeguard -->
-        <div class="liquid-glass-card card-empower-shield group p-6 sm:p-7 flex flex-col justify-between">
-          <div class="liquid-glass-glow"></div>
-          
-          <div>
-            <!-- Top Row: Icon & Category Badge -->
-            <div class="flex items-center justify-between mb-4">
-              <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#009E52]/15 to-[#64C800]/25 border border-white/80 shadow-xs flex items-center justify-center text-[#004020] group-hover:scale-105 transition-transform">
-                <i data-lucide="shield-check" class="w-5 h-5 text-[#009E52] icon-anim-shield"></i>
+          <!-- Column 2 (Center): Branch 2: Dynamic Recalibration (Vibrant Violet-Purple) -->
+          <div class="flex justify-center">
+            <div id="empower-branch-2" class="empower-branch-card p-6 flex flex-col items-center text-center justify-center group cursor-pointer w-full max-w-sm">
+              <div class="w-14 h-14 rounded-2xl bg-[#7C3AED]/10 border border-[#7C3AED]/25 flex items-center justify-center text-[#7C3AED] group-hover:scale-110 transition-transform shadow-sm">
+                <i data-lucide="refresh-cw" class="w-6 h-6 text-[#7C3AED]"></i>
               </div>
-              <span class="px-2.5 py-0.5 rounded-full text-[10.5px] font-mono font-bold bg-[#004020]/10 text-[#004020] border border-[#004020]/25 tracking-wide">
-                ACSM Cleared
-              </span>
+              <h3 class="text-base sm:text-lg font-black text-[#7C3AED] mt-3.5 transition-colors">
+                Dynamic Recalibration
+              </h3>
+              <p class="text-xs text-[#606060] mt-1.5 leading-relaxed max-w-[240px]">
+                Sleep shifts and workout RPE immediately adjust your training prescription in sub-seconds.
+              </p>
             </div>
-
-            <!-- Title & Description -->
-            <h3 class="text-lg sm:text-xl font-black text-[#004020] tracking-tight leading-tight group-hover:text-[#009E52] transition-colors">
-              Fatigue &amp; Overreach Prevention
-            </h3>
-            <p class="text-xs sm:text-[13px] text-[#555555] leading-relaxed mt-2.5">
-              Detects neurological strain before fatigue accumulates, prescribing timely volume adjustments to prevent injury and plateaus.
-            </p>
           </div>
 
-          <!-- Bottom Footer Metric -->
-          <div class="mt-6 pt-3.5 flex items-center justify-between text-[11px] font-mono text-[#004020] border-t border-[#004020]/10">
-            <span class="flex items-center gap-1.5 font-bold text-[#009E52]">
-              <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-[#64C800]"></i>
-              CNS Protected
-            </span>
-            <span class="text-[#777777]">Proactive Deload</span>
+          <!-- Column 3 (Right): Branch 1: Hydration Dynamics (Electric Ocean Blue) -->
+          <div class="flex justify-center">
+            <div id="empower-branch-1" class="empower-branch-card p-6 flex flex-col items-center text-center justify-center group cursor-pointer w-full max-w-sm">
+              <div class="w-14 h-14 rounded-2xl bg-[#0284C7]/10 border border-[#0284C7]/25 flex items-center justify-center text-[#0284C7] group-hover:scale-110 transition-transform shadow-sm">
+                <i data-lucide="droplets" class="w-6 h-6 text-[#0284C7]"></i>
+              </div>
+              <h3 class="text-base sm:text-lg font-black text-[#0284C7] mt-3.5 transition-colors">
+                Hydration Dynamics
+              </h3>
+              <p class="text-xs text-[#606060] mt-1.5 leading-relaxed max-w-[240px]">
+                Osmotic fluid replenishment and electrolyte pacing computed from real-time sweat rate.
+              </p>
+            </div>
           </div>
+
         </div>
 
       </div>
 
       <!-- Bottom Action Link -->
-      <div class="mt-10 sm:mt-12 text-center">
-        <a href="#calculator" class="it-btn-primary inline-flex items-center gap-2 shadow-md hover:shadow-lg transition-all text-xs sm:text-sm py-3 px-6">
+      <div class="mt-14 sm:mt-16 text-center relative z-10">
+        <a href="#calculator" class="it-btn-primary inline-flex items-center gap-2 shadow-md hover:shadow-lg transition-all text-xs sm:text-sm py-3.5 px-7">
           <span>Test Your Personal Targets Now</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
@@ -1253,8 +1216,8 @@
   <!-- ============================================================ -->
   <!-- 05. OPEN SOURCE REPOSITORY & GITHUB SHOWCASE                 -->
   <!-- ============================================================ -->
-  <section id="open-source" class="section-card relative z-[70] py-20 md:py-24 bg-[#001A10] text-white border-t border-[#003820] shadow-[0_-30px_60px_rgba(0,0,0,0.35)]">
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
+  <section id="open-source" class="section-card relative z-[70] py-20 md:py-24 bg-[#001A10] text-white border-t border-[#003820] shadow-[0_-35px_80px_rgba(0,0,0,0.45)] flex flex-col justify-center">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 my-auto w-full">
       
       <div class="bg-gradient-to-br from-[#002D1D] to-[#00170E] rounded-[32px] p-8 md:p-12 border border-[#004D2E] shadow-2xl relative overflow-hidden">
         <!-- Glows -->
@@ -1303,26 +1266,11 @@
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
                   </svg>
                   <div>
-                    <h3 class="text-sm font-black text-white leading-none">fitpredict / neural-engine</h3>
+                    <h3 class="brand-surgena text-sm font-semibold text-white leading-none">fitpredict / neural-engine</h3>
                     <span class="text-[11px] text-white/60">Public Repository</span>
                   </div>
                 </div>
                 <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-[#64C800]/20 text-[#64C800] border border-[#64C800]/40">v2.4.0</span>
-              </div>
-
-              <div class="grid grid-cols-3 gap-2 text-center text-xs py-1">
-                <div class="p-2 rounded-lg bg-white/5 border border-white/10">
-                  <span class="block font-black text-[#64C800] text-sm">1.8k</span>
-                  <span class="text-[10px] text-white/60">Stars</span>
-                </div>
-                <div class="p-2 rounded-lg bg-white/5 border border-white/10">
-                  <span class="block font-black text-white text-sm">320</span>
-                  <span class="text-[10px] text-white/60">Forks</span>
-                </div>
-                <div class="p-2 rounded-lg bg-white/5 border border-white/10">
-                  <span class="block font-black text-white text-sm">MIT</span>
-                  <span class="text-[10px] text-white/60">License</span>
-                </div>
               </div>
 
               <a href="https://github.com/fitpredict/neural-engine" target="_blank" rel="noopener noreferrer" class="w-full it-btn-calculate-white py-3 px-4 rounded-xl text-center text-xs sm:text-sm font-black flex items-center justify-center gap-2 shadow-lg">
@@ -1345,19 +1293,19 @@
   <!-- ============================================================ -->
   <!-- FOOTER: QUICK ACCESS DIRECTORY & PERFORMANCE PLATFORM        -->
   <!-- ============================================================ -->
-  <footer class="it-footer relative z-[70] pt-16 pb-12 px-4 md:px-8 border-t-2 border-[#004D28] text-white overflow-hidden">
-    <!-- Atmospheric glows -->
+  <footer class="section-card it-footer relative z-[80] pt-16 pb-12 px-4 md:px-8 bg-white text-[#262626] border-t border-[#E5E4DC] overflow-hidden shadow-[0_-20px_50px_rgba(0,0,0,0.06)]">
+    <!-- Atmospheric subtle glow -->
     <div class="absolute -top-32 right-1/4 w-96 h-96 rounded-full bg-[#64C800]/5 blur-3xl pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute -bottom-32 left-10 w-96 h-96 rounded-full bg-[#009E52]/10 blur-3xl pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute -bottom-32 left-10 w-96 h-96 rounded-full bg-[#009E52]/5 blur-3xl pointer-events-none" aria-hidden="true"></div>
 
     <div class="max-w-6xl mx-auto relative z-10">
       
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-[#003B20]">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-14 border-b border-[#E5E4DC]">
         
-        <!-- Brand Summary (5 cols) -->
-        <div class="md:col-span-5 space-y-5">
+        <!-- Brand Summary (6 cols) -->
+        <div class="md:col-span-6 space-y-4">
           <div class="flex items-center gap-3">
-            <div class="vb-logo-badge w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden bg-black border border-white/20">
+            <div class="vb-logo-badge w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm overflow-hidden bg-black border border-black/10">
               <svg class="w-8 h-8 rounded-full" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="16" cy="16" r="16" fill="#000000"/>
                 <path d="M5.5 16.5H9L12 9.5L16 22.5L19 13.5L21.5 16.5H26.5" stroke="#FFFFFF" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1365,121 +1313,75 @@
                 <circle cx="16" cy="22.5" r="1.8" fill="#FFFFFF"/>
               </svg>
             </div>
-            <span class="text-xl sm:text-2xl font-black tracking-tight text-white">Fit<span class="text-[#64C800]">Predict</span></span>
+            <span class="brand-surgena text-2xl font-semibold tracking-tight text-[#004020]">Fit<span class="text-[#009E52]">Predict</span></span>
           </div>
 
-          <p class="text-sm sm:text-[15px] text-white/75 leading-relaxed max-w-md">
+          <p class="text-sm sm:text-[15px] text-[#555555] leading-relaxed max-w-md">
             FitPredict transforms physiological and training data into personalized nutrition, recovery, and performance prescriptions using neural intelligence.
           </p>
-
-          <div class="pt-2">
-            <p class="text-xs sm:text-sm font-bold uppercase tracking-wider text-white mb-2.5 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-[#64C800]"></span>
-              <span>Subscribe to Human Performance News</span>
-            </p>
-            <div class="flex items-center gap-2 max-w-sm">
-              <input type="email" placeholder="Your email address" class="bg-white/5 border border-white/20 text-sm text-white placeholder-white/40 rounded-xl px-4 py-2.5 w-full focus:outline-none focus:border-[#64C800] focus:bg-white/10 transition">
-              <button type="button" class="bg-[#64C800] hover:bg-[#56AD00] text-[#003818] font-black text-sm px-5 py-2.5 rounded-xl transition shadow-md flex-shrink-0 cursor-pointer">
-                Join
-              </button>
-            </div>
-          </div>
         </div>
 
-        <!-- Links 1: Platform (2 cols) -->
-        <div class="md:col-span-2">
-          <h4 class="text-sm sm:text-base font-black uppercase tracking-wider text-[#64C800] mb-4 flex items-center gap-2">
+        <!-- Links 1: Platform (3 cols) -->
+        <div class="md:col-span-3">
+          <h4 class="text-sm sm:text-base font-black uppercase tracking-wider text-[#004020] mb-4 flex items-center gap-2">
             <span>Platform</span>
           </h4>
           <ul class="space-y-3">
             <li>
-              <a href="#calculator" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
-                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+              <a href="#calculator" class="footer-nav-link text-sm sm:text-[15px] font-medium text-[#555555] hover:text-[#004020] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
                 <span>Biometric Predictor</span>
               </a>
             </li>
             <li>
-              <a href="#how-it-works" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
-                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+              <a href="#how-it-works" class="footer-nav-link text-sm sm:text-[15px] font-medium text-[#555555] hover:text-[#004020] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
                 <span>Neural Engine</span>
               </a>
             </li>
             <li>
-              <a href="#presets" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
-                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+              <a href="#presets" class="footer-nav-link text-sm sm:text-[15px] font-medium text-[#555555] hover:text-[#004020] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
                 <span>Athlete Archetypes</span>
               </a>
             </li>
             <li>
-              <a href="#open-source" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
-                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+              <a href="#open-source" class="footer-nav-link text-sm sm:text-[15px] font-medium text-[#555555] hover:text-[#004020] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
                 <span>Open Source GitHub</span>
               </a>
             </li>
           </ul>
         </div>
 
-        <!-- Links 2: Science (2 cols) -->
-        <div class="md:col-span-2">
-          <h4 class="text-sm sm:text-base font-black uppercase tracking-wider text-[#64C800] mb-4 flex items-center gap-2">
+        <!-- Links 2: Science (3 cols) -->
+        <div class="md:col-span-3">
+          <h4 class="text-sm sm:text-base font-black uppercase tracking-wider text-[#004020] mb-4 flex items-center gap-2">
             <span>Science</span>
           </h4>
           <ul class="space-y-3">
             <li>
-              <a href="#science" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
-                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+              <a href="#science" class="footer-nav-link text-sm sm:text-[15px] font-medium text-[#555555] hover:text-[#004020] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
                 <span>Scientific Advisory</span>
               </a>
             </li>
             <li>
-              <a href="#science" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
-                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+              <a href="#science" class="footer-nav-link text-sm sm:text-[15px] font-medium text-[#555555] hover:text-[#004020] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
                 <span>Clinical Trials</span>
               </a>
             </li>
             <li>
-              <a href="#science" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
-                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+              <a href="#science" class="footer-nav-link text-sm sm:text-[15px] font-medium text-[#555555] hover:text-[#004020] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
                 <span>Peer-Reviewed Papers</span>
               </a>
             </li>
             <li>
-              <a href="#impact" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
-                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
+              <a href="#impact" class="footer-nav-link text-sm sm:text-[15px] font-medium text-[#555555] hover:text-[#004020] transition-colors flex items-center gap-1.5 group">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-[#009E52] opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
                 <span>Accuracy Benchmarks</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Links 3: Company (3 cols) -->
-        <div class="md:col-span-3">
-          <h4 class="text-sm sm:text-base font-black uppercase tracking-wider text-[#64C800] mb-4 flex items-center gap-2">
-            <span>Company</span>
-          </h4>
-          <ul class="space-y-3">
-            <li>
-              <a href="#calculator" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
-                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
-                <span>Membership Plans</span>
-              </a>
-            </li>
-            <li>
-              <a href="#calculator" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
-                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
-                <span>For Enterprise &amp; Teams</span>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:support@fitpredict.io" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
-                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
-                <span>Contact Support</span>
-              </a>
-            </li>
-            <li>
-              <a href="./index.html" class="footer-nav-link text-sm sm:text-[15px] font-medium text-white/80 hover:text-[#64C800] transition-colors flex items-center gap-1.5 group">
-                <i data-lucide="chevron-right" class="w-4 h-4 text-[#64C800] opacity-60 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all"></i>
-                <span>Privacy &amp; HIPAA Shield</span>
               </a>
             </li>
           </ul>
@@ -1488,9 +1390,9 @@
       </div>
 
       <!-- Legal & Disclaimer -->
-      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-white/60">
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-[#777777]">
         <p>© 2026 FitPredict. All rights reserved.</p>
-        <p class="text-xs sm:text-[12.5px] max-w-md text-center md:text-right text-white/50 leading-relaxed">
+        <p class="text-xs sm:text-[12.5px] max-w-md text-center md:text-right text-[#888888] leading-relaxed">
           Disclaimer: FitPredict does not diagnose, treat, or cure any disease. Consult your physician before starting any intense training or nutrition regimen.
         </p>
       </div>

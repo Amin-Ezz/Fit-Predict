@@ -21,14 +21,14 @@ export function initSmoothScroll() {
     return null;
   }
 
-  // Initialize Lenis instance (Tuned for calm, gentle, luxurious momentum scrolling)
+  // Initialize Lenis instance (Tuned for calm, gentle, luxurious momentum scrolling with zero lag)
   const lenis = new Lenis({
-    duration: 1.2,
+    duration: 1.05,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
     gestureOrientation: 'vertical',
     smoothWheel: true,
-    wheelMultiplier: 0.88,
+    wheelMultiplier: 1.0,
     touchMultiplier: 0,
     syncTouch: false,
     infinite: false,

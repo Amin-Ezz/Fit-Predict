@@ -9,6 +9,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initLandingAnimations, initHeroWordRotator, initCleanMaxScrollTransitions, initEvaluationMetricsCountUp } from './animations.js';
 import { initHeroCanvas } from './hero-canvas.js';
+import { initNeuralNetworkVisualizer } from './neural-network.js';
+import { initEmpowerNetwork } from './empower-network.js';
 import { initSmoothScroll } from './smooth-scroll.js';
 import { RollingOdometer, bindHoldButton } from './rolling-counter.js';
 import { LiquidGenderToggle } from './liquid-toggle.js';
@@ -80,6 +82,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3. Initialize Live Animated Canvas Background (60fps, zero lag)
   initHeroCanvas();
+
+  // 3.01 Initialize Live Precision Neural Network Engine Visualizer
+  initNeuralNetworkVisualizer();
+
+  // 3.02 Initialize Empower Performance Branching Network Visualizer
+  initEmpowerNetwork();
 
   // 3.1 Auto-pause hero video when scrolled out of viewport to eliminate background GPU decoding lag
   const heroVideo = document.querySelector('.hero-bg-video');
